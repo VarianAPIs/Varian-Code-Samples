@@ -11,7 +11,7 @@ Here you will find code samples for ESAPI and other Varian APIs and web services
   * Data Mining
   * Batch DVH Export
   * Plan Quality Metrics
-  * PluginTester
+  * Plugin Tester
   * RBE Report
   * Structure Id Frequency Calculator
   * UAB Console Plugin App
