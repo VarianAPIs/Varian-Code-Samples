@@ -83,6 +83,9 @@ StyleCopReport.xml
 *.svclog
 *.scc
 
+# you should be using nuget for dlls buddy, or track them not in this repo
+*.dll
+
 # Chutzpah Test files
 _Chutzpah*
 

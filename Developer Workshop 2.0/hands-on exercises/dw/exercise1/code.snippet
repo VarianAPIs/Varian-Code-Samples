@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 4</Title>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+          <![CDATA[string msg = string.Format(
+        "Context:\n\tPatient=\t\t{0}\n\tImage=\t\t{1}\n\tCourse=\t\t{2}\n\tPlan =\t\t{3}\n\tStructure Set =\t{4}\n",
+        context.Patient.Id,
+        context.Image.Id,
+        context.Course.Id,
+        context.PlanSetup.Id,
+        context.StructureSet.Id);
+    MessageBox.Show(msg, "Varian Developer");]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 6</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[// declare local variables that reference the objects we need.
+PlanSetup plan = context.PlanSetup;
+StructureSet ss = context.StructureSet;
+var listStructures = context.StructureSet.Structures;
+// 'listStructures' if of type IEnumerable<Structure>]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 7</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[// loop through structure list and find the PTV
+Structure ptv = null;
+foreach (Structure scan in listStructures)
+{
+if (scan.Id == "PTV")
+{
+ptv = scan;
+}
+}
+msg = string.Format("PTV volume = {0}", ptv.Volume);
+MessageBox.Show(msg, "Varian Developer");]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 7-Advanced</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[// linq query to find the PTV
+Structure ptv2 = (from Structure s in listStructures where s.Id == "PTV" select s).FirstOrDefault();]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 8</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[// extract DVH data for PTV using bin width of 0.1.
+        DVHData dvh = plan.GetDVHCumulativeData(ptv, DoseValuePresentation.Absolute, VolumePresentation.Relative, 0.1);
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 9</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[string filename = @"c:\temp\keranen_dvh.csv";
+System.IO.StreamWriter dvhFile = new System.IO.StreamWriter(filename);
+// write a header
+dvhFile.WriteLine("Dose,Volume");
+// write all dvh points for the PTV.
+foreach (DVHPoint pt in dvh.CurveData)
+{
+string line = string.Format("{0},{1}", pt.DoseValue.Dose, pt.Volume);
+dvhFile.WriteLine(line);
+}
+dvhFile.Close();
+msg = string.Format("dvh file written to {0}", filename);
+MessageBox.Show(msg, "Varian Developer");]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

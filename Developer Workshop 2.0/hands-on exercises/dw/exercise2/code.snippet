@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 2</Title>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+          <![CDATA[// loop through all patients in the database, open each one and iterate 
+    // through all courses. For each course with Id == "Varian", print
+    // info and approval status.
+    foreach (PatientSummary ps in app.PatientSummaries)
+    {
+        Patient p = app.OpenPatient(ps);
+        foreach(Course c in p.Courses)
+        {
+            if (c.Id == "Varian")
+            {
+                foreach (PlanSetup plan in c.PlanSetups) 
+                {
+                    Console.WriteLine("{0}/{1}/{2} ({3})",
+                        p.Id, c.Id, plan.Id, plan.ApprovalStatus.ToString());
+                    
+                    // code for Step 3 follows this comment:
+
+                }
+            }
+        }
+        app.ClosePatient();
+    }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 3</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[// print the max dose for each plan 
+        if (plan.Dose != null)
+        {
+            plan.DoseValuePresentation = DoseValuePresentation.Absolute;
+            DoseValue dv = plan.Dose.DoseMax3D;
+            Console.WriteLine("  ->max dose = {0}", dv.ToString());
+        }
+        // code for Step 4 follows this comment:
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 4</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[foreach (Beam beam in plan.Beams)
+            {
+                Console.WriteLine("  {0}: {1} control points.", beam.Id, beam.ControlPoints.Count());
+
+                foreach (ControlPoint cp in beam.ControlPoints)
+                {
+                    Console.WriteLine("\tControl pt meterset = {0}", cp.MetersetWeight);
+                }
+            }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

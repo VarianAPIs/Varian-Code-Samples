@@ -1,0 +1,238 @@
+﻿<!--
+	Copyright (c) 2014 Varian Medical Systems, Inc.
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy 
+	of this software and associated documentation files (the "Software"), to deal 
+	in the Software without restriction, including without limitation the rights 
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+	copies of the Software, and to permit persons to whom the Software is 
+	furnished to do so, subject to the following conditions:
+
+	 The above copyright notice and this permission notice shall be included in 
+	 all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
+	THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+	THE SOFTWARE.
+-->
+<UserControl x:Class="RapidPlanEvaluation.MainControl"
+             x:Name="MainControlControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="343" d:DesignWidth="901">
+    <UserControl.Resources>
+        <!--<l:BioDoseAllowedConverter x:Key="BioAllowed"/>-->
+        <!--<Style x:Key="isNTCP" TargetType="CheckBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Name}" Value="NTCP">
+                    <Setter Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>-->
+        <!--<Style x:Key="showBioParams" TargetType="Grid">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ShowNTCPParams}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>-->
+        <!--<Style x:Key="showNTCPLabel" TargetType="Label">
+            <Setter Property="Visibility" Value="Collapsed"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Name}" Value="NTCP">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="showNTCPText" TargetType="TextBox">
+            <Setter Property="Visibility" Value="Collapsed"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Name}" Value="NTCP">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>-->
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.ColumnSpan="2" Grid.Row="0" Name="dckTitle"/>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.RowSpan="2" Content="Select structures" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Image Grid.Column="1" Grid.Row="0" Name="imgAll" Source="/RapidPlanEvaluation.esapi;component/Images/selectall.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseDown="imgAll_MouseDown">
+                <Image.ToolTip>Select all structures</Image.ToolTip>
+            </Image>
+            <Image Grid.Column="1" Grid.Row="1" Name="imgNone" Source="/RapidPlanEvaluation.esapi;component/Images/selectnone.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseDown="imgNone_MouseDown">
+                <Image.ToolTip>Unselect all structures</Image.ToolTip>
+            </Image>
+        </Grid>
+        <ListBox Grid.Column="0" Grid.Row="2" ItemsSource="{Binding Structures}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Name="chkStructures" IsChecked="{Binding IsSelected}" Margin="10,0,0,0" Checked="chkStructures_Checked" Unchecked="chkStructures_Unchecked">
+                        <CheckBox.Content>
+                            <TextBlock Text="{Binding Id}"/>
+                        </CheckBox.Content>
+                    </CheckBox>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <DataGrid Name="dtaMetrics" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" AutoGenerateColumns="False" ItemsSource="{Binding Structures}" IsReadOnly="True" CanUserReorderColumns="False">
+            <DataGrid.Resources>
+                <ResourceDictionary>
+                    <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
+                        <Setter Property="Background" Value="{x:Null}"/>
+                        <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="{x:Null}"/>
+                                <Setter Property="BorderBrush" Value="{x:Null}"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ResourceDictionary>
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="ROI">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Name="imgAddMetric" Source="/RapidPlanEvaluation.esapi;component/Images/Add.png" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseDown="imgAddMetric_MouseDown" Width="8" Margin="2,4,0,0" VerticalAlignment="Top" ToolTip="Add a new metric for this structure"/>
+                                <TextBlock Text="{Binding Id}" Margin="2,0,2,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Dose Point">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding DoseMetrics}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <ComboBox  IsEditable="False" ItemsSource="{Binding MetricList, RelativeSource={RelativeSource AncestorType=UserControl}}" SelectedItem="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  SelectionChanged="ComboBox_SelectionChanged" IsSynchronizedWithCurrentItem="False" Height="25"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Std Plan">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding DoseMetrics}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding StdPlanMetric, StringFormat='{}{0:#.00}' }" Height="25" Margin="5,2,0,0"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="RapidPlan">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding DoseMetrics}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RapidPlanMetric, StringFormat='{}{0:#.00}' }" Height="25" Margin="5,2,0,0"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="RapidPlan Estimate">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding DoseMetrics}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RapidPlanEstimateMetric, StringFormat='{}{0:#.00}' }" Height="25" Margin="5,2,0,0"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Std-Rp">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding DoseMetrics}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding StdMinusRp, StringFormat='{}{0:#.00}' }" Height="25" Margin="5,2,0,0"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Rp - Est">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding DoseMetrics}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RpMinusEst, StringFormat='{}{0:#.00}' }" Height="25" Margin="5,2,0,0"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Std - Est">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding DoseMetrics}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding StdMinusEst, StringFormat='{}{0:#.00}' }" Height="25" Margin="5,2,0,0"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--<StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Name="btnDVH" Content="View DVHs" Click="btnDVH_Click" VerticalAlignment="Center" Margin="0,0,30,0"/>
+            <Button  Name="btnExcel" Content="Export to Excel" Click="btnExcel_Click" ToolTip="Export metrics and DVHs to Excel"/>
+            <CheckBox Name="chkDVH" Content="Export DVH" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        </StackPanel>-->
+    </Grid>
+</UserControl>

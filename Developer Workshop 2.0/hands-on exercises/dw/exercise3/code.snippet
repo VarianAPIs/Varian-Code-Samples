@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 1</Title>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+          <![CDATA[        // Show the coordinates of isocenter of first beam
+        var isoc = context.PlanSetup.Beams.First().IsocenterPosition;
+
+        string msg = isoc.x.ToString() + ", " +
+                     isoc.y.ToString() + ", " +
+                     isoc.z.ToString();
+        MessageBox.Show("Isocenter (x,y,z in mm): " + msg);
+        // code for Step 2 follows this comment:
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 2</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[        // Show dose at isocenter
+        context.PlanSetup.DoseValuePresentation = DoseValuePresentation.Absolute;
+
+        var dose = context.PlanSetup.Dose.GetDoseToPoint(isoc);
+        MessageBox.Show("Dose at isocenter: " + dose.ToString());
+        // code for Step 3 follows this comment:        
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 3</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[        // Get dose values between isocenter and location of dose maximum
+        var dosemax = context.PlanSetup.Dose.DoseMax3DLocation;
+
+        double[] values = new double[20];
+        var profile = context.PlanSetup.Dose.GetDoseProfile(isoc, dosemax, values);
+
+        msg = String.Empty;
+        foreach (var profilePoint in profile)
+        {
+            msg = msg + profilePoint.Value.ToString();
+            msg = msg + "\n";
+        }
+        MessageBox.Show(msg);
+        // code for Step 4 follows this comment:
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 4</Title>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[        // Save values to a file
+        using (System.IO.TextWriter writer = new System.IO.StreamWriter("c:\\temp\\profile.txt"))
+        {
+            writer.WriteLine("X, Y, Z, Dose");
+
+            foreach (var profilePoint in profile)
+            {
+                writer.WriteLine(profilePoint.Position.x + "," +
+                                 profilePoint.Position.y + "," +
+                                 profilePoint.Position.z + "," +
+                                 profilePoint.Value);
+            }
+        }   
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>  
+</CodeSnippets>

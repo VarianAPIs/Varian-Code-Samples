@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Patient_Error_InvalidMRN" xml:space="preserve">
+    <value>MRN is invalid</value>
+    <comment>Error message for when a Patient has an invalid MRN</comment>
+  </data>
+  <data name="Patient_Error_MissingMRN" xml:space="preserve">
+    <value>MRN  is missing</value>
+    <comment>Error message for when a Patient is missing a MRN</comment>
+  </data>
+  <data name="Patient_Error_MissingFirstName" xml:space="preserve">
+    <value>First name is missing</value>
+    <comment>Error message for when a Patient is missing a first name.</comment>
+  </data>
+  <data name="Patient_Error_MissingLastName" xml:space="preserve">
+    <value>Last name is missing</value>
+    <comment>Error message for when a Patient is missing a last name.</comment>
+  </data>
+  <data name="MainWindowViewModel_Command_CreateNewPatient" xml:space="preserve">
+    <value>Create new patient</value>
+    <comment>Display name for the command that allows the user to create a new patient.</comment>
+  </data>
+  <data name="MainWindowViewModel_Command_SelectPatients" xml:space="preserve">
+    <value>Time filter</value>
+    <comment>Dispaly name for the command that selects patients</comment>
+  </data>
+  <data name="MainWindowViewModel_Command_SelectSites" xml:space="preserve">
+    <value>Site filter</value>
+    <comment>Dispaly name for the command that selects sites</comment>
+  </data>
+  <data name="MainWindowViewModel_Command_SelectVolume" xml:space="preserve">
+    <value>Structure volume filter</value>
+    <comment>Dispaly name for the command that fitlers patients by structure volume</comment>
+  </data>
+  <data name="MainWindowViewModel_Command_ViewAllPatients" xml:space="preserve">
+    <value>View all patients</value>
+    <comment>Display name for the command that shows all patients.</comment>
+  </data>
+  <data name="MainWindowViewModel_DisplayName" xml:space="preserve">
+    <value>MVVM Demo App</value>
+    <comment>Title of the main window</comment>
+  </data>
+  <data name="PatientsViewModel_DisplayName" xml:space="preserve">
+    <value>Time filter</value>
+    <comment>Dsiaplay name for PatientsViewModel</comment>
+  </data>
+  <data name="PatientViewModel_Error_MissingPatientType" xml:space="preserve">
+    <value>Patient type must be selected</value>
+    <comment>The validation error message returned if the PatientType property has an invalid value.</comment>
+  </data>
+  <data name="PatientViewModel_PatientTypeOption_Female" xml:space="preserve">
+    <value>Female</value>
+    <comment>patient type of female</comment>
+  </data>
+  <data name="PatientViewModel_PatientTypeOption_Male" xml:space="preserve">
+    <value>Male</value>
+    <comment>patient type of male</comment>
+  </data>
+  <data name="SitesViewModel_DisplayName" xml:space="preserve">
+    <value>Sites filter</value>
+    <comment>Dsiaplay name for SitesViewModel</comment>
+  </data>
+  <data name="VolumesViewModel_DisplayName" xml:space="preserve">
+    <value>Volume filter</value>
+    <comment>Dsiaplay name for VolumesViewModel</comment>
+  </data>
+  <data name="MainWindowViewModel_Command_ViewSelectedPatients" xml:space="preserve">
+    <value>View selected patients</value>
+    <comment>Display name for view selected patients command</comment>
+  </data>
+  <data name="SelectedPatientsViewModel_DisplayName" xml:space="preserve">
+    <value>Selected Patient</value>
+    <comment>Display name for SelectedPatientsViewModel</comment>
+  </data>
+  <data name="Site_Error_MissingName" xml:space="preserve">
+    <value>Missing name</value>
+    <comment>Error message for when a site is missing a name</comment>
+  </data>
+  <data name="Volume_Error_MissingKey" xml:space="preserve">
+    <value>Missing key</value>
+    <comment>Error message for when a volume  is missing a key string</comment>
+  </data>
+</root>

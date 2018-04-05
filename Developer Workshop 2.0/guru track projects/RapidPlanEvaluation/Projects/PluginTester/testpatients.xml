@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<test>
+  <ReportPath>D:\Temp</ReportPath>
+  <patients>
+    <patient>
+      <id>rnbrainimrt</id>
+      <course>1 IMRT</course>
+      <plan>1.1 BRAIN IM</plan>
+      <site>Default</site>
+    </patient>
+    <patient>
+      <id>$LIVERNTCP1</id>
+      <course>C1</course>
+      <plan>AAA calc</plan>
+      <site>Default</site>
+    </patient>
+  </patients>
+</test>

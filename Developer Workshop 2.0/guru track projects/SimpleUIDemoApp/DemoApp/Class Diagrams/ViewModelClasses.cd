@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DemoApp.ViewModel.ViewModelBase">
+    <Position X="5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAACAAAAAAIAAAAQAQgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DemoApp.ViewModel.WorkspaceViewModel">
+    <Position X="6.5" Y="3.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\WorkspaceViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.CommandViewModel">
+    <Position X="4.25" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\CommandViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.MainWindowViewModel" Collapsed="true">
+    <Position X="6.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACEAA0AAECCAAACAAAAiAAAAAAEEAABAAAgAABIAAAA=</HashCode>
+      <FileName>ViewModel\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.PatientsViewModel" Collapsed="true">
+    <Position X="9" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFAQAAAACAAAAAAAAAAAAAAAAAAABAEAgAAAYSABAA=</HashCode>
+      <FileName>ViewModel\PatientsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.SitesViewModel" Collapsed="true">
+    <Position X="13" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAACAICCAQAAABAACAAAAEAKAgAAAAAAAAYgAAAA=</HashCode>
+      <FileName>ViewModel\SitesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.SelectedPatientsViewModel" Collapsed="true">
+    <Position X="11" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFAAAAAICiAAAAAAAAAAAAAAAAgAFAAAAIEAAIAAAA=</HashCode>
+      <FileName>ViewModel\SelectedPatientsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.VolumesViewModel" Collapsed="true">
+    <Position X="14.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAISCAAAAAAAAiAAAAEACggAAAgAAICZAAACA=</HashCode>
+      <FileName>ViewModel\VolumesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.VolumeViewModel" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEEAAAAAAGAQAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>ViewModel\VolumeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.StructureTempViewModel" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAMAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\StructureTempViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.SiteViewModel" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAEAAAAAACACQAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>ViewModel\SiteViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DemoApp.ViewModel.MPatientViewModel" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAEMAAAAAAFAAAAAECAYCCAAAwAAAAAEAAAACFAAg=</HashCode>
+      <FileName>ViewModel\MPatientViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

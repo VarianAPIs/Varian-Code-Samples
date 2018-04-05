@@ -1,0 +1,31 @@
+﻿<Page x:Class="Cardan.ESAPI.Bootstrap.Views.SelectPatient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid x:Name="selGrid">
+        <StackPanel>
+            <Button x:Name="showContextButton" Content="Change Patient Context" Click="ShowPatientContext_Click"/>
+            <StackPanel x:Name="patientContextMenu" Orientation="Horizontal" Background="Black">
+                <StackPanel>
+                    <TextBlock Text="Patient Id" Padding="5" Margin="5" Foreground="White"/>
+                    <TextBox Text="{Binding PatientId}" Width="200" Padding="5" Margin="5"/>
+                    <Button Content="Update Patient Context" Width="200" Margin="5" Padding="5" Click="Button_Click"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Text="{Binding Status}" Padding="5" Margin="5" Foreground="Yellow" Width="300"/>
+                    <ComboBox ItemsSource="{Binding Courses}" Padding="5" Margin="5"  Width="200" SelectedItem="{Binding SelectedCourse}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}" Padding="2"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                
+             
+            </StackPanel>
+            <Button x:Name="hideContextButton" Content="↑ Hide Patient Context Menu" Click="HidePatientContext_Click"/>
+        </StackPanel>
+       
+    </Grid>
+</Page>

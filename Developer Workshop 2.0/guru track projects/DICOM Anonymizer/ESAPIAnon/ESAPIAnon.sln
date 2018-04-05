@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESAPIAnon", "ESAPIAnon.csproj", "{A71CA0C9-B4C0-4FFE-804A-08A5F54666BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardan.ESAPI.Bootstrap", "..\Cardan.ESAPI.Bootstrap\Cardan.ESAPI.Bootstrap.csproj", "{DC9B203D-94FF-4539-A273-F55EBD1DEEA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A71CA0C9-B4C0-4FFE-804A-08A5F54666BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71CA0C9-B4C0-4FFE-804A-08A5F54666BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71CA0C9-B4C0-4FFE-804A-08A5F54666BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71CA0C9-B4C0-4FFE-804A-08A5F54666BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9B203D-94FF-4539-A273-F55EBD1DEEA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9B203D-94FF-4539-A273-F55EBD1DEEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9B203D-94FF-4539-A273-F55EBD1DEEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9B203D-94FF-4539-A273-F55EBD1DEEA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

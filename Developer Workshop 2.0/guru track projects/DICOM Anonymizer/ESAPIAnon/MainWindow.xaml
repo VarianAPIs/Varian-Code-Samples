@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="DICOMUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:conv ="clr-namespace:DICOMUI.Converters">
+    <Grid>
+        <Grid.Resources>
+            <conv:EnumConverter x:Key="EnumConverter"/>
+        </Grid.Resources>
+    	<StackPanel VerticalAlignment="Top">
+    		<Menu Padding="5">
+    			<MenuItem Header="Daemon Configuration"/>
+    		</Menu>
+    		<StackPanel Orientation="Horizontal">
+    			<StackPanel VerticalAlignment="Top">
+    				<TextBlock TextWrapping="Wrap" Text="Anonymization Options" Padding="10" Background="Black" Foreground="White" FontWeight="Bold" FontSize="13.333"/>
+    				<Border BorderThickness="1" BorderBrush="#FFB7B7B7">
+    					<StackPanel  Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+    						<CheckBox VerticalAlignment="Center" IsChecked="{Binding DoAnonymizeStudyIDs}" Margin="10"/>
+    						<TextBlock FontWeight="Bold" Text="Anonymize Study IDs and Descriptions" VerticalAlignment="Center" Padding="10" HorizontalAlignment="Center"/>
+    					</StackPanel>
+    				</Border>
+    				<Border BorderThickness="1" BorderBrush="#FFB7B7B7">
+    					<StackPanel Grid.Row="1" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+    						<CheckBox VerticalAlignment="Center" x:Name="AnonymizeUIDs" IsChecked="{Binding DoAnonymizeUIDs}" Margin="10"/>
+    						<TextBlock FontWeight="Bold" Text="Anonymize and Remap UIDs" VerticalAlignment="Center" Padding="10" HorizontalAlignment="Center"/>
+    					</StackPanel>
+    				</Border>
+    				<Border BorderThickness="1" BorderBrush="#FFB7B7B7" Padding="10">
+    					<StackPanel Grid.Row="2" Orientation="Vertical" Width="Auto" HorizontalAlignment="Left">
+    						<TextBlock FontWeight="Bold" Text="Age Anonymization Method" VerticalAlignment="Center" Margin="0 0 10 0" HorizontalAlignment="Center" Padding="5"/>
+    						<RadioButton Content="Preserve Age / Anonymize Dates" Height="16"
+    							IsChecked="{Binding DateSettings, ConverterParameter=PRESERVE_AGE, Converter={StaticResource EnumConverter}, Mode=TwoWay}"/>
+    						<RadioButton Content="Null Patient Age / All other dates relative" Height="16"  IsChecked="{Binding DateSettings, ConverterParameter=NULL_AGE, Converter={StaticResource EnumConverter}, Mode=TwoWay}"/>
+    						<RadioButton Content="Set Patient Age To 89 / All other dates relative" Height="16"
+    							IsChecked="{Binding DateSettings, ConverterParameter=MAKE_89, Converter={StaticResource EnumConverter}, Mode=TwoWay}"/>
+    						<RadioButton Content="Randomize All Dates" Height="16" 
+    							IsChecked="{Binding DateSettings, ConverterParameter=RANDOMIZE, Converter={StaticResource EnumConverter}, Mode=TwoWay}"/>
+    						<RadioButton Content="Keep all dates" Height="16" 
+    							IsChecked="{Binding DateSettings, ConverterParameter=KEEP_ALL_DATES, Converter={StaticResource EnumConverter}, Mode=TwoWay}"/>
+    					</StackPanel>
+    				</Border>
+    				<Border BorderThickness="1" BorderBrush="#FFB7B7B7">
+    					<StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+    						<CheckBox VerticalAlignment="Center" x:Name="RemovePrivates" Margin="10" IsChecked="{Binding DoRemovePrivateTags}" />
+    						<TextBlock FontWeight="Bold" Text="Remove Private Tags" VerticalAlignment="Center" Padding="10" HorizontalAlignment="Center"/>
+    					</StackPanel>
+    				</Border>
+    			<!-- Accept or Cancel -->
+    			</StackPanel>
+    			<StackPanel Margin="0" Background="#FFDEDEDE">
+    				<TextBlock TextWrapping="Wrap" Text="Export Items" Padding="10" Background="Black" Foreground="White" FontWeight="Bold" FontSize="13.333" Width="400"/>
+    				<Border BorderThickness="1" BorderBrush="#FFB7B7B7" Margin="0" Background="#FFDEDEDE">
+    					<StackPanel Grid.Row="1" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left" Margin="0">
+                            <TextBlock Text="First Name" VerticalAlignment="Center" Margin="5 20"/>
+                            <TextBox FontWeight="Bold" Text="{Binding FirstName}" VerticalAlignment="Center" Padding="10" HorizontalAlignment="Center" Width="330"/>
+    					</StackPanel>
+    				</Border>
+    				<Border BorderThickness="1" BorderBrush="#FFB7B7B7" Margin="0" Background="#FFDEDEDE">
+    					<StackPanel Grid.Row="1" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left" Margin="0">
+                            <TextBlock Text="Last Name" VerticalAlignment="Center" Margin="5 20"/>
+                            <TextBox FontWeight="Bold" Text="{Binding LastName}" VerticalAlignment="Center" Padding="10" HorizontalAlignment="Center" Width="330"/>
+                        </StackPanel>
+    				</Border>
+    				<Border BorderThickness="1" BorderBrush="#FFB7B7B7" Margin="0" Background="#FFDEDEDE">
+    					<StackPanel Grid.Row="1" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left" Margin="0">
+                            <TextBlock Text="Id" VerticalAlignment="Center" Margin="5 20" Width="50"/>
+                            <TextBox FontWeight="Bold" Text="{Binding Id}" VerticalAlignment="Center" Padding="10" HorizontalAlignment="Center" Width="330"/>
+                        </StackPanel>
+    				</Border>
+    				
+    				<TextBlock TextWrapping="Wrap" Padding="10" Background="Black" Foreground="White" FontWeight="Bold" FontSize="13.333" Width="400"><Run Text="Additional Options"/></TextBlock>
+    				<Border BorderThickness="1" BorderBrush="#FFB7B7B7" Margin="0" Background="#FFDEDEDE">
+    					<StackPanel Grid.Row="1" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left" Margin="0">
+    						<CheckBox VerticalAlignment="Center" IsChecked="{Binding DoResendToDaemon}" Margin="10" IsEnabled="False"/>
+    						<TextBlock FontWeight="Bold" Text="Resend To Daemon" VerticalAlignment="Center" Padding="10" HorizontalAlignment="Center"/>
+    					</StackPanel>
+    				</Border>
+    			</StackPanel>
+    		</StackPanel>
+    		<TextBlock TextWrapping="Wrap" Text="{Binding Status}" Margin="0" Padding="5" HorizontalAlignment="Center"/>
+    		<StackPanel Margin="0">
+    			<Button Command="{Binding AnonymizeCommand}" IsDefault="True" Content="Anonymize" Padding="10" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}" Background="#FFBBBBBB" FontWeight="Bold"/>
+    		</StackPanel>
+    	</StackPanel>   
+    </Grid>
+</UserControl>

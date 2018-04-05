@@ -1,0 +1,8 @@
+﻿<Window x:Class="Cardan.ESAPI.Bootstrap.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cardan.ESAPI.Bootstrap" Height="350" Width="525" Icon="boot.ico">
+    <Grid>
+        
+    </Grid>
+</Window>

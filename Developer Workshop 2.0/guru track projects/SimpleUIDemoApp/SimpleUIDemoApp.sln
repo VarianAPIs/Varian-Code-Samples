@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11075624-53F3-43CD-B846-8FA1ACF80630}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		MvvmDemoApp.vsmdi = MvvmDemoApp.vsmdi
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESAPISimpleUI", "ESAPISimpleUI\ESAPISimpleUI.csproj", "{AC708A8B-DB73-4081-8A37-FC01A4084F78}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs19
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DemoApp\\DemoApp.csproj
+		SccProjectName1 = DemoApp
+		SccLocalPath1 = DemoApp
+		SccProjectUniqueName2 = ESAPISimpleUI\\ESAPISimpleUI.csproj
+		SccProjectName2 = ESAPISimpleUI
+		SccLocalPath2 = ESAPISimpleUI
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MvvmDemoApp.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC708A8B-DB73-4081-8A37-FC01A4084F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC708A8B-DB73-4081-8A37-FC01A4084F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC708A8B-DB73-4081-8A37-FC01A4084F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC708A8B-DB73-4081-8A37-FC01A4084F78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

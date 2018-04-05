@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 4</Title>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+          <![CDATA[Patient patient = context.Patient;
+        if (patient == null)
+            throw new ApplicationException("Please load a patient.");
+
+        // Get active structureset
+        StructureSet ss = context.StructureSet;
+        if (ss == null)
+            throw new ApplicationException("Please load a structure set.");
+
+        // Check that unique body structure, PTV and Rectum structures exist
+        Structure body = ss.Structures.Where(o => o.Id == "BODY").FirstOrDefault();
+        Structure ptv = ss.Structures.Where(o => o.Id == "PTV").FirstOrDefault();
+        Structure rectum = ss.Structures.Where(o => o.Id == "Rectum1").FirstOrDefault();
+        if (body == null || ptv == null || rectum == null)
+            throw new ApplicationException(string.Format("Cannot find required structures (BODY, PTV, Rectum) from Structureset '{0}'", ss.Id));
+
+        // Enable modifications 
+        patient.BeginModifications();
+
+        // Get or create course with Id 'Superplan'
+        const string courseId = "Superplan";
+        Course course = patient.Courses.Where(o => o.Id == courseId).SingleOrDefault();
+        if (course == null)
+        {
+            course = patient.AddCourse();
+            course.Id = courseId;
+        }
+
+        // Create a new plan
+        ExternalPlanSetup plan = course.AddExternalPlanSetup(ss);
+        int fractions = 20;
+        double prescribedPercentage = 1.0;
+        DoseValue fractiondose = new DoseValue(2.50, DoseValue.DoseUnit.Gy);  // TODO: if needed change to cGy to match your system configuration
+        plan.UniqueFractionation.SetPrescription(fractions, fractiondose, prescribedPercentage);
+
+        // Add fields
+        const int nfields = 5;
+        ExternalBeamMachineParameters parameters = new ExternalBeamMachineParameters("Varian 23EX", "6X", 600, "STATIC", null); // TODO: change machine id to yours
+        VVector isocenter = ptv.CenterPoint;
+        for (int n = 0; n < nfields; n++)
+        {   // add a 10 cm x 10 cm field
+            Beam beam = plan.AddStaticBeam(parameters, new VRect<double>(-50, -50, 50, 50), 0, Math.Round(360.0 / nfields * n, 0), 0, isocenter);
+        }
+        // end of first part.
+        MessageBox.Show("Plan created, open course SuperPlan, Choose Plan1 to view results.", "Varian Developer");
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 6</Title>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+        <![CDATA[
+        // calculate final dose
+        CalculationResult doseCalc = plan.CalculateDose();
+        if (!doseCalc.Success)
+        {
+            MessageBox.Show("Dose calculation failed, logs shown next.", "Varian Developer", MessageBoxButton.OK, MessageBoxImage.Error);
+            // write calculate logs to a file and show them to the user.
+            string filename = writeCalculationLogs(plan);
+            // 'Start' generated TXT file to launch Notepad window
+            System.Diagnostics.Process.Start(filename);
+            // Sleep for a few seconds to let Excel window start
+            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(3));
+            return;
+        }
+
+        MessageBox.Show("Done");
+    }
+
+    public string writeCalculationLogs(PlanSetup plan)
+  {
+        // write calculate logs to a file
+        string temp = System.Environment.GetEnvironmentVariable("TEMP");
+        string filename = temp + "\\calculcationlog.txt";
+        using (System.IO.TextWriter writer = new System.IO.StreamWriter(filename))
+        {
+            foreach (Beam beam in plan.Beams)
+            {
+                writer.WriteLine(string.Format("Calculation log for beam {0}", beam.Id));
+                foreach (BeamCalculationLog log in beam.CalculationLogs)
+                {
+                    string logCategory = log.Category;
+
+                    writer.WriteLine("Category: " + logCategory);
+                    foreach (string line in log.MessageLines)
+                    {
+                        writer.WriteLine(line);
+                    }
+                }
+            }
+        }
+        return filename;
+    }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Step 8</Title>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.IO</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="csharp">
+        <![CDATA[
+        // Set optimization constraints
+        Console.WriteLine("----- Adding optimization constraints ...");
+        OptimizationSetup optimizationSetup = plan.OptimizationSetup;
+        optimizationSetup.AddPointObjective(ptv, OptimizationObjectiveOperator.Lower, new DoseValue(49.50, DoseValue.DoseUnit.Gy), 100, 100.0);
+        optimizationSetup.AddPointObjective(ptv, OptimizationObjectiveOperator.Upper, new DoseValue(52.00, DoseValue.DoseUnit.Gy), 0, 100.0);
+        optimizationSetup.AddPointObjective(rectum, OptimizationObjectiveOperator.Upper, new DoseValue(20.00, DoseValue.DoseUnit.Gy), 40.0, 100.0);
+        MessageBox.Show("Plan '" + plan.Id + "' in course '" + course.Id + "' for patient '" + patient.Id + "' has been created");
+
+        // optimize for 30 iterations
+        if (!plan.Optimize(30).Success)
+        {
+            MessageBox.Show("Optimization failed", "Varian Developer", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
+        // run LMC
+        if (!plan.CalculateLeafMotions().Success)
+        {
+            MessageBox.Show("LMC failed", "Varian Developer", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
