@@ -1,0 +1,7 @@
+Kata Intermediate.5)    
+	Program an ESAPI automation script that creates a new QA course, a new set 
+	of verification plans for the selected clinical plan 
+	(1 composite and 1 verification plan per beam), and calculates dose for all 
+	of the new verification plans.
+
+Load case 002441-a, course intermediate.5, plan "IMRT" to develop your script against.

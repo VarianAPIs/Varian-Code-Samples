@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindBrachyPlans", "FindBrachyPlans.csproj", "{759BDE25-7ADB-4101-97B0-68BECBF5C38E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{759BDE25-7ADB-4101-97B0-68BECBF5C38E}.Debug|x64.ActiveCfg = Debug|x64
+		{759BDE25-7ADB-4101-97B0-68BECBF5C38E}.Debug|x64.Build.0 = Debug|x64
+		{759BDE25-7ADB-4101-97B0-68BECBF5C38E}.Release|x64.ActiveCfg = Release|x64
+		{759BDE25-7ADB-4101-97B0-68BECBF5C38E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

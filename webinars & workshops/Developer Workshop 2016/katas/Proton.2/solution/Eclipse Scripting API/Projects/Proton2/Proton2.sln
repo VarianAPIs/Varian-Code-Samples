@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proton2", "Proton2.csproj", "{D8114E7C-70E6-4029-9984-06C7C70BC1D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8114E7C-70E6-4029-9984-06C7C70BC1D1}.Debug|x64.ActiveCfg = Debug|x64
+		{D8114E7C-70E6-4029-9984-06C7C70BC1D1}.Debug|x64.Build.0 = Debug|x64
+		{D8114E7C-70E6-4029-9984-06C7C70BC1D1}.Release|x64.ActiveCfg = Release|x64
+		{D8114E7C-70E6-4029-9984-06C7C70BC1D1}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,16 @@
+ADVANCED 8 KATA
+1.Open a patient with the first name "Advanced8a"
+2.Using the only structure set, find all 3D images with the same frame of reference (like in a gating study)
+	**3D images have a defined origin, single images do not
+3.Using the body structure, find the HU at the center point of the body in each image
+
+		//CT_RP_30 = ?
+                //CT_RP_40 = ?
+                //CT_RP_50 = ?
+                //CT_RP_60 = ?
+                //CT_RP_70 = ?
+                //CT_RP_Mip = ?
+                //CT_RP_Ave = ?
+
+4. Find the actual maximum AND average voxel value across the scans RP_30-RP70 (phases 30-70).
+5. Do they match the values for the RP_Mip (maximum intensity projection) and RP_Ave (average)?

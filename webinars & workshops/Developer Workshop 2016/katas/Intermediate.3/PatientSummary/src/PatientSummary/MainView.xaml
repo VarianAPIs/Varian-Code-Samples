@@ -1,0 +1,75 @@
+﻿<UserControl
+    x:Class="PatientSummary.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+    FontSize="16"
+    >
+
+    <UserControl.Resources>
+        <CollectionViewSource
+            x:Key="PlanSetups"
+            Source="{Binding PlanSetups}"
+            >
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="CourseId" />
+            </CollectionViewSource.GroupDescriptions>
+            <CollectionViewSource.SortDescriptions>
+                <cm:SortDescription PropertyName="CreationDate" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
+
+    <Grid>
+        <DataGrid
+            ItemsSource="{Binding Source={StaticResource PlanSetups}}"
+            AutoGenerateColumns="False"
+            Margin="24"
+            >
+
+            <DataGrid.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Border
+                                Background="#404040"
+                                Margin="4"
+                                >
+                                <TextBlock
+                                    Text="{Binding Name, StringFormat=Course: \{0\}}"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Margin="4"
+                                    />
+                            </Border>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </DataGrid.GroupStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Plan"
+                    Binding="{Binding PlanSetupId}"
+                    />
+                <DataGridTextColumn
+                    Header="Creation Date"
+                    Binding="{Binding CreationDate, StringFormat=\{0:d\}}"
+                    />
+                <DataGridTextColumn
+                    Header="Target"
+                    Binding="{Binding TargetId}"
+                    />
+                <DataGridTextColumn
+                    Header="Prescription"
+                    Binding="{Binding Prescription}"
+                    />
+                <DataGridTextColumn
+                    Header="Status"
+                    Binding="{Binding ApprovalStatus}"
+                    />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+
+</UserControl>

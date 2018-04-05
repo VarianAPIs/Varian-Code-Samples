@@ -1,0 +1,3 @@
+Create two optimization structures: split a normal structure into two: a part close to the target, and a part that is away from the target. (depending on the shape of the normal structure, these may include several separate volumes)
+
+Load case 002442, Structure set "RTstruct". Use "PTV_4680" as your target and "LIVER" as your normal structure.

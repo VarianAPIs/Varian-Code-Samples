@@ -1,0 +1,44 @@
+﻿<UserControl
+    x:Class="PatientPhoto.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:l="clr-namespace:PatientPhoto"
+    FontSize="16"
+    >
+
+    <UserControl.Resources>
+        <l:ImageConverter x:Key="ImageConverter" />
+    </UserControl.Resources>
+
+    <StackPanel
+        Orientation="Vertical"
+        Margin="24"
+        >
+
+        <Image
+            Source="{Binding Photo, Mode=OneWay, Converter={StaticResource ImageConverter}}"
+            />
+
+        <TextBlock Margin="0,8,0,0">
+            <Run Text="Name: " FontWeight="Bold" />
+            <Run Text="{Binding FullName, Mode=OneWay}" />
+        </TextBlock>
+
+        <TextBlock>
+            <Run Text="ID: " FontWeight="Bold" />
+            <Run Text="{Binding Id, Mode=OneWay}" />
+        </TextBlock>
+
+        <TextBlock>
+            <Run Text="DOB: " FontWeight="Bold" />
+            <Run Text="{Binding DateOfBirth, Mode=OneWay, StringFormat=\{0:d\}}" />
+        </TextBlock>
+
+        <TextBlock>
+            <Run Text="Physician: " FontWeight="Bold" />
+            <Run Text="{Binding PhysicianFullName, Mode=OneWay}" />
+        </TextBlock>
+
+    </StackPanel>
+
+</UserControl>

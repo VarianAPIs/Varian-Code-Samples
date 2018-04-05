@@ -1,0 +1,1 @@
+Create a script that goes through all the layers of a proton spot scanning plan and reports the lowest and highest MU per spot for each layer. This script can be a Single-file plug-in or a Binary plug-in.

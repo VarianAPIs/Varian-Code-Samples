@@ -1,0 +1,6 @@
+Intermediate.6
+
+Find all PTVs in a structure set and create control (“ring”) structures for each PTV. 
+
+Load case rschMULTIMETE2E, structure set Intermediate_6 to develop your script against.
+(Loading course C1, plan "Intermed_6" will load the desired structure set).

@@ -1,0 +1,13 @@
+Advanced.4
+
+Create a data mining script that finds all patients having the bladder contoured, and report mean dose, max dose, and  the volume receiving 50 Gy.
+Select only Planning Approved plans in COMPLETED courses. Report dose values in Gy and volume in percent. Write results to a file in a format of
+your choice.
+
+Expected result:
+
+ID		Course		Plan		Mean dose	Max dose	V50
+002441-a	advanced.4	IMRT		26.5078		73.9685		24.32
+DemoJSu		Advanced.4	PlanRA		51.2226		84.7161		48.83
+DA000000001	Advanced.4	IMRT #		47.6529		68.5280		47.15
+

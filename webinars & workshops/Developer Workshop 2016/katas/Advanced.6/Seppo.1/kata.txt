@@ -1,0 +1,3 @@
+Create an optimization structure: copy a section of the body structure. The section shall extend 3cm above the top point of a user-selected structure and 2cm below the bottom point of that structure.
+
+Load patient 002442, Structure set "RTstruct".

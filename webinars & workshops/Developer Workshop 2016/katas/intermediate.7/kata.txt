@@ -1,0 +1,2 @@
+Kata Intermediate.7)    
+	Program an ESAPI automation script that calculates the mean and std CT number within a rt-structure

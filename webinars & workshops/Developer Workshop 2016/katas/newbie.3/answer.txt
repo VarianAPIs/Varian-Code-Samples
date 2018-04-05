@@ -1,0 +1,58 @@
+PLAN
+-----------------
+IMRT
+
+PATIENT
+-----------------
+Kata, Newbie3 - K_N3_Reporta
+
+Field Id : G288C340
+-----------------
+Gantry Angle : 288
+Collimator Angle : 0
+Table Angle : 20
+X1/X2 : -73/54
+Y1/Y2 : -48/88
+MU : 0
+-----------------
+
+Field Id : G216
+-----------------
+Gantry Angle : 216
+Collimator Angle : 0
+Table Angle : 0
+X1/X2 : -80/-19
+Y1/Y2 : -43/80
+MU : 0
+-----------------
+
+Field Id : G144
+-----------------
+Gantry Angle : 144
+Collimator Angle : 0
+Table Angle : 0
+X1/X2 : -78/70
+Y1/Y2 : -43/80
+MU : 0
+-----------------
+
+Field Id : G072C020
+-----------------
+Gantry Angle : 72
+Collimator Angle : 0
+Table Angle : 340
+X1/X2 : -55/70
+Y1/Y2 : -48/88
+MU : 0
+-----------------
+
+Field Id : G350C090
+-----------------
+Gantry Angle : 350
+Collimator Angle : 90
+Table Angle : 270
+X1/X2 : -78/70
+Y1/Y2 : -80/43
+MU : 0
+-----------------
+

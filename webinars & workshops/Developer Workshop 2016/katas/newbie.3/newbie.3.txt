@@ -1,0 +1,13 @@
+1. Open the patient with Id = "K_N3_Reporta", or K_N3_Reportb, etc
+2. Using the first planning approved plan, write to the console the following items:
+
+*Plan Id
+*Patient name and Id
+
+For each field, write out:
+*Field Id
+*Gantry Angle
+*Collimator Angle
+*Table Angle
+*X1,X2,Y1,Y2 Jaws
+*MU

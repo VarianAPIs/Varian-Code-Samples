@@ -1,0 +1,2 @@
+Kata Intermediate.4)    
+	Create an ESAPI data mining script that finds the normal structure with the largest volume for all patients in Eclipse.

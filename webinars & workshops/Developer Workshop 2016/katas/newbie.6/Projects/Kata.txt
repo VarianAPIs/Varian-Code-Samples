@@ -1,0 +1,7 @@
+This program "MSExcelFormBinary" is to demonstrate how to extract data from Eclipse and record them into an Excel spreadsheet
+* To connect to MS Excel,  the Microsoft.Office.Interop.Excel needs to be added in reference (Right click refernce -> Add Reference-> COM -> Type Libraires->
+*                          Microsoft Excel 15.0 Object Library)
+* The goal is to read patient name, MRN and prescription dose and write them into a blank Excel spreadsheet.  The code can be changed to open
+* existing Excel template form and fill out info in the form. 
+*                            - developed by Minsong on 7/19/16
+*/

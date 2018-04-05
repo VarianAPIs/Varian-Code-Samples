@@ -1,0 +1,5 @@
+Kata Intermediate.8	
+	This Script Calculates the total volume at 50% prescripted doses and disply the result in a message box.
+	Method CalculateVolAtPercentPresDose(PlanSetup curPlan, double percentVal)  can be used for any given percent dose.
+      
+Load patient 002443, course: Proton-IMPT, plan:Reynald1 to develop your script against.

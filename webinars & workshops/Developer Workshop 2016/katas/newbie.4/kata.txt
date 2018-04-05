@@ -1,0 +1,5 @@
+Kata Newbie.4)	
+  Extract and display MLC control point information for beam 1 of the first 
+  Planning Approved plan using either an ESAPI script or Visual Scripting.
+
+load patient 002441-a.

@@ -1,0 +1,19 @@
+1. Open plan P0 in patient Id VS_KATA
+2. Open the visual Scripting workbench and create a plan report which reports the following:
+
+*Plan Id
+*Course Id
+*Plan Creation Date
+*Plan Creation Username
+*Patient Name
+*Patient Id
+
+3. For each field in the plan add to the report:
+*Beam name
+*MU
+*Field size
+*Gantry Angle
+*Collimator Angle
+*Couch Angle
+
+For credit, run the script and save the generated PDF.

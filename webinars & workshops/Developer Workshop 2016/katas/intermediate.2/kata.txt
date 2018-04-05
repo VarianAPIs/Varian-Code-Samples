@@ -1,0 +1,9 @@
+Kata Intermediate.2	
+	This Script checks if the (Lung)plan dosimetry data meet the criterias and generate check result report in a csv file.
+   
+	
+      a) Extract D95 on PTV, MLD, V20 on total lung, V40 on heart, Dmax on spinal cord, Dmax and V60 on Esophagus.
+      b) Check if the dosimetry data meet the planning goal, then generate report in CSV file 
+
+
+Load patient 002443, course: Proton-IMPT, plan:Reynald1 to develop your script against.

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitStructure", "SplitStructure.csproj", "{F042647E-22DA-47D1-B081-BB7287BD8819}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F042647E-22DA-47D1-B081-BB7287BD8819}.Debug|x64.ActiveCfg = Debug|x64
+		{F042647E-22DA-47D1-B081-BB7287BD8819}.Debug|x64.Build.0 = Debug|x64
+		{F042647E-22DA-47D1-B081-BB7287BD8819}.Release|x64.ActiveCfg = Release|x64
+		{F042647E-22DA-47D1-B081-BB7287BD8819}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

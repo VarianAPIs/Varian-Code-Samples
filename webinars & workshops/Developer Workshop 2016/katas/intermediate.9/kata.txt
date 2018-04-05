@@ -1,0 +1,7 @@
+Kata Intermediate.9)	
+	Program an ESAPI script that extracts planar dose for the first beam of 
+	the selected verification plan and writes it out as a CSV file 
+	(or bitmap, or MapCheck2 format, or Matrixx file format).
+
+
+Load case 002441-a, course intermediate.9, plan Composite to develop your script against.

@@ -1,0 +1,9 @@
+Newbie.1) Extract and display relevant DVH metrics for your loaded case using an ESAPI script. (N.1)
+
+
+patient 002441-a / newbie.1 / Plan1
+
+PTV_68 D0.03cc[Gy] <71.5 Gy 
+PTV_56 Mean[Gy] Report
+RECTUM V56Gy[%] <5%
+BLADDER V40Gy[%] <40%

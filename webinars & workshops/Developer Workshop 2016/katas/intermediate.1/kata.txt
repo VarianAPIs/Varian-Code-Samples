@@ -1,0 +1,3 @@
+Intermediate.1)	Extract the DVH for the Bladder for your loaded case and write it to a CSV file, and record the value in cell 23.
+
+Load case 002441, course intermediate.1, plan "Plan1" to develop your script against.
