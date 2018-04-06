@@ -65,7 +65,7 @@ namespace VMS.TPS
             StructureSet ss = context.StructureSet;
 
             // find Rectum
-            Structure rectum = ss.Structures.First(x => x.Id == RECTUM_ID);
+            Structure rectum = ss.Structures.FirstOrDefault(x => x.Id == RECTUM_ID);
             if (rectum == null)
             {
                 MessageBox.Show(string.Format("'{0}' not found!", RECTUM_ID), SCRIPT_NAME, MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -73,7 +73,7 @@ namespace VMS.TPS
             }
 
             // find PTV
-            Structure ptv = ss.Structures.First(x => x.Id == PTV_ID);
+            Structure ptv = ss.Structures.FirstOrDefault(x => x.Id == PTV_ID);
             if (ptv == null)
             {
                 MessageBox.Show(string.Format("'{0}' not found!", PTV_ID), SCRIPT_NAME, MessageBoxButton.OK, MessageBoxImage.Exclamation);
