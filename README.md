@@ -30,7 +30,7 @@ Here you will find code samples for ESAPI and other Varian APIs and web services
   * RBE Report
 
 ## Workshops
-* [2016 Dev Workshop](https://github.com/VarianAPIs/samples/tree/master/webinars%20%26%20workshops/Developer%20Workshop%202016)
+* [2014 Developer Workshop](https://github.com/VarianAPIs/samples/tree/master/webinars%20%26%20workshops/Developer%20Workshop%202016/katas)
   * DICOM Anonymizer
   * MVVM
   * Rapid Plan Evaluation
@@ -39,5 +39,5 @@ Here you will find code samples for ESAPI and other Varian APIs and web services
 * [2015 Research Symposium](https://github.com/VarianAPIs/samples/tree/master/webinars%20%26%20workshops/Research%20Symposium%202015/Eclipse%20Scripting%20API/Projects)
   * Automated Planning Demo (RapidPlan + Verification Plan)
   * EUD Script
-* [2014 Developer Workshop](https://github.com/VarianAPIs/samples/tree/master/webinars%20%26%20workshops/Developer%20Workshop%202016/katas)
+* [2016 Dev Workshop](https://github.com/VarianAPIs/samples/tree/master/webinars%20%26%20workshops/Developer%20Workshop%202016)
   * [See here for description of coursework](https://github.com/VarianAPIs/samples/blob/master/webinars%20%26%20workshops/Developer%20Workshop%202016/160728%20ESAPI%20Track%20Details.pdf)
