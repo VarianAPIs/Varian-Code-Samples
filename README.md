@@ -1,5 +1,5 @@
 # Varian Code Samples
-Here you will find code samples for ESAPI and other Varian APIs and web services.
+Here you will find code samples for ESAPI and other Varian APIs and web services. Please use [the issues section](https://github.com/VarianAPIs/samples/issues) if you have any questions/comments/problems. Or e-mail eclipsedeveloper at varian dot com.
 
 ## Eclipse Scripting API Samples
 * [Single File Plugin Scripts](https://github.com/VarianAPIs/samples/tree/master/Eclipse%20Scripting%20API/plugins)
