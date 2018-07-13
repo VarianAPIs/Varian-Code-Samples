@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractiveClient", "InteractiveClient\InteractiveClient.csproj", "{2830EAB4-451D-40AC-871E-E42FDEF22E97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrustedClient", "TrustedClient\TrustedClient.csproj", "{9C1195AB-74B7-47D2-890B-AAD9F78E095D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{FD2A6CEB-3EF4-4952-8B57-E61D85EDDA43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2830EAB4-451D-40AC-871E-E42FDEF22E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2830EAB4-451D-40AC-871E-E42FDEF22E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2830EAB4-451D-40AC-871E-E42FDEF22E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2830EAB4-451D-40AC-871E-E42FDEF22E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1195AB-74B7-47D2-890B-AAD9F78E095D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1195AB-74B7-47D2-890B-AAD9F78E095D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1195AB-74B7-47D2-890B-AAD9F78E095D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1195AB-74B7-47D2-890B-AAD9F78E095D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD2A6CEB-3EF4-4952-8B57-E61D85EDDA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD2A6CEB-3EF4-4952-8B57-E61D85EDDA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD2A6CEB-3EF4-4952-8B57-E61D85EDDA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD2A6CEB-3EF4-4952-8B57-E61D85EDDA43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2487D63-FEE0-47D2-9D44-C41927427DB3}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs-app.vms.ad.varian.com/vms
+		SccProjectUniqueName0 = InteractiveClient\\InteractiveClient.csproj
+		SccProjectName0 = InteractiveClient
+		SccAuxPath0 = https://tfs-app.vms.ad.varian.com/vms
+		SccLocalPath0 = InteractiveClient
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal
