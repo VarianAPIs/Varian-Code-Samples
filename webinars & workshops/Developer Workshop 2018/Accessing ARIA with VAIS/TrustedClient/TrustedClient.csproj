@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityModel" Version="3.8.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="VMS.SF.Common">
+      <HintPath>C:\Users\dwr6678\Documents\Installers\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.SF.Gateway.Contracts">
+      <HintPath>C:\Users\dwr6678\Documents\Installers\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Gateway.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.SF.Infrastructure.Contracts">
+      <HintPath>C:\Users\dwr6678\Documents\Installers\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Infrastructure.Contracts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
