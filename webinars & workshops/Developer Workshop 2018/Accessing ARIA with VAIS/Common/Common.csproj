@@ -4,4 +4,25 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Extensions\Extensions.csproj" />
+    <ProjectReference Include="..\Helpers\Helpers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="VMS.SF.Common">
+      <HintPath>C:\Users\dwr6678\Documents\Installers\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.SF.Gateway.Contracts">
+      <HintPath>C:\Users\dwr6678\Documents\Installers\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Gateway.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.SF.Infrastructure.Contracts">
+      <HintPath>C:\Users\dwr6678\Documents\Installers\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Infrastructure.Contracts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
