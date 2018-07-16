@@ -1,6 +1,8 @@
-﻿using Common;
+﻿using Common.SFSettings;
+using Helpers;
 using IdentityModel.Client;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Net;
@@ -13,6 +15,15 @@ using VMS.SF.Infrastructure.Contracts.Settings;
 
 namespace TrustedClient
 {
+    /** some possible settings
+             * datasource
+             * environmentsettingskey
+             * globalconfig
+             * languages
+             * radiationtherapy
+             * sharedsettings
+             * windowsintegartednauthenticationsetting
+             * */
     class Program
     {
         private static string _accessToken;
@@ -24,6 +35,8 @@ namespace TrustedClient
         private static string _scope;
         private static string _gatewayTokenUri;
 
+        private static SFSettingsReader _settingsReader;
+
         static void Main(string[] args)
         {
             _authority = ConfigurationManager.AppSettings["Authority"];
@@ -32,8 +45,13 @@ namespace TrustedClient
             _scope = ConfigurationManager.AppSettings["Scope"];
             _gatewayTokenUri = ConfigurationManager.AppSettings["GatewayTokenUri"];
 
+            _settingsReader = new SFSettingsReader(_gatewayTokenUri);
+            //authenticate
             RequestTokenAsync().GetAwaiter().GetResult();
-            _getSettings();
+            //read doseunit
+            var doseUnits = _getDoseUnits();
+            //get list of hospitals
+            var hospitals = _getHospitals();
             Console.ReadLine();
         }
 
@@ -51,57 +69,19 @@ namespace TrustedClient
             _refreshToken = tokens.RefreshToken;
         }
 
-        private static void _getSettings()
+        private static string _getDoseUnits()
         {
-            /** some possible settings
-             * datasource
-             * environmentsettingskey
-             * globalconfig
-             * languages
-             * radiationtherapy
-             * sharedsettings
-             * windowsintegartednauthenticationsetting
-             * */
-
-            var getSettings = new GetSettingsRequest
-            {
-                Path = "<PathAttributes SettingName='sharedsettings'/>"
-            };
-            var getSettingsResponse = _processRequest(getSettings, _accessToken) as GetSettingsResponse;
-            var serializer = new XmlSerializer(typeof(SharedSettings));
-            SharedSettings sharedSettings;
-
-            using (TextReader reader = new StringReader(getSettingsResponse.Setting.Value))
-            {
-                sharedSettings = (SharedSettings)serializer.Deserialize(reader);
-            }
-
-            Console.WriteLine("SharedSettings - DoseUnits: " + sharedSettings.DoseUnits);
+            var sharedSettings = _settingsReader.GetSharedSettings("sharedsettings", _accessToken);
+            return sharedSettings.DoseUnits;
         }
 
-        private static VMS.SF.Gateway.Contracts.Response _processRequest(GetSettingsRequest request, string token)
+
+        private static IEnumerable<string> _getHospitals()
         {
-            //Request
-            var requesttype = new[] { typeof(GetSettingsRequest) };
-            var myWebRequest = WebRequest.Create(_gatewayTokenUri);
-            myWebRequest.Headers.Add("Authorization", "Bearer " + token);
-            myWebRequest.Method = "POST";
-            myWebRequest.ContentType = "Application/json";
+            var appRole = _settingsReader.GetAppRole("DevWorkshop", _accessToken);
 
-            var ms = new MemoryStream();
-            var dataContractSeriliser = new DataContractJsonSerializer(typeof(VMS.SF.Gateway.Contracts.Request), requesttype);
-            dataContractSeriliser.WriteObject(ms, request);
-            string json = Encoding.UTF8.GetString(ms.ToArray());
-            var bytearray = Encoding.UTF8.GetBytes(json);
-            myWebRequest.ContentLength = bytearray.Length;
-            myWebRequest.GetRequestStream().Write(bytearray, 0, bytearray.Length);
-
-            //response
-            var responsetype = new[] { typeof(GetSettingsResponse), typeof(ApplicationError) };
-            var r = (HttpWebResponse)myWebRequest.GetResponse();
-            dataContractSeriliser = new DataContractJsonSerializer(typeof(VMS.SF.Gateway.Contracts.Response), responsetype);
-            var result = dataContractSeriliser.ReadObject(r.GetResponseStream());
-            return result as VMS.SF.Gateway.Contracts.Response;
+            return null;
         }
+        
     }
 }
