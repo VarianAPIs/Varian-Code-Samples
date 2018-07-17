@@ -5,13 +5,11 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractiveClient", "InteractiveClient\InteractiveClient.csproj", "{2830EAB4-451D-40AC-871E-E42FDEF22E97}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrustedClient", "TrustedClient\TrustedClient.csproj", "{9C1195AB-74B7-47D2-890B-AAD9F78E095D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{FD2A6CEB-3EF4-4952-8B57-E61D85EDDA43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{BC44A197-8387-46E9-919C-1E0D3C240387}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{75C96EFA-421C-439B-86D3-8A4E4428F138}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions", "Extensions\Extensions.csproj", "{75C96EFA-421C-439B-86D3-8A4E4428F138}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{2830EAB4-451D-40AC-871E-E42FDEF22E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2830EAB4-451D-40AC-871E-E42FDEF22E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2830EAB4-451D-40AC-871E-E42FDEF22E97}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C1195AB-74B7-47D2-890B-AAD9F78E095D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C1195AB-74B7-47D2-890B-AAD9F78E095D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C1195AB-74B7-47D2-890B-AAD9F78E095D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C1195AB-74B7-47D2-890B-AAD9F78E095D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FD2A6CEB-3EF4-4952-8B57-E61D85EDDA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FD2A6CEB-3EF4-4952-8B57-E61D85EDDA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD2A6CEB-3EF4-4952-8B57-E61D85EDDA43}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -18,13 +18,13 @@
 
   <ItemGroup>
     <Reference Include="VMS.SF.Common">
-      <HintPath>C:\Users\dwr6678\Documents\Installers\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Documents\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Common.dll</HintPath>
     </Reference>
     <Reference Include="VMS.SF.Gateway.Contracts">
-      <HintPath>C:\Users\dwr6678\Documents\Installers\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Gateway.Contracts.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\VMS.SF.Gateway.Contracts\v4.0_1.0.6.0__269c551a9712e7cc\VMS.SF.Gateway.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="VMS.SF.Infrastructure.Contracts">
-      <HintPath>C:\Users\dwr6678\Documents\Installers\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Infrastructure.Contracts.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Documents\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Infrastructure.Contracts.dll</HintPath>
     </Reference>
   </ItemGroup>
 

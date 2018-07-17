@@ -69,11 +69,6 @@ namespace TrustedClient
             _refreshToken = tokens.RefreshToken;
         }
 
-        private static string _getDoseUnits()
-        {
-            var sharedSettings = _settingsReader.GetSharedSettings("sharedsettings", _accessToken);
-            return sharedSettings.DoseUnits;
-        }
 
 
         private static IEnumerable<string> _getHospitals()

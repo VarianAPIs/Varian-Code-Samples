@@ -1,24 +1,10 @@
-﻿using IdentityModel.OidcClient;
+﻿using Common;
+using Extensions;
+using Helpers;
+using IdentityModel.OidcClient;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using VMS.SF.Gateway.Contracts;
-using VMS.SF.Infrastructure.Contracts.Security;
 
 namespace InteractiveClient
 {
@@ -36,27 +22,28 @@ namespace InteractiveClient
         private string _clientIdentifier;
         private string _scope;
         private string _gatewayTokenUri;
+        private SharedFrameworkReader _sharedFrameworkReader;
 
         public MainWindow()
         {
             InitializeComponent();
-            Loaded += Start;
+
             _redirectUri = ConfigurationManager.AppSettings["RedirectUri"];
             _authority = ConfigurationManager.AppSettings["Authority"];
             _clientIdentifier = ConfigurationManager.AppSettings["ClientIdentifier"];
             _scope = ConfigurationManager.AppSettings["Scope"];
             _gatewayTokenUri = ConfigurationManager.AppSettings["GatewayTokenUri"];
+
+            _sharedFrameworkReader = new SharedFrameworkReader(_gatewayTokenUri);
         }
 
-        private async void Start(object sender, RoutedEventArgs e)
+        private async void Authenticate(object sender, RoutedEventArgs e)
         {
-
             var browser = new SystemBrowser(_redirectUri);
             var options = new OidcClientOptions
             {
                 Authority = _authority,
                 ClientId = _clientIdentifier,
-                //ClientSecret = "mypocforrabbitmq",
                 RedirectUri = _redirectUri,
                 Scope = "openid profile offline_access " + _scope,
                 FilterClaims = false,
@@ -77,81 +64,94 @@ namespace InteractiveClient
                 _identityToken = result.IdentityToken;
                 _refreshToken = result.RefreshToken;
             }
-            Message.Text += string.Format("{0} - VAIS tokens aquired for {1}\n", DateTime.Now, result.User.Identity.Name);
 
-        }
-
-        private void Get_Privileges(object sender, RoutedEventArgs e)
-        {
-            var getprivileges = new GetPrivilegesRequest();
-            var getPrivilegeResponse = _processRequest(getprivileges, _accessToken);
-            Message.Text += string.Format("{0} - GetPrivileges ok {1}{2}"
+            Message.Text = string.Format("{0} - Identity token {1}\n Access token {2}\n"
                 , DateTime.Now
-                , Environment.NewLine
-                , _getPrivileges(getPrivilegeResponse));
+                , JWTTokenHelper.ReadToken(_identityToken)
+                , JWTTokenHelper.ReadToken(_accessToken));
         }
 
-        private GetPrivilegesResponse _processRequest(Request request, string token)
+        private async void RefreshTokens(object sender, RoutedEventArgs e)
         {
-            //Request
-            var requesttype = new[] { typeof(GetPrivilegesRequest) };
-            var myWebRequest = HttpWebRequest.Create(_gatewayTokenUri);
-            myWebRequest.Headers.Add("Authorization", "Bearer " + token);
-            myWebRequest.Method = "POST";
-            myWebRequest.ContentType = "Application/json";
-
-            var ms = new MemoryStream();
-            var dataContractSeriliser = new DataContractJsonSerializer(typeof(Request), requesttype);
-            dataContractSeriliser.WriteObject(ms, request);
-            string json = Encoding.UTF8.GetString(ms.ToArray());
-            var bytearray = Encoding.UTF8.GetBytes(json);
-            myWebRequest.ContentLength = bytearray.Length;
-            myWebRequest.GetRequestStream().Write(bytearray, 0, bytearray.Length);
-
-            //response
-            var responsetype = new[] { typeof(GetPrivilegesResponse) };
-            var r = (HttpWebResponse)myWebRequest.GetResponse();
-            dataContractSeriliser = new DataContractJsonSerializer(typeof(Response), responsetype);
-            var result = dataContractSeriliser.ReadObject(r.GetResponseStream());
-            return result as GetPrivilegesResponse;
+            var options = new OidcClientOptions
+            {
+                Authority = _authority,
+                ClientId = _clientIdentifier,
+                RedirectUri = _redirectUri
+            };
+            var oidcClient = new OidcClient(options);
+            var result = await oidcClient.RefreshTokenAsync(_refreshToken);
+            if (result.IsError)
+            {
+                Message.Text += string.Format("{0} - Refresh Tokens error: {1}\n", DateTime.Now, result.Error);
+            }
+            else
+            {
+                _accessToken = result.AccessToken;
+                _refreshToken = result.RefreshToken;
+                Message.Text = string.Format("{0} - Refresh completed successfully\n", DateTime.Now);
+                Message.Text += string.Format("{0} - Identity token {1}\n Access token {2}\n"
+                    , DateTime.Now
+                    , JWTTokenHelper.ReadToken(_identityToken)
+                    , JWTTokenHelper.ReadToken(_accessToken));
+            }
         }
 
-        private string _getPrivileges(GetPrivilegesResponse response)
+        private void GetPrivileges(object sender, RoutedEventArgs e)
         {
-            var result = new StringBuilder();
-            result.AppendFormat("Attributes:{0}", Environment.NewLine);
-            if (response.Attributes.Any())
+            try
             {
-                foreach(var attribute in response.Attributes)
-                {
-                    result.AppendFormat("\t{0}: {1}{2}", attribute.Name, attribute.Value, Environment.NewLine);
-                }
+                var privileges = _sharedFrameworkReader.GetPrivileges( _accessToken);
+                Message.Text = string.Format("{0} - GetPrivileges ok {1}{2}"
+                    , DateTime.Now
+                    , Environment.NewLine
+                    , privileges.ToFormattedString());
             }
-            result.AppendFormat("Privileges:{0}", Environment.NewLine);
-            foreach (var privilege in response.Privileges)
+            catch (Exception ex)
             {
-                result.AppendFormat("\tPrivilege:{0}", Environment.NewLine);
-                result.AppendFormat("\t\tApplications:");
-                result.AppendFormat("{0}{1}"
-                    , string.Join(", ", privilege.Applications)
-                    , Environment.NewLine);
-
-                result.AppendFormat("\t\tGroupIds:");
-                result.AppendFormat("{0}{1}"
-                    , string.Join(", ", privilege.GroupIds)
-                    , Environment.NewLine);
-
-                result.AppendFormat("\t\tPrivileges: category:{0}, group:{1}, id:{2}, name:{3}, version:{4}{5}"
-                    ,  privilege.Privilege.Category
-                    , privilege.Privilege.Group
-                    , privilege.Privilege.Id
-                    , privilege.Privilege.Name
-                    , privilege.Privilege.Version
-                    , Environment.NewLine);
-
-                
+                Message.Text = string.Format("{0} - GetPrivileges error {1}{2}"
+                   , DateTime.Now
+                   , Environment.NewLine
+                   , ex.Message);
             }
-            return result.ToString();
+        }
+
+        private void GetSharedSettings(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var sharedSettings = _sharedFrameworkReader.GetSharedSettings(_accessToken);
+                Message.Text = string.Format("{0} - GetSharedSetting ok {1}{2}"
+                   , DateTime.Now
+                   , Environment.NewLine
+                   , sharedSettings.ToString());
+            }
+            catch (Exception ex)
+            {
+                Message.Text = string.Format("{0} - GetSharedSetting error {1}{2}"
+                   , DateTime.Now
+                   , Environment.NewLine
+                   , ex.Message);
+            }
+        }
+
+        private void GetDataSource(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dataSource = _sharedFrameworkReader.GetDataSource(_accessToken);
+                Message.Text = string.Format("{0} - GetDataSource ok {1}{2}"
+                   , DateTime.Now
+                   , Environment.NewLine
+                   , dataSource.ToString());
+            }
+            catch (Exception ex)
+            {
+                Message.Text = string.Format("{0} - GetDataSource error {1}{2}"
+                   , DateTime.Now
+                   , Environment.NewLine
+                   , ex.Message);
+            }
         }
 
     }

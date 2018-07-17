@@ -1,0 +1,76 @@
+﻿<Window x:Class="AppRoleSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AppRole Sample" Height="Auto" Width="525" ResizeMode="NoResize" SizeToContent="Height"
+        Background="#BBCED6">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border      Grid.Row="0" Background="#083963" />
+        <Image       Grid.Row="0" HorizontalAlignment="Stretch" Source="images/header.png"/>
+
+        <Line        Grid.Row="1" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <TextBlock   Grid.Row="1" HorizontalAlignment="Left" Margin="8,8,8,8" TextWrapping="WrapWithOverflow" FontSize="14"
+                Text="This sample application illustrates how connect to the Varian database." TextAlignment="Justify"/>
+
+        <Line        Grid.Row="2" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <StackPanel  Grid.Row="2">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="GetAppRoleSummaryDescription" Content="1. Get Application Role password" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Image x:Name="GetAppRolePasswordIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
+            </StackPanel>
+            <TextBlock x:Name="GetAppRoleDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" 
+                       Text="Get the encrypted Application Role password through a web request, providing the access token acquired from VAIS in the request header. Decrypt the password using the RSACryptoServiceProvider and the private key which was added to the machine keystore during the SF client or certificate installer."/>
+            <Button x:Name="GetAppRolePassword" Content="Go" Margin="0,0,8,8" Padding="4,0,4,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GetAppRolePassword_Clicked"/>
+        </StackPanel>
+
+        <Line        Grid.Row="3" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <StackPanel  Grid.Row="3">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="DBSummaryDescription" Content="2. Establish DB connection" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Image x:Name="DBConnectionIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
+            </StackPanel>
+            <TextBlock x:Name="DBDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" 
+                       Text="Open either an ODBC or ADO.Net database connection. The sample ADO.Net DAL utilizes connection pooling. Closing the connection will return it to the pool for later use."/>
+            <RadioButton x:Name="Closed" Content="Closed" Margin="24,2,0,0" VerticalAlignment="Top" GroupName="DAL" Checked="Closed_Clicked" IsChecked="True"/>
+            <RadioButton x:Name="ODBC" Content="ODBC" Margin="24,2,0,0" VerticalAlignment="Top" GroupName="DAL" Checked="ODBC_Clicked"/>
+            <RadioButton x:Name="ADO" Content="ADO.Net" Margin="24,2,0,8" VerticalAlignment="Top" GroupName="DAL" Checked="ADO_Clicked"/>
+        </StackPanel>
+
+        <Line        Grid.Row="4" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <StackPanel  Grid.Row="4">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="SetAppRoleSummaryDescription" Content="3. Set Application Role password" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Image x:Name="SetAppRolePasswordIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
+            </StackPanel>
+            <TextBlock x:Name="SetAppRoleDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" 
+                       Text="Set the application role using sp_setapprole (Transact-SQL). It is not necessary to set the application role twice on a pooled connection."/>
+            <Button Content="Go" Margin="0,0,8,8" Padding="4,0,4,0" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="SetAppRolePW" Click="SetAppRolePW_Clicked"/>
+        </StackPanel>
+
+        <Line        Grid.Row="5" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <StackPanel  Grid.Row="5">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="QuerySummaryDescription" Content="4. Query database" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Image x:Name="QueryDBIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
+            </StackPanel>
+            <TextBlock x:Name="QueryDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" 
+                       Text="Query the database. The application role defines the stored procedures, tables,."/>
+            <TextBox x:Name="QueryTxt" Height="27" Margin="24,2,8,8" TextWrapping="Wrap" Text="SELECT count(1) FROM ss_code_table" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Stretch"/>
+            <Button x:Name="Query" Content="Go" Margin="0,0,8,8" Padding="4,0,4,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Query_Clicked"/>
+        </StackPanel>
+
+        <TextBox     Grid.Row="6" x:Name="Status" Grid.ColumnSpan="2"  Height="155" Margin="8,8,8,8" TextWrapping="Wrap" Text=""/>
+    </Grid>
+</Window>
