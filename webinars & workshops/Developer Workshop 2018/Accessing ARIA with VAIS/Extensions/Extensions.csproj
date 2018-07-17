@@ -4,4 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="VMS.SF.Common">
+      <HintPath>..\..\..\..\..\..\..\..\..\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.SF.Infrastructure.Contracts">
+      <HintPath>..\..\..\..\..\..\..\..\..\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Infrastructure.Contracts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

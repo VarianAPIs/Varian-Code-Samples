@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 using Helpers;
 using SampleDAL;
 
@@ -34,11 +35,15 @@ namespace AppRoleSample
             }
         }
 
+        private SharedFrameworkReader _sharedFrameworkReader;
+
         public AppRoleSampleManager(AppRoleHelper appRoleHelper)
         {
             _AppRoleHelper = appRoleHelper;
             IsAppRoleRetrieved = false;
             IsAppRoleSet = false;
+
+            _sharedFrameworkReader = new SharedFrameworkReader(appRoleHelper.GatewayTokenUri);
         }
 
         public bool GetAppRolePassword(string accessToken, out string status)
@@ -80,7 +85,7 @@ namespace AppRoleSample
             }
         }
 
-        public bool ConnectADONet(out string status)
+        public bool ConnectADONet(string accessToken, out string status)
         {
             CloseDBConnection(out status);
 
@@ -89,10 +94,12 @@ namespace AppRoleSample
                 ConnectionParameters connectionParameters = new ConnectionParameters();
                 connectionParameters.AppRoleName = ConnectivitySettings.AppRole;
                 connectionParameters.AppRolePassword = CachedAppRolePassword;
-                connectionParameters.Server = ConnectivitySettings.Server;
-                connectionParameters.Database = ConnectivitySettings.Database;
-                connectionParameters.Port = Int32.Parse(ConnectivitySettings.Port);
                 connectionParameters.UseSSL = true;
+
+                var dataSource = _sharedFrameworkReader.GetDataSource(accessToken);
+                connectionParameters.Server = dataSource.Database.Hostname;
+                connectionParameters.Database = dataSource.Database.Databasename;
+                connectionParameters.Port = Int32.Parse(dataSource.Database.Portnumber);
 
                 DAL = DAL_ADOnet.Instance(connectionParameters);
                 status = DAL.Connect();
@@ -162,5 +169,7 @@ namespace AppRoleSample
             status = "Unhandled exception: " + e.Message +
                      "\nInner exception: " + (e.InnerException == null ? "null" : e.InnerException.Message);
         }
+
+
     }
 }

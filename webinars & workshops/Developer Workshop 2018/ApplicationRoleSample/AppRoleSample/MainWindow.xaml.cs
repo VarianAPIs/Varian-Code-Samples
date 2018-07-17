@@ -110,7 +110,7 @@ namespace AppRoleSample
         private void ADO_Clicked(object sender, RoutedEventArgs e)
         {
             string status;
-            bool isADOConnectionOpen = _appRoleManager.ConnectADONet(out status);
+            bool isADOConnectionOpen = _appRoleManager.ConnectADONet(_accessToken, out status);
 
             Status.Text = status;
 

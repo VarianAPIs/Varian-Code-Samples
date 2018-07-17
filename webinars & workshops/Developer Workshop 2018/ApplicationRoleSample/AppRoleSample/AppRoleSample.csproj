@@ -146,6 +146,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{c5e9fbf6-fe12-4cd1-a5e9-39825ea92b5b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{1e147613-9537-467e-ad32-34e1097e3972}</Project>
       <Name>Helpers</Name>
