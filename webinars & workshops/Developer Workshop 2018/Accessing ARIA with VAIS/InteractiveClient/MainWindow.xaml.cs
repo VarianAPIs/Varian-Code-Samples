@@ -99,17 +99,25 @@ namespace InteractiveClient
 
         private void GetPrivileges(object sender, RoutedEventArgs e)
         {
+            if (JWTTokenHelper.IsTokenExpired(_accessToken))
+            {
+                Message.Text = string.Format("{0} - Get Privileges error {1} No security tokens acquired ot tokens expired!"
+                   , DateTime.Now
+                   , Environment.NewLine);
+                return;
+            }
+
             try
             {
                 var privileges = _sharedFrameworkReader.GetPrivileges( _accessToken);
-                Message.Text = string.Format("{0} - GetPrivileges ok {1}{2}"
+                Message.Text = string.Format("{0} - Get Privileges ok {1}{2}"
                     , DateTime.Now
                     , Environment.NewLine
                     , privileges.ToFormattedString());
             }
             catch (Exception ex)
             {
-                Message.Text = string.Format("{0} - GetPrivileges error {1}{2}"
+                Message.Text = string.Format("{0} - Get Privileges error {1}{2}"
                    , DateTime.Now
                    , Environment.NewLine
                    , ex.Message);
@@ -118,17 +126,25 @@ namespace InteractiveClient
 
         private void GetSharedSettings(object sender, RoutedEventArgs e)
         {
+            if (JWTTokenHelper.IsTokenExpired(_accessToken))
+            {
+                Message.Text = string.Format("{0} - Get Shared Settings error {1} No security tokens acquired ot tokens expired!"
+                   , DateTime.Now
+                   , Environment.NewLine);
+                return;
+            }
+
             try
             {
                 var sharedSettings = _sharedFrameworkReader.GetSharedSettings(_accessToken);
-                Message.Text = string.Format("{0} - GetSharedSetting ok {1}{2}"
+                Message.Text = string.Format("{0} - Get Shared Settings ok {1}{2}"
                    , DateTime.Now
                    , Environment.NewLine
                    , sharedSettings.ToString());
             }
             catch (Exception ex)
             {
-                Message.Text = string.Format("{0} - GetSharedSetting error {1}{2}"
+                Message.Text = string.Format("{0} - Get Shared Setting error {1}{2}"
                    , DateTime.Now
                    , Environment.NewLine
                    , ex.Message);
@@ -137,17 +153,25 @@ namespace InteractiveClient
 
         private void GetDataSource(object sender, RoutedEventArgs e)
         {
+            if (JWTTokenHelper.IsTokenExpired(_accessToken))
+            {
+                Message.Text = string.Format("{0} - Get Data Source error {1} No security tokens acquired or security tokens expired!"
+                   , DateTime.Now
+                   , Environment.NewLine);
+                return;
+            }
+
             try
             {
                 var dataSource = _sharedFrameworkReader.GetDataSource(_accessToken);
-                Message.Text = string.Format("{0} - GetDataSource ok {1}{2}"
+                Message.Text = string.Format("{0} - Get Data Source ok {1}{2}"
                    , DateTime.Now
                    , Environment.NewLine
                    , dataSource.ToString());
             }
             catch (Exception ex)
             {
-                Message.Text = string.Format("{0} - GetDataSource error {1}{2}"
+                Message.Text = string.Format("{0} - Get Data Source error {1}{2}"
                    , DateTime.Now
                    , Environment.NewLine
                    , ex.Message);
