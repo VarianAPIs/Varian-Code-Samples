@@ -55,14 +55,17 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="VMS.SF.Common">
-      <HintPath>..\..\..\..\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Common.dll</HintPath>
+    <Reference Include="VMS.SF.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=269c551a9712e7cc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Varian\ProductLine\SharedFramework\Server\Gateway\bin\VMS.SF.Common.dll</HintPath>
     </Reference>
-    <Reference Include="VMS.SF.Gateway.Contracts">
-      <HintPath>..\..\..\..\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Gateway.Contracts.dll</HintPath>
+    <Reference Include="VMS.SF.Gateway.Contracts, Version=1.0.6.0, Culture=neutral, PublicKeyToken=269c551a9712e7cc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Varian\ProductLine\SharedFramework\Server\Gateway\bin\VMS.SF.Gateway.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="VMS.SF.Infrastructure.Contracts">
-      <HintPath>..\..\..\..\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Infrastructure.Contracts.dll</HintPath>
+    <Reference Include="VMS.SF.Infrastructure.Contracts, Version=1.0.9.0, Culture=neutral, PublicKeyToken=269c551a9712e7cc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Varian\ProductLine\SharedFramework\Server\Gateway\bin\VMS.SF.Infrastructure.Contracts.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
