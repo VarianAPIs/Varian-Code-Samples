@@ -6,10 +6,10 @@
 
   <ItemGroup>
     <Reference Include="VMS.SF.Common">
-      <HintPath>..\..\..\..\..\..\..\..\..\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Common.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Varian\ProductLine\SharedFramework\Client\SfTools\VMS.SF.Common.dll</HintPath>
     </Reference>
     <Reference Include="VMS.SF.Infrastructure.Contracts">
-      <HintPath>..\..\..\..\..\..\..\..\..\SFv15.STS.Server_InfrastructureContracts.REL_20180406.001\VMS.SF.Infrastructure.Contracts.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Varian\ProductLine\SharedFramework\Client\SfTools\VMS.SF.Infrastructure.Contracts.dll</HintPath>
     </Reference>
   </ItemGroup>
 
