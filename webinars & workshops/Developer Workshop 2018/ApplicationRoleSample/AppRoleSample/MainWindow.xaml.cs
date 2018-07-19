@@ -15,7 +15,6 @@ namespace AppRoleSample
         private readonly AppRoleSampleManager _appRoleManager;
 
         private static string _accessToken;
-        private static string _refreshToken;
 
         public MainWindow()
         {
@@ -24,7 +23,6 @@ namespace AppRoleSample
             ConnectivitySettings.Server = ConfigurationManager.AppSettings.Get("server");
             ConnectivitySettings.Port = ConfigurationManager.AppSettings.Get("port");
             ConnectivitySettings.Database = ConfigurationManager.AppSettings.Get("database");
-            ConnectivitySettings.AppRole = ConfigurationManager.AppSettings.Get("approle");
             ConnectivitySettings.GatewayRestApi = ConfigurationManager.AppSettings.Get("gatewayrestapi");
             ConnectivitySettings.GatewaySoapApi = ConfigurationManager.AppSettings.Get("gatewayrestapi");
             ConnectivitySettings.DSNName = ConfigurationManager.AppSettings.Get("dsnname");
@@ -39,10 +37,9 @@ namespace AppRoleSample
             _appRoleManager = new AppRoleSampleManager(appRoleHelper);
 
             SetInitialControlState();
-            Loaded += RequestTokenAsync;
         }
 
-        private void RequestTokenAsync(object sender, RoutedEventArgs e)
+        private void Authenticate_Clicked(object sender, RoutedEventArgs e)
         {
             var disco = DiscoveryClient.GetAsync(ConnectivitySettings.Authority).Result;
             if (disco.IsError)
@@ -53,11 +50,29 @@ namespace AppRoleSample
             var client = new TokenClient(disco.TokenEndpoint, ConnectivitySettings.ClientIdentifier, ConnectivitySettings.ClientSecret);
             var tokens = client.RequestClientCredentialsAsync(ConnectivitySettings.Scope).Result;
             _accessToken = tokens.AccessToken;
-            _refreshToken = tokens.RefreshToken;
+
+            Status.Text = string.Format("Access Token: \n{0}", JsonHelper.FormatJson(JWTTokenHelper.ReadToken(_accessToken)));
+
+            if (string.IsNullOrEmpty(_accessToken))
+            {
+                SetWorkflowIndicator(Workflow.WorkflowState.Authenticate, Visibility.Visible, false);
+            }
+            else
+            {
+                EnableGetAppRolePasswordControls();
+                SetWorkflowIndicator(Workflow.WorkflowState.Authenticate, Visibility.Visible, true);
+            }
         }
 
         private void GetAppRolePassword_Clicked(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(AppRoleName.Text))
+            {
+                Status.Text = "No AppRole name specified. Please specify an AppRole name before proceeding.";
+                return;
+            }
+
+            ConnectivitySettings.AppRole = AppRoleName.Text;
             string details;
 
             bool appRoleRetreived = _appRoleManager.GetAppRolePassword(_accessToken, out details);
@@ -149,6 +164,7 @@ namespace AppRoleSample
 
         private void SetInitialControlState()
         {
+            DisableGetAppRolePasswordControls();
             DisableDALControls();
             DisableSetAppRolePasswordControls();
             DisableQueryControls();
@@ -202,6 +218,20 @@ namespace AppRoleSample
             ADO.IsEnabled = true;
         }
 
+        private void DisableGetAppRolePasswordControls()
+        {
+            GetAppRoleSummaryDescription.IsEnabled = false;
+            GetAppRoleDetailedDescription.IsEnabled = false;
+            GetAppRolePassword.IsEnabled = false;
+        }
+
+        private void EnableGetAppRolePasswordControls()
+        {
+            GetAppRoleSummaryDescription.IsEnabled = true;
+            GetAppRoleDetailedDescription.IsEnabled = true;
+            GetAppRolePassword.IsEnabled = true;
+        }
+
         private void SetWorkflowIndicator(Workflow.WorkflowState state, Visibility visibility, bool success=true)
         {
             ImageSource source;
@@ -216,6 +246,11 @@ namespace AppRoleSample
 
             switch (state)
             {
+                case Workflow.WorkflowState.Authenticate:
+                    AuthenticateIndicator.Visibility = visibility;
+                    AuthenticateIndicator.Source = source;
+                    break;
+
                 case Workflow.WorkflowState.GetApplicationRole:
                     GetAppRolePasswordIndicator.Visibility = visibility;
                     GetAppRolePasswordIndicator.Source = source;

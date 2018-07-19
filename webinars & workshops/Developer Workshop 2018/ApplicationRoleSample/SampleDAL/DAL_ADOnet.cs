@@ -24,7 +24,7 @@ namespace SampleDAL
             }
             
             return _singleton;
-        }
+        } 
 
         public Boolean IsAppRoleSet { get; private set; }
 
