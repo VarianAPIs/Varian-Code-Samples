@@ -12,6 +12,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -22,23 +23,35 @@
 
         <Line        Grid.Row="1" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
         <TextBlock   Grid.Row="1" HorizontalAlignment="Left" Margin="8,8,8,8" TextWrapping="WrapWithOverflow" FontSize="14"
-                Text="This sample application illustrates how connect to the Varian database." TextAlignment="Justify"/>
+                Text="This sample application illustrates how connect to the Varian database. The AppRole secret is retrieved using VAIS tokens (trusted client)" TextAlignment="Justify"/>
 
         <Line        Grid.Row="2" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
         <StackPanel  Grid.Row="2">
             <StackPanel Orientation="Horizontal">
-                <Label x:Name="GetAppRoleSummaryDescription" Content="1. Get Application Role password" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
-                <Image x:Name="GetAppRolePasswordIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
+                <Label x:Name="AuthenticateSummaryDescription" Content="1. Authenticate (truested client)" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Image x:Name="AuthenticateIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
             </StackPanel>
-            <TextBlock x:Name="GetAppRoleDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" 
-                       Text="Get the encrypted Application Role password through a web request, providing the access token acquired from VAIS in the request header. Decrypt the password using the RSACryptoServiceProvider and the private key which was added to the machine keystore during the SF client or certificate installer."/>
-            <Button x:Name="GetAppRolePassword" Content="Go" Margin="0,0,8,8" Padding="4,0,4,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GetAppRolePassword_Clicked"/>
+            <TextBlock x:Name="AuthenticateDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" 
+                       Text="Request a security token to VAIS. For trusted clients, only an access token is returned as there is no interactive user identity. When the access token expires, a new access token can be requested with the same flow."/>
+            <Button x:Name="Authenticate" Content="Go" Margin="0,0,8,8" Padding="4,0,4,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Authenticate_Clicked"/>
         </StackPanel>
 
         <Line        Grid.Row="3" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
         <StackPanel  Grid.Row="3">
             <StackPanel Orientation="Horizontal">
-                <Label x:Name="DBSummaryDescription" Content="2. Establish DB connection" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Label x:Name="GetAppRoleSummaryDescription" Content="2. Get Application Role password" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Image x:Name="GetAppRolePasswordIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
+            </StackPanel>
+            <TextBlock x:Name="GetAppRoleDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" 
+                       Text="Get the encrypted Application Role password through a web request, providing the access token acquired from VAIS in the request header. Decrypt the password using the RSACryptoServiceProvider and the private key which was added to the machine keystore during the SF client or certificate installer. &#x0a;&#x0a; Set the AppRole name in the text box below:"/>
+            <TextBox x:Name="AppRoleName" Height="27" Margin="24,2,8,8" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Stretch"/>
+            <Button x:Name="GetAppRolePassword" Content="Go" Margin="0,0,8,8" Padding="4,0,4,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="GetAppRolePassword_Clicked"/>
+        </StackPanel>
+
+        <Line        Grid.Row="4" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <StackPanel  Grid.Row="4">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="DBSummaryDescription" Content="3. Establish DB connection" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
                 <Image x:Name="DBConnectionIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
             </StackPanel>
             <TextBlock x:Name="DBDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" 
@@ -48,10 +61,10 @@
             <RadioButton x:Name="ADO" Content="ADO.Net" Margin="24,2,0,8" VerticalAlignment="Top" GroupName="DAL" Checked="ADO_Clicked"/>
         </StackPanel>
 
-        <Line        Grid.Row="4" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
-        <StackPanel  Grid.Row="4">
+        <Line        Grid.Row="5" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <StackPanel  Grid.Row="5">
             <StackPanel Orientation="Horizontal">
-                <Label x:Name="SetAppRoleSummaryDescription" Content="3. Set Application Role password" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Label x:Name="SetAppRoleSummaryDescription" Content="4. Set Application Role password" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
                 <Image x:Name="SetAppRolePasswordIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
             </StackPanel>
             <TextBlock x:Name="SetAppRoleDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" 
@@ -59,10 +72,10 @@
             <Button Content="Go" Margin="0,0,8,8" Padding="4,0,4,0" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="SetAppRolePW" Click="SetAppRolePW_Clicked"/>
         </StackPanel>
 
-        <Line        Grid.Row="5" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
-        <StackPanel  Grid.Row="5">
+        <Line        Grid.Row="6" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <StackPanel  Grid.Row="6">
             <StackPanel Orientation="Horizontal">
-                <Label x:Name="QuerySummaryDescription" Content="4. Query database" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Label x:Name="QuerySummaryDescription" Content="5. Query database" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
                 <Image x:Name="QueryDBIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
             </StackPanel>
             <TextBlock x:Name="QueryDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" 
@@ -71,6 +84,6 @@
             <Button x:Name="Query" Content="Go" Margin="0,0,8,8" Padding="4,0,4,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Query_Clicked"/>
         </StackPanel>
 
-        <TextBox     Grid.Row="6" x:Name="Status" Grid.ColumnSpan="2"  Height="155" Margin="8,8,8,8" TextWrapping="Wrap" Text=""/>
+        <TextBox     Grid.Row="7" x:Name="Status" Grid.ColumnSpan="2"  Height="155" Margin="8,8,8,8" TextWrapping="Wrap" Text=""/>
     </Grid>
 </Window>

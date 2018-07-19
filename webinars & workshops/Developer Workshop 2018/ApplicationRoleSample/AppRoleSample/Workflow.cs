@@ -4,6 +4,7 @@
     {
         public enum WorkflowState
         {
+            Authenticate,
             GetApplicationRole,
             CreateDatabaseConnection,
             SetApplicationRole,

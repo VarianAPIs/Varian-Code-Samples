@@ -53,7 +53,7 @@ namespace AppRoleSample
             try
             {
                 CachedAppRolePassword = _AppRoleHelper.GetAppRolePassword(ConnectivitySettings.AppRole, accessToken);
-                status = "Retrieved password for application role: " + ConnectivitySettings.AppRole;
+                status = "Retrieved password for Application role: " + ConnectivitySettings.AppRole;
                 return IsAppRoleRetrieved = true;
             }
             catch (Exception e)
@@ -103,6 +103,10 @@ namespace AppRoleSample
 
                 DAL = DAL_ADOnet.Instance(connectionParameters);
                 status = DAL.Connect();
+                status += "DataSource retrieved from Shared Framework Server settings: ";
+                status += "\n\t Server: " + connectionParameters.Server;
+                status += "\n\t Database name: " + connectionParameters.Database;
+                status += "\n\t Port: " + connectionParameters.Port;
                 return Connected = true;
             }
             catch (Exception e)
