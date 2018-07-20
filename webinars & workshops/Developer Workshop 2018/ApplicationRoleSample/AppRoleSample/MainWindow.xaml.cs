@@ -275,5 +275,9 @@ namespace AppRoleSample
 
         #endregion ViewModel
 
+        private void QueryTxt_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
     }
 }

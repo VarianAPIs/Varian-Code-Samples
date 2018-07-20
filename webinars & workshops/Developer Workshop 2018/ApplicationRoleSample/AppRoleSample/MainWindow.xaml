@@ -28,7 +28,7 @@
         <Line        Grid.Row="2" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
         <StackPanel  Grid.Row="2">
             <StackPanel Orientation="Horizontal">
-                <Label x:Name="AuthenticateSummaryDescription" Content="1. Authenticate (truested client)" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
+                <Label x:Name="AuthenticateSummaryDescription" Content="1. Authenticate (trusted client)" Margin="8,8,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left"/>
                 <Image x:Name="AuthenticateIndicator" HorizontalAlignment="Left" Source="images/ok.png" Visibility="Hidden"/>
             </StackPanel>
             <TextBlock x:Name="AuthenticateDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" 
@@ -80,7 +80,7 @@
             </StackPanel>
             <TextBlock x:Name="QueryDetailedDescription" Margin="24,0,8,8" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" 
                        Text="Query the database. The application role defines the stored procedures, tables,."/>
-            <TextBox x:Name="QueryTxt" Height="27" Margin="24,2,8,8" TextWrapping="Wrap" Text="SELECT count(1) FROM ss_code_table" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Stretch"/>
+            <TextBox x:Name="QueryTxt" Height="27" Margin="24,2,8,8" TextWrapping="Wrap" Text="SELECT count(1) FROM vv_PatientStatus" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Stretch" TextChanged="QueryTxt_TextChanged"/>
             <Button x:Name="Query" Content="Go" Margin="0,0,8,8" Padding="4,0,4,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Query_Clicked"/>
         </StackPanel>
 
