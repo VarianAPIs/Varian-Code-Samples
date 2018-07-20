@@ -1,4 +1,5 @@
-﻿using IdentityModel.OidcClient;
+﻿using Hl7.Fhir.Serialization;
+using IdentityModel.OidcClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,7 @@ namespace DevWorkshop2018AriaAcess
         private string _clientIdentifier;
         private string _scope;
         private string _gatewayTokenUri;
+        private string _fhirServerUrl;
 
         static string _accessToken;
         static string _identityToken;
@@ -35,6 +37,7 @@ namespace DevWorkshop2018AriaAcess
             _clientIdentifier = ConfigurationManager.AppSettings["ClientIdentifier"];
             _scope = ConfigurationManager.AppSettings["Scope"];
             _gatewayTokenUri = ConfigurationManager.AppSettings["GatewayTokenUri"];
+            _fhirServerUrl = ConfigurationManager.AppSettings["FhirServerUrl"];
 
             Load += Authenticate;
             
@@ -94,11 +97,12 @@ namespace DevWorkshop2018AriaAcess
 
         private void btnSearchAppointment_Click(object sender, EventArgs e)
         {
-            String machineId = txtMachineId.Text.ToString().TrimEnd();
-            String deaprtmentName = "Oncology11";
-            String hospitalName = "AA_Hospital_1";
             
-            txtApptResponse.Text = processSearchAppointmentRequest( machineId, hospitalName,  deaprtmentName, _accessToken, _gatewayTokenUri);
+            String hospital = txtHospital.Text.ToString().Trim();
+            String department = txtDepartment.Text.ToString().Trim();
+            String machineId = txtMachineId.Text.ToString().Trim();
+
+            txtApptResponse.Text = processSearchAppointmentRequest(machineId, hospital,  department, _accessToken, _gatewayTokenUri);
         }
 
         private string processSearchAppointmentRequest(string machineId, string hospitalName, string departmentname, string token, string url)
@@ -204,5 +208,32 @@ namespace DevWorkshop2018AriaAcess
             }
         }
 
+        private void btnfhirSearchPatient_Click(object sender, EventArgs e)
+        {
+            String strLastName = txtLastName.Text.ToString().TrimEnd();
+            String strFirstName = txtFirstName.Text.ToString().TrimEnd();
+
+            Hl7.Fhir.Rest.FhirClient client = new Hl7.Fhir.Rest.FhirClient(_fhirServerUrl);
+            client.OnBeforeRequest += Client_OnBeforeRequest;
+            client.PreferredFormat = Hl7.Fhir.Rest.ResourceFormat.Json;
+
+            List<string> paramsList = new List<string>();
+
+            if (string.IsNullOrEmpty(strLastName) == false)
+                paramsList.Add("family=" + strLastName);
+
+            if (string.IsNullOrEmpty(strFirstName) == false)
+                paramsList.Add("given=" + strFirstName);
+
+
+            var bundle = client.Search<Hl7.Fhir.Model.Patient>(paramsList.ToArray());
+
+            txtPatientResponse.Text = new FhirJsonSerializer().SerializeToString(bundle);
+        }
+
+        private void Client_OnBeforeRequest(object sender, Hl7.Fhir.Rest.BeforeRequestEventArgs e)
+        {
+            e.RawRequest.Headers.Add("Authorization", "Bearer " + _accessToken);
+        }
     }
 }

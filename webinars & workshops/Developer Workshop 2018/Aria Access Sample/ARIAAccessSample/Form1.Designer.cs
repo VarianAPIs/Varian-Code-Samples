@@ -36,15 +36,16 @@
             this.lblCreatePatient = new System.Windows.Forms.Label();
             this.lblCreateAppointment = new System.Windows.Forms.Label();
             this.SearchPatient = new System.Windows.Forms.Panel();
+            this.btnfhirSearchPatient = new System.Windows.Forms.Button();
             this.lbFirstName = new System.Windows.Forms.Label();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.lblLastName = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtApptResponse = new System.Windows.Forms.RichTextBox();
             this.btnSearchAppointment = new System.Windows.Forms.Button();
-            this.lblMachineId = new System.Windows.Forms.Label();
-            this.txtMachineId = new System.Windows.Forms.TextBox();
+            this.lblHospital = new System.Windows.Forms.Label();
+            this.txtHospital = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.lblSearchAppt = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -58,6 +59,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAccessToken = new System.Windows.Forms.TextBox();
+            this.txtDepartment = new System.Windows.Forms.TextBox();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.txtMachineId = new System.Windows.Forms.TextBox();
+            this.lblMachineId = new System.Windows.Forms.Label();
             this.SearchPatient.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,7 +72,7 @@
             // btnSearchPatient
             // 
             this.btnSearchPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchPatient.Location = new System.Drawing.Point(252, 17);
+            this.btnSearchPatient.Location = new System.Drawing.Point(226, 14);
             this.btnSearchPatient.Name = "btnSearchPatient";
             this.btnSearchPatient.Size = new System.Drawing.Size(128, 39);
             this.btnSearchPatient.TabIndex = 0;
@@ -112,7 +117,7 @@
             this.txtCreatePatientFilePath.Name = "txtCreatePatientFilePath";
             this.txtCreatePatientFilePath.Size = new System.Drawing.Size(428, 38);
             this.txtCreatePatientFilePath.TabIndex = 13;
-            this.txtCreatePatientFilePath.Text = "C:\\Users\\fbw3100\\Projects\\ARIA Access sample project\\Requests\\createpatient.json";
+            this.txtCreatePatientFilePath.Text = "C:\\Requests\\createpatient.json";
             this.txtCreatePatientFilePath.TextChanged += new System.EventHandler(this.txtCreatePatientFilePath_TextChanged);
             // 
             // lblCreatePatient
@@ -135,16 +140,28 @@
             // 
             // SearchPatient
             // 
+            this.SearchPatient.Controls.Add(this.btnfhirSearchPatient);
             this.SearchPatient.Controls.Add(this.lbFirstName);
-            this.SearchPatient.Controls.Add(this.txtLastName);
-            this.SearchPatient.Controls.Add(this.lblLastName);
             this.SearchPatient.Controls.Add(this.txtFirstName);
+            this.SearchPatient.Controls.Add(this.lblLastName);
+            this.SearchPatient.Controls.Add(this.txtLastName);
             this.SearchPatient.Controls.Add(this.btnSearchPatient);
             this.SearchPatient.Controls.Add(this.txtPatientResponse);
             this.SearchPatient.Location = new System.Drawing.Point(26, 26);
             this.SearchPatient.Name = "SearchPatient";
-            this.SearchPatient.Size = new System.Drawing.Size(450, 421);
+            this.SearchPatient.Size = new System.Drawing.Size(516, 421);
             this.SearchPatient.TabIndex = 17;
+            // 
+            // btnfhirSearchPatient
+            // 
+            this.btnfhirSearchPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfhirSearchPatient.Location = new System.Drawing.Point(370, 17);
+            this.btnfhirSearchPatient.Name = "btnfhirSearchPatient";
+            this.btnfhirSearchPatient.Size = new System.Drawing.Size(128, 39);
+            this.btnfhirSearchPatient.TabIndex = 13;
+            this.btnfhirSearchPatient.Text = "FHIR Search Patient";
+            this.btnfhirSearchPatient.UseVisualStyleBackColor = true;
+            this.btnfhirSearchPatient.Click += new System.EventHandler(this.btnfhirSearchPatient_Click);
             // 
             // lbFirstName
             // 
@@ -155,12 +172,12 @@
             this.lbFirstName.TabIndex = 12;
             this.lbFirstName.Text = "FirstName";
             // 
-            // txtLastName
+            // txtFirstName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(96, 50);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(124, 20);
-            this.txtLastName.TabIndex = 11;
+            this.txtFirstName.Location = new System.Drawing.Point(96, 50);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(124, 20);
+            this.txtFirstName.TabIndex = 11;
             // 
             // lblLastName
             // 
@@ -171,19 +188,23 @@
             this.lblLastName.TabIndex = 10;
             this.lblLastName.Text = "LastName";
             // 
-            // txtFirstName
+            // txtLastName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(96, 14);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(124, 20);
-            this.txtFirstName.TabIndex = 9;
+            this.txtLastName.Location = new System.Drawing.Point(96, 14);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(124, 20);
+            this.txtLastName.TabIndex = 9;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtApptResponse);
-            this.panel1.Controls.Add(this.btnSearchAppointment);
             this.panel1.Controls.Add(this.lblMachineId);
             this.panel1.Controls.Add(this.txtMachineId);
+            this.panel1.Controls.Add(this.lblDepartment);
+            this.panel1.Controls.Add(this.txtDepartment);
+            this.panel1.Controls.Add(this.txtApptResponse);
+            this.panel1.Controls.Add(this.btnSearchAppointment);
+            this.panel1.Controls.Add(this.lblHospital);
+            this.panel1.Controls.Add(this.txtHospital);
             this.panel1.Location = new System.Drawing.Point(579, 26);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(415, 421);
@@ -191,9 +212,9 @@
             // 
             // txtApptResponse
             // 
-            this.txtApptResponse.Location = new System.Drawing.Point(16, 79);
+            this.txtApptResponse.Location = new System.Drawing.Point(16, 105);
             this.txtApptResponse.Name = "txtApptResponse";
-            this.txtApptResponse.Size = new System.Drawing.Size(386, 319);
+            this.txtApptResponse.Size = new System.Drawing.Size(386, 293);
             this.txtApptResponse.TabIndex = 15;
             this.txtApptResponse.Text = "";
             // 
@@ -208,22 +229,23 @@
             this.btnSearchAppointment.UseVisualStyleBackColor = true;
             this.btnSearchAppointment.Click += new System.EventHandler(this.btnSearchAppointment_Click);
             // 
-            // lblMachineId
+            // lblHospital
             // 
-            this.lblMachineId.AutoSize = true;
-            this.lblMachineId.Location = new System.Drawing.Point(3, 14);
-            this.lblMachineId.Name = "lblMachineId";
-            this.lblMachineId.Size = new System.Drawing.Size(60, 13);
-            this.lblMachineId.TabIndex = 13;
-            this.lblMachineId.Text = "Machine Id";
-            this.lblMachineId.Click += new System.EventHandler(this.lblMachineId_Click);
+            this.lblHospital.AutoSize = true;
+            this.lblHospital.Location = new System.Drawing.Point(3, 14);
+            this.lblHospital.Name = "lblHospital";
+            this.lblHospital.Size = new System.Drawing.Size(45, 13);
+            this.lblHospital.TabIndex = 13;
+            this.lblHospital.Text = "Hospital";
+            this.lblHospital.Click += new System.EventHandler(this.lblMachineId_Click);
             // 
-            // txtMachineId
+            // txtHospital
             // 
-            this.txtMachineId.Location = new System.Drawing.Point(81, 14);
-            this.txtMachineId.Name = "txtMachineId";
-            this.txtMachineId.Size = new System.Drawing.Size(129, 20);
-            this.txtMachineId.TabIndex = 12;
+            this.txtHospital.Location = new System.Drawing.Point(81, 14);
+            this.txtHospital.Name = "txtHospital";
+            this.txtHospital.Size = new System.Drawing.Size(129, 20);
+            this.txtHospital.TabIndex = 12;
+            this.txtHospital.Text = "Varian";
             // 
             // lblSearch
             // 
@@ -282,8 +304,7 @@
             this.txtCreateApptFilePath.Name = "txtCreateApptFilePath";
             this.txtCreateApptFilePath.Size = new System.Drawing.Size(393, 41);
             this.txtCreateApptFilePath.TabIndex = 18;
-            this.txtCreateApptFilePath.Text = "C:\\Users\\fbw3100\\Projects\\ARIA Access sample project\\Requests\\createAppointment.j" +
-    "son";
+            this.txtCreateApptFilePath.Text = "C:\\Requests\\createAppointment.json";
             this.txtCreateApptFilePath.TextChanged += new System.EventHandler(this.txtCreateApptFilePath_TextChanged);
             // 
             // txtCreateApptResp
@@ -354,6 +375,40 @@
             this.txtAccessToken.Size = new System.Drawing.Size(386, 121);
             this.txtAccessToken.TabIndex = 27;
             // 
+            // txtDepartment
+            // 
+            this.txtDepartment.Location = new System.Drawing.Point(81, 40);
+            this.txtDepartment.Name = "txtDepartment";
+            this.txtDepartment.Size = new System.Drawing.Size(129, 20);
+            this.txtDepartment.TabIndex = 16;
+            this.txtDepartment.Text = "Developers";
+            // 
+            // lblDepartment
+            // 
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Location = new System.Drawing.Point(3, 40);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(62, 13);
+            this.lblDepartment.TabIndex = 17;
+            this.lblDepartment.Text = "Department";
+            // 
+            // txtMachineId
+            // 
+            this.txtMachineId.Location = new System.Drawing.Point(81, 66);
+            this.txtMachineId.Name = "txtMachineId";
+            this.txtMachineId.Size = new System.Drawing.Size(129, 20);
+            this.txtMachineId.TabIndex = 18;
+            this.txtMachineId.Text = "Def_CTScanner";
+            // 
+            // lblMachineId
+            // 
+            this.lblMachineId.AutoSize = true;
+            this.lblMachineId.Location = new System.Drawing.Point(3, 66);
+            this.lblMachineId.Name = "lblMachineId";
+            this.lblMachineId.Size = new System.Drawing.Size(60, 13);
+            this.lblMachineId.TabIndex = 19;
+            this.lblMachineId.Text = "Machine Id";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,14 +452,14 @@
         private System.Windows.Forms.Label lblCreateAppointment;
         private System.Windows.Forms.Panel SearchPatient;
         private System.Windows.Forms.Label lbFirstName;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox txtApptResponse;
         private System.Windows.Forms.Button btnSearchAppointment;
-        private System.Windows.Forms.Label lblMachineId;
-        private System.Windows.Forms.TextBox txtMachineId;
+        private System.Windows.Forms.Label lblHospital;
+        private System.Windows.Forms.TextBox txtHospital;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Label lblSearchAppt;
         private System.Windows.Forms.Panel panel2;
@@ -418,6 +473,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAccessToken;
+        private System.Windows.Forms.Button btnfhirSearchPatient;
+        private System.Windows.Forms.Label lblMachineId;
+        private System.Windows.Forms.TextBox txtMachineId;
+        private System.Windows.Forms.Label lblDepartment;
+        private System.Windows.Forms.TextBox txtDepartment;
     }
 }
 
