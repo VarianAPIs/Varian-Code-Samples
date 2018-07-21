@@ -1,0 +1,2 @@
+ string name = context.Patient.Name;
+ MessageBox.Show(name);

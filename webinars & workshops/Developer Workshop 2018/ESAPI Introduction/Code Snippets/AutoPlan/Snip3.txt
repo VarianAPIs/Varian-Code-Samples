@@ -1,0 +1,6 @@
+           //create a new plan.
+            Course c_auto = p.AddCourse();
+            c_auto.Id = "Course_Auto";
+            ExternalPlanSetup plan = c_auto.AddExternalPlanSetup(context.StructureSet);
+            plan.Id = "Plan_Auto";
+ 

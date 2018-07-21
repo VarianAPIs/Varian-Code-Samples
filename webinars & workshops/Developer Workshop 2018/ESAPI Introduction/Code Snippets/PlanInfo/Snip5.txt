@@ -1,0 +1,29 @@
+
+            //find the target volume of the plan.
+            Structure target = ps.StructureSet.Structures.Single(o => o.Id == ps.TargetVolumeID);
+            //D95 of the target volume
+            msg += "Custom Dose Metrics\n";
+            DoseValue d95 = ps.GetDoseAtVolume(target, 
+                95, 
+                VolumePresentation.Relative, 
+                DoseValuePresentation.Absolute);
+            msg += String.Format("\t{0}: D95 = {1}\n", target.Id, d95);
+            //D2 of the target volume
+            DoseValue d2 = ps.GetDoseAtVolume(target,
+                2,
+                VolumePresentation.Relative,
+                DoseValuePresentation.Absolute);
+            msg += String.Format("\t{0}: D2 = {1}\n", target.Id, d2);
+            //maximum dose to the cord.
+            Structure Cord = ps.StructureSet.Structures.Single(o => o.Id == "Cord");
+            DoseValue cmax = ps.GetDoseAtVolume(
+                Cord,
+                0,
+                VolumePresentation.Relative,
+                DoseValuePresentation.Absolute);
+            msg += String.Format("\t{0}: Max = {1}\n", Cord.Id, cmax);
+            Structure parotid = ps.StructureSet.Structures.First(o => o.Id.Contains("Parotid"));
+            double v30Gy = ps.GetVolumeAtDose(parotid,
+                new DoseValue(3000, DoseValue.DoseUnit.cGy),
+                VolumePresentation.Relative);
+            msg += String.Format("\t{0}: D95 = {1:F2}%\n", parotid.Id, v30Gy);

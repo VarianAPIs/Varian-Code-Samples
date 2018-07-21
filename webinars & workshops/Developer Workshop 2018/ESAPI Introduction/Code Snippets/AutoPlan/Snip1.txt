@@ -1,0 +1,2 @@
+           Patient p = context.Patient;
+            p.BeginModifications();//this line for scripting automation.

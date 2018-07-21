@@ -1,0 +1,9 @@
+            //iterate through the beams and get some information about these fields.
+            msg += String.Format("Plan has {0} fields\n", ps.Beams.Count());
+            foreach(Beam b in ps.Beams.OrderBy(o=>o.BeamNumber))
+            {
+                msg += String.Format("\t{0}: {1:F1}MU\n", b.Id, b.Meterset.Value);
+                msg += String.Format("\t\tGantry: {0}; Collimator: {1}\n",
+                    b.ControlPoints.First().GantryAngle, b.ControlPoints.First().CollimatorAngle);
+            }
+

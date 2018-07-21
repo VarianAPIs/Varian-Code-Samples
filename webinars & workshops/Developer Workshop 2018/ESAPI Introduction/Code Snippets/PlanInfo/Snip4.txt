@@ -1,0 +1,8 @@
+            //iterate information through the structures.
+            msg += String.Format("Structure set {0} has {1} structures\n",
+                ps.StructureSet.Id, ps.StructureSet.Structures.Count());
+            foreach(Structure s in ps.StructureSet.Structures)
+            {
+                msg += String.Format("\t{0}: {1:F1}cc Type: {2}\n",
+                    s.Id, s.Volume, s.DicomType);
+            }

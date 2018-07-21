@@ -1,0 +1,5 @@
+            //find the ctv in the structures.
+            Structure ctv = context.StructureSet.Structures.First(o => o.DicomType == "CTV");
+            //create on the structureset a PTV from the ctv.
+            Structure ptv = context.StructureSet.AddStructure("PTV", "PTVAuto");
+            ptv.SegmentVolume = ctv.Margin(8);
