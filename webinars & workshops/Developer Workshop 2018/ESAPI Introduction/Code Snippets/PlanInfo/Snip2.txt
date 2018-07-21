@@ -1,0 +1,21 @@
+            //pull informatino from the plansetup.
+            string msg = "";
+            PlanSetup ps = context.PlanSetup;
+
+            //prescription information from the plan.
+            msg += String.Format("Number of Fractions: {0}\n", ps.NumberOfFractions);
+            msg += String.Format("Dose per Fraction: {0}\n", ps.DosePerFraction);
+            msg += String.Format("Total Dose: {0}\n", ps.TotalDose);
+
+            //get approval history of the plan.
+            msg += "Approval History\n";
+            foreach(var approve in ps.ApprovalHistory)
+            {
+                msg += String.Format("\tStatus: {0} by {1} {2}\n"
+                    , approve.ApprovalStatus, approve.UserId, approve.ApprovalDateTime);
+            }
+            //calculation model used
+            msg += String.Format("Dose calculation Model: {0}\n", ps.PhotonCalculationModel);
+       
+
+            MessageBox.Show(msg);

@@ -1,0 +1,10 @@
+           //write the file.
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                sw.WriteLine("Dose, Volume");
+                foreach(DVHPoint dvhd in dvh.CurveData)
+                {
+                    sw.WriteLine(String.Format("{0:F2},{1:F2}"
+                        , dvhd.DoseValue.Dose, dvhd.Volume));
+                }
+            }

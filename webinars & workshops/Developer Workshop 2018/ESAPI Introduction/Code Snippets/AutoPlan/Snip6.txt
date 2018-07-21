@@ -1,0 +1,6 @@
+            //Calculate Dose
+            plan.CalculateDose();
+            //Set Normalization
+            plan.PlanNormalizationValue=plan.Beams.Count() * 100;
+            //Set Prescription.
+            plan.SetPrescription(30, new DoseValue(180, DoseValue.DoseUnit.cGy), 1);

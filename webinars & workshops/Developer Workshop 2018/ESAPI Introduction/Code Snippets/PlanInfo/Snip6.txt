@@ -1,0 +1,10 @@
+            //export the target DVH to a CSV File.
+            //declare file save path
+            string filename = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) +
+                "\\dvh.csv";
+            //get hte dvh of the target.
+            DVHData dvh = ps.GetDVHCumulativeData(
+                target,
+                DoseValuePresentation.Absolute,
+                VolumePresentation.Relative,
+                1);

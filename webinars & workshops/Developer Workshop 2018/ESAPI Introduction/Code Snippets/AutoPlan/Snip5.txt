@@ -1,0 +1,22 @@
+            //set gantry angles
+            double[] g_angles = new double[] { 270, 0, 90, 180 };
+            foreach(double ga in g_angles)
+            {
+                //add a new beam with intial parametres
+                Beam b = plan.AddMLCBeam(
+                    ebmp,
+                    new float[2, 60],
+                    new VRect<double>(-10, -10, 10, 10),
+                    0,
+                    ga,
+                    0,
+                    ptv.CenterPoint);
+                //fit the MLC to the structure outline of the PTV.
+                b.FitMLCToStructure(new FitToStructureMargins(10),
+                    ptv,
+                    false,
+                    JawFitting.FitToRecommended,
+                    OpenLeavesMeetingPoint.OpenLeavesMeetingPoint_Middle,
+                    ClosedLeavesMeetingPoint.ClosedLeavesMeetingPoint_Center);
+            }
+

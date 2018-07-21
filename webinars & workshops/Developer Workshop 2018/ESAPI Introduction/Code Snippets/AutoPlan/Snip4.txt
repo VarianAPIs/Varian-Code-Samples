@@ -1,0 +1,8 @@
+            //create the fields.
+            //define the externalBeam Parameters
+            ExternalBeamMachineParameters ebmp = new ExternalBeamMachineParameters(
+                "TrueBeam",
+                "6X",
+                600,
+                "STATIC",
+                null);

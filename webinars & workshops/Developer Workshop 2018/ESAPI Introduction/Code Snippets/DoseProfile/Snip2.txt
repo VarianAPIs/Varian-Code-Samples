@@ -1,0 +1,14 @@
+            //create a vector where the dose profile will start.
+            VVector start = new VVector();
+            start.x = -100;//mm
+            start.y = -100;//location from the dicom origin.
+            start.z = 0;
+            VVector end = new VVector();
+            end.x = 100;
+            end.y = start.y;
+            end.z = start.z;
+            //size of the doseprofile.
+            double[] size = new double[201];
+            DoseProfile dp = d.GetDoseProfile(start,
+                end,
+                size);
