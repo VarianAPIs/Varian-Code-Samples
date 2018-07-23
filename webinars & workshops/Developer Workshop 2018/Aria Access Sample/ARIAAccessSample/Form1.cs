@@ -1,4 +1,5 @@
 ﻿using Hl7.Fhir.Serialization;
+using IdentityModel.Client;
 using IdentityModel.OidcClient;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 using VMS.AWC.Link.MU3.WebService.Contracts;
 using VMS.AWC.Link.WebService.Contracts;
 
-namespace DevWorkshop2018AriaAcess
+namespace DevWorkshop2018AriaAccess
 {
     public partial class Form1 : Form
     {
@@ -151,18 +152,32 @@ namespace DevWorkshop2018AriaAcess
 
         private async void Authenticate(object sender, EventArgs e)
         {
-            var browser = new SystemBrowser(_redirectUri);
+            var browser = new SystemBrowser();
+            string redirectUri = string.Format($"http://127.0.0.1:{browser.Port}");
+
             var options = new OidcClientOptions
             {
-                Authority = _authority,
+                Authority = ConfigurationManager.AppSettings["Authority"],
                 ClientId = _clientIdentifier,
-                RedirectUri = _redirectUri,
+                ClientSecret = "secret",
                 Scope = "openid profile offline_access " + _scope,
-                FilterClaims = false,
-                Browser = browser
+                RedirectUri = redirectUri,
+                Browser = browser,
+                //FilterClaims = false,
+                Policy = new Policy
+                {
+                    Discovery = new DiscoveryPolicy
+                    {
+                        ValidateEndpoints = false,
+                        ValidateIssuerName = false
+                    }
+                }
             };
+
+
             var oidcClient = new OidcClient(options);
-            var loginRequest = new LoginRequest();
+            var loginRequest = new LoginRequest ();
+
             var result = await oidcClient.LoginAsync(loginRequest);
             if (result.IsError)
             {
