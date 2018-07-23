@@ -29,7 +29,6 @@ namespace InteractiveClient
         {
             InitializeComponent();
 
-            _redirectUri = ConfigurationManager.AppSettings["RedirectUri"];
             _authority = ConfigurationManager.AppSettings["Authority"];
             _clientIdentifier = ConfigurationManager.AppSettings["ClientIdentifier"];
             _scope = ConfigurationManager.AppSettings["Scope"];
@@ -41,7 +40,7 @@ namespace InteractiveClient
         private async void Authenticate(object sender, RoutedEventArgs e)
         {
             var browser = new SystemBrowser();
-            string redirectUri = string.Format($"http://127.0.0.1:{browser.Port}");
+            _redirectUri = string.Format($"http://127.0.0.1:{browser.Port}");
 
             var options = new OidcClientOptions
             {
@@ -49,7 +48,7 @@ namespace InteractiveClient
                 ClientId = _clientIdentifier,
                 ClientSecret = "secret",
                 Scope = "openid profile offline_access " + _scope,
-                RedirectUri = redirectUri,
+                RedirectUri = _redirectUri,
                 Browser = browser,
                 //FilterClaims = false,
                 Policy = new Policy
