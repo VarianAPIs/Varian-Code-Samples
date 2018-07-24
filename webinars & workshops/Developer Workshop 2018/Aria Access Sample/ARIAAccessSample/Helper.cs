@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VMS.SF.Gateway.Contracts;
 
-namespace DevWorkshop2018AriaAcess
+namespace DevWorkshop2018AriaAccess
 {
     class ARIAAccessHelper
     {

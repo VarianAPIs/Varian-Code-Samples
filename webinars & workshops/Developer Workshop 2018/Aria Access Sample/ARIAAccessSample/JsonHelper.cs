@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DevWorkshop2018AriaAcess
+namespace DevWorkshop2018AriaAccess
 {
     public static class JsonHelper
     {

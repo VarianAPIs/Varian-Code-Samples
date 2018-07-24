@@ -6,20 +6,33 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
-namespace DevWorkshop2018AriaAcess
+namespace DevWorkshop2018AriaAccess
 {
     public class SystemBrowser : IBrowser
     {
+        public int Port { get; }
         private readonly string _path;
 
-        public SystemBrowser(string path)
+        public SystemBrowser(int? port = null, string path = null)
         {
             _path = path;
+            if (!port.HasValue)
+                Port = GetRandomUnusedPort();
+            else
+                Port = port.Value;
+        }
+        private int GetRandomUnusedPort()
+        {
+            var listener = new TcpListener(IPAddress.Loopback, 0);
+            listener.Start();
+            var port = ((IPEndPoint)listener.LocalEndpoint).Port;
+            listener.Stop();
+            return port;
         }
 
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
-            using (var listener = new LoopbackHttpListener(_path))
+            using (var listener = new LoopbackHttpListener(Port, _path))
             {
                 OpenBrowser(options.StartUrl);
 

@@ -1,24 +1,36 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net;
 
 namespace InteractiveClient
 {
-	public class LoopbackHttpListener : IDisposable
+    public class LoopbackHttpListener : IDisposable
     {
         const int DefaultTimeout = 60 * 5; // 5 mins (in seconds)
-        HttpListener _httpListener;
-        TaskCompletionSource<string> _source = new TaskCompletionSource<string>();
 
-        public LoopbackHttpListener(string path = null)
+        IWebHost _host;
+        TaskCompletionSource<string> _source = new TaskCompletionSource<string>();
+        string _url;
+
+        public string Url => _url;
+
+        public LoopbackHttpListener(int port, string path = null)
         {
-            var url = path.EndsWith("/") ? path : $"{path}/";
-            _httpListener = new HttpListener();
-            _httpListener.Prefixes.Add(url);
-            _httpListener.Start();
-            Configure();
+            path = path ?? String.Empty;
+            if (path.StartsWith("/")) path = path.Substring(1);
+
+            _url = $"http://127.0.0.1:{port}/{path}";
+
+            _host = new WebHostBuilder()
+                .UseKestrel()
+                .UseUrls(_url)
+                .Configure(Configure)
+                .Build();
+            _host.Start();
         }
 
         public void Dispose()
@@ -26,58 +38,56 @@ namespace InteractiveClient
             Task.Run(async () =>
             {
                 await Task.Delay(500);
-                _httpListener.Close();
-                _httpListener.Stop();
+                _host.Dispose();
             });
         }
 
-        async Task Configure()
+        void Configure(IApplicationBuilder app)
         {
-            var ctx = await _httpListener.GetContextAsync();
-
-            if (ctx.Request.HttpMethod == "GET")
+            app.Run(async ctx =>
             {
-                SetResult(ctx.Request.QueryString.GetValues(0)[0], ctx);
-            }
-            else if (ctx.Request.HttpMethod == "POST")
-            {
-                if (!ctx.Request.ContentType.Equals("application/x-www-form-urlencoded", StringComparison.OrdinalIgnoreCase))
+                if (ctx.Request.Method == "GET")
                 {
-                    ctx.Response.StatusCode = 415;
+                    SetResult(ctx.Request.QueryString.Value, ctx);
+                }
+                else if (ctx.Request.Method == "POST")
+                {
+                    if (!ctx.Request.ContentType.Equals("application/x-www-form-urlencoded", StringComparison.OrdinalIgnoreCase))
+                    {
+                        ctx.Response.StatusCode = 415;
+                    }
+                    else
+                    {
+                        using (var sr = new StreamReader(ctx.Request.Body, Encoding.UTF8))
+                        {
+                            var body = await sr.ReadToEndAsync();
+                            SetResult(body, ctx);
+                        }
+                    }
                 }
                 else
                 {
-                    using (var sr = new StreamReader(ctx.Request.InputStream, Encoding.UTF8))
-                    {
-                        var body = await sr.ReadToEndAsync();
-                        SetResult(body, ctx);
-                    }
+                    ctx.Response.StatusCode = 405;
                 }
-            }
-            else
-            {
-                ctx.Response.StatusCode = 405;
-            }
+            });
         }
 
-        private void SetResult(string value, HttpListenerContext ctx)
+        private void SetResult(string value, HttpContext ctx)
         {
             try
             {
                 ctx.Response.StatusCode = 200;
                 ctx.Response.ContentType = "text/html";
-                var data = Encoding.UTF8.GetBytes("<body><h1>Sign-in completed. You can now return to the application.</h1></body>");
-                ctx.Response.OutputStream.Write(data, 0, data.Length);
-                ctx.Response.OutputStream.Close();
+                ctx.Response.WriteAsync("<h1>You can now return to the application.</h1>");
+                ctx.Response.Body.Flush();
                 _source.TrySetResult(value);
             }
             catch
             {
                 ctx.Response.StatusCode = 400;
                 ctx.Response.ContentType = "text/html";
-                var data = Encoding.UTF8.GetBytes("<h1>Invalid request.</h1>");
-                ctx.Response.OutputStream.Write(data, 0, data.Length);
-                ctx.Response.OutputStream.Close();
+                ctx.Response.WriteAsync("<h1>Invalid request.</h1>");
+                ctx.Response.Body.Flush();
             }
         }
 
@@ -88,6 +98,7 @@ namespace InteractiveClient
                 await Task.Delay(timeoutInSeconds * 1000);
                 _source.TrySetCanceled();
             });
+
             return _source.Task;
         }
     }

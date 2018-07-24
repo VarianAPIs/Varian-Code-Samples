@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevWorkshop2018AriaAcess
+namespace DevWorkshop2018AriaAccess
 {
     public class JWTTokenHelper
     {

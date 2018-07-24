@@ -1,4 +1,4 @@
-﻿namespace DevWorkshop2018AriaAcess
+﻿namespace DevWorkshop2018AriaAccess
 {
     partial class Form1
     {
