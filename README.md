@@ -49,3 +49,4 @@ Here you will find code samples for ESAPI and other Varian APIs and web services
   * ESAPI Introduction
   * ESAPIX-Demos
   * [Velocity Engine](../../../VelocityEngine)
+  * [PyESAPI](../../../PyESAPI/tree/master/examples/DeveloperWorkshop2018)
