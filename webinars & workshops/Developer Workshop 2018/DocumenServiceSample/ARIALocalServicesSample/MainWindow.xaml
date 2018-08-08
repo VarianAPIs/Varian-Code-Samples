@@ -1,0 +1,127 @@
+﻿<Window x:Class="ARIALocalServicesSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Service Sample" Height="Auto" Width="525" ResizeMode="NoResize" SizeToContent="Height"
+        Background="#BBCED6">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="B2V" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border      Grid.Row="0"  Grid.ColumnSpan="2" Background="#FF083C63" Padding="0" Margin="0" />
+        <Image       Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Stretch" Source="images/header.png" Margin="0,0,0,5"/>
+
+        <TextBlock   Grid.Row="1"  Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Left" Margin="8,8,8,8" TextWrapping="WrapWithOverflow"
+                Text="This sample application illustrates how to call the ARIA Local webservices" TextAlignment="Justify" FontStyle="Italic"/>
+
+        <Line Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+
+        <StackPanel  Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
+            <Label x:Name="LblSecurityMode" Content="Security Authentication Mode" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+            <StackPanel HorizontalAlignment="Left" Margin="8,0,0,0" Orientation="Horizontal">
+                <RadioButton Name="ADRadioBtn" Margin="0,8,0,0" IsChecked="True" Checked="ADRadioBtn_Checked" >AD Authentication</RadioButton>
+                <RadioButton Name="STSRadioBtn" Margin="8,8,0,8" Checked="STSRadioBtn_Checked" >VAIS</RadioButton>
+            </StackPanel>
+            <Line VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        </StackPanel>
+        <StackPanel  Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="LblServerUri" Content="Web Server URI" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+            </StackPanel>
+            <TextBox x:Name="txtURI" Height="23" TextWrapping="Wrap" Margin="10,0,8,8"/>
+        </StackPanel>
+        <StackPanel Name="AdAuthPanel" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0"
+                    Visibility="{Binding IsChecked,ElementName=ADRadioBtn,Converter={StaticResource B2V}}">
+            <StackPanel  Grid.Row="4" Name="APIKey">
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblAPIKey" Content="APIKey" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+                </StackPanel>
+                <TextBox x:Name="txtAPI" Height="23" TextWrapping="Wrap" Margin="10,0,8,8"/>
+            </StackPanel>
+            <StackPanel  Grid.Row="5" Margin="0,0,0,8" Name="ADCredentials">
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="LblCredentials" Content="AD credentials" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Height="28" HorizontalAlignment="Left" Width="519" VerticalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock x:Name="LblUser" Margin="24,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Text="User" Height="24" Width="75"/>
+                    <TextBox x:Name="txtUser" Margin="0,0,0,0" VerticalAlignment="Center" Width="210" Height="22" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Height="28" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="519">
+                    <StackPanel Height="28" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Width="350">
+                        <TextBlock x:Name="LblPassword" Margin="24,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Text="Password" Height="24" Width="75"/>
+                        <PasswordBox x:Name="PswPassword" Width="210" Height="22" Margin="0,0,0,0"/>
+                    </StackPanel>
+                    <Button x:Name="btnAutoFillAD" Content="Auto Fill From Config" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,4,0,4" Width="123" Foreground="White" Background="#FF083C63" Click="btnAutoFill_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <Line Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <StackPanel Name="STSAuthPanel" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0"
+                    Visibility="{Binding IsChecked,ElementName=STSRadioBtn,Converter={StaticResource B2V}}">
+            <StackPanel  Name="STSUrl">
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblSTSUrl" Content="VAIS URL" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+                </StackPanel>
+                <TextBox x:Name="txtSTSURL" Height="23" TextWrapping="Wrap" Margin="10,0,8,8"/>
+            </StackPanel>
+            <StackPanel  Name="ClientID">
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblClientID" Content="Client ID" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+                </StackPanel>
+                <TextBox x:Name="txtClientID" Height="23" TextWrapping="Wrap" Margin="10,0,8,8"/>
+            </StackPanel>
+            <StackPanel  Name="ClientSecret">
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblClientSecret" Content="Client Secret" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+                </StackPanel>
+                <TextBox x:Name="txtClientSecret" Height="23" TextWrapping="Wrap" Margin="10,0,8,8"/>
+            </StackPanel>
+            <StackPanel  Name="Scopes">
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblScopes" Content="Scopes" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+                </StackPanel>
+                <TextBox x:Name="txtScopes" Height="23" TextWrapping="Wrap" Margin="10,0,8,8"/>
+            </StackPanel>
+            <Button x:Name="btnAutoFill" Content="Auto Fill From Config" HorizontalAlignment="Right" Margin="8,0,8,8" VerticalAlignment="Top" Width="123" Foreground="White" Background="#FF083C63" Click="btnAutoFill_Click"/>
+            <Line VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="lblGetToken" Content="Get Token" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+                </StackPanel>
+                <TextBox x:Name="txtGetToken" Height="83" Margin="8,8,8,8" TextWrapping="Wrap" Text=""/>
+                <Button x:Name="btnGetToken" Content="Get Token" HorizontalAlignment="Right" Margin="8,0,8,8" VerticalAlignment="Top" Width="75" Foreground="White" Background="#FF083963" Click="btnGetToken_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <Line Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Bottom" Stroke="CornflowerBlue" StrokeThickness="1" X2="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+        <StackPanel  Grid.Row="5" Grid.Column="0">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="lblReqJSON" Content="Request JSON (application/json)" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+            </StackPanel>
+            <TextBox x:Name="txtRequest" Height="150" Margin="8,8,8,8" TextWrapping="Wrap" Text=""/>
+        </StackPanel>
+        <StackPanel Grid.Row="6"   Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Button x:Name="btnLoad" Content="Load" HorizontalAlignment="Left" Margin="8,8,0,8" VerticalAlignment="Top" Width="75" Click="btnLoad_Click" Foreground="White" Background="#FF083963"/>
+            <Button x:Name="btnProcess" Content="Process" HorizontalAlignment="Right" Margin="8" VerticalAlignment="Top" Width="75" Click="btnProcess_Click" Foreground="White" Background="#FF083C63"/>
+        </StackPanel>
+        <StackPanel  Grid.Row="5"  Grid.Column="1" Grid.RowSpan="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="lblRspJSON" Content="Response" Margin="8,0,8,0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" FontWeight="Bold"/>
+            </StackPanel>
+            <TextBox x:Name="txtResponse" Height="150" Margin="8,8,8,8" TextWrapping="Wrap" Text=""/>
+        </StackPanel>
+        
+    </Grid>
+</Window>
