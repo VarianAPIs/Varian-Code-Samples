@@ -1,0 +1,75 @@
+﻿<Window x:Class="ESAPIX_WPF.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:local="clr-namespace:ESAPIX_WPF.Views"
+        mc:Ignorable="d"
+        Title="ESAPIX Main View" Height="300" Width="700" Icon="../Resources/esapix.png">
+    <Grid>
+        <Border BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top">
+            <!--EXAMPLE DATA BIND-->
+            <Grid VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="350"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Loaded Plan Details"
+                       Grid.ColumnSpan="2"
+                       HorizontalAlignment="Stretch"
+                       Background="Black"
+                       Foreground="White"
+                       TextAlignment="Center"/>
+                <!--PLAN ID-->
+                <TextBlock Text="Plan Id"
+                       Grid.Row="1"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Center"/>
+                <TextBlock Text="{Binding Path=Id}"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Center"/>
+                <!--Number of Beams-->
+                <TextBlock Text="Number of Beams"
+                       Grid.Row="2"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Center"/>
+                <TextBlock Text="{Binding Path=NBeams}"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Center"/>
+                <!--UID-->
+                <TextBlock Text="SOP Instance UID"
+                       Grid.Row="3"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Center"/>
+                <TextBlock Text="{Binding Path=UID}"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Center"/>
+                <!--IsDoseCalculated-->
+                <TextBlock Text="Is Dose Calculated?"
+                       Grid.Row="4"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Center"/>
+                <TextBlock Text="{Binding Path=IsDoseCalculated}"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Center"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
