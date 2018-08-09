@@ -53,3 +53,4 @@ Please check out [our Wiki](../../wiki), use [the issues section](../../issues) 
   * ESAPIX-Demos
   * [Velocity Engine](../../../VelocityEngine)
   * [PyESAPI](../../../PyESAPI/tree/master/examples/DeveloperWorkshop2018)
+  * [Automated Planning with MCO](../../../AutoPlanningWithMCO)
