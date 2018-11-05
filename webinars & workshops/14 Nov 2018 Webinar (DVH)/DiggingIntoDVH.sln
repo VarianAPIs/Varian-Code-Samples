@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiggingIntoDVH", "DiggingIntoDVH\DiggingIntoDVH.csproj", "{13B0B72A-A905-415F-91E6-E66AD0E73476}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13B0B72A-A905-415F-91E6-E66AD0E73476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13B0B72A-A905-415F-91E6-E66AD0E73476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13B0B72A-A905-415F-91E6-E66AD0E73476}.Debug|x64.ActiveCfg = Debug|x64
+		{13B0B72A-A905-415F-91E6-E66AD0E73476}.Debug|x64.Build.0 = Debug|x64
+		{13B0B72A-A905-415F-91E6-E66AD0E73476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13B0B72A-A905-415F-91E6-E66AD0E73476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13B0B72A-A905-415F-91E6-E66AD0E73476}.Release|x64.ActiveCfg = Release|x64
+		{13B0B72A-A905-415F-91E6-E66AD0E73476}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3D048D4-0756-4390-B080-C9E22628D9A4}
+	EndGlobalSection
+EndGlobal
