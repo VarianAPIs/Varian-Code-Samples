@@ -27,7 +27,9 @@ namespace DiggingIntoDVH
                 var plan = allPlans.FirstOrDefault(p => p.Id == "ABD ARC2");
                 var ptv = plan.StructureSet.Structures
                     .FirstOrDefault(s => s.Id == "PTV_3000");
+                var (rxs, measures)= plan.GetProtocolPrescriptionsAndMeasures();
                 var dvhData = plan.GetDVHCumulativeData(ptv, D.Absolute, V.Relative, 0.1);
+                
 
                 Console.WriteLine(dvhData.MinDose);
                 Console.WriteLine(dvhData.MeanDose);
@@ -63,9 +65,6 @@ namespace DiggingIntoDVH
                 var ptv = plan.StructureSet.Structures
                     .FirstOrDefault(s => s.Id == "PTV_3000");
                 var volumeAt100 = plan.GetVolumeAtDose(ptv, plan.TotalDose, V.Relative);
-                //With ESAPIX
-                var volumeAt100x = plan.ExecuteQuery("V100%[%]", ptv);
-                var volumeAt100_ = plan.ExecuteQuery("V100%[%]", "PTV_3000");
                 Console.WriteLine(volumeAt100);
             }
         }

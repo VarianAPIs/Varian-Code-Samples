@@ -34,9 +34,6 @@ namespace DiggingIntoDVH
                 var patient = app.OpenPatientById("DA00005");
                 var allPlans = patient.Courses.SelectMany(c => c.PlanSetups);
                 var plan = allPlans.FirstOrDefault(p => p.Id == "ABD ARC1");
-                //var ptv = plan.StructureSet.Structures
-                //    .FirstOrDefault(s => s.Id == "PTV_3000");
-                //var coverage_95 = plan.GetDoseAtVolume(ptv, 95, V.Relative, D.Absolute);
                 //ESAPIX
                 var coverage_95 = plan.ExecuteQuery("D95%[Gy]", "PTV_3000");
                 Console.WriteLine(coverage_95);
@@ -50,9 +47,6 @@ namespace DiggingIntoDVH
                 var patient = app.OpenPatientById("DA00005");
                 var allPlans = patient.Courses.SelectMany(c => c.PlanSetups);
                 var plan = allPlans.FirstOrDefault(p => p.Id == "ABD ARC1");
-                //var ptv = plan.StructureSet.Structures
-                //    .FirstOrDefault(s => s.Id == "PTV_3000");
-                //var volumeAt100 = plan.GetVolumeAtDose(ptv, plan.TotalDose, V.Relative);
                 //With ESAPIX
                 var volumeAt100 = plan.ExecuteQuery("V100%[%]", "PTV_3000");
                 Console.WriteLine(volumeAt100);
