@@ -12,13 +12,26 @@ namespace DiggingIntoDVH
         [STAThread]
         static void Main(string[] args)
         {
-            DVHMiningDemo.RunExample();
-            PlanConstraintsDemo.CreateESAPIXConstraints();
-            PlottingExample.PlotDVH();
-            PlanConstraintsDemo.GetAndRunPlanConstraints();
-            StandardFunctionsDemo.VolumeAtDoseExample();
+            //Standard Functions
+            StandardFunctionsDemo.CumulativeDVHExample();
             StandardFunctionsDemo.DoseAtVolumeExample();
-            //StandardFunctionsDemo.CumulativeDVHExample();
+            StandardFunctionsDemo.VolumeAtDoseExample();
+
+            //ESAPIX
+            ESAPIXFunctionsDemo.DifferentialDVHExample();
+            ESAPIXFunctionsDemo.DoseAtVolumeExample();
+            ESAPIXFunctionsDemo.VolumeAtDoseExample();
+
+            //Plan Constraints
+            PlanConstraintsDemo.GetAndRunPlanConstraints();
+            PlanConstraintsDemo.CreateESAPIXConstraints();
+
+            //Mining
+            DVHMiningDemo.RunExample();
+
+            //Plotting
+            PlottingExample.PlotDVH();
+
             Console.Read();
         }
     }

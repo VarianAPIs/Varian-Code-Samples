@@ -52,6 +52,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESAPIX, Version=1.5.2.6, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\ESAPIX_15.5.1.5.2.6\lib\net45\ESAPIX.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -77,10 +80,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="VMS.TPS.Common.Model.API, Version=1.0.200.43, Culture=neutral, PublicKeyToken=305b81e210ec4b89, processorArchitecture=AMD64">
-      <HintPath>..\packages\ESAPIX_15.5.1.5.2.5\lib\net45\VMS.TPS.Common.Model.API.dll</HintPath>
+      <HintPath>..\packages\ESAPIX_15.5.1.5.2.6\lib\net45\VMS.TPS.Common.Model.API.dll</HintPath>
     </Reference>
     <Reference Include="VMS.TPS.Common.Model.Types, Version=1.0.200.43, Culture=neutral, PublicKeyToken=305b81e210ec4b89, processorArchitecture=AMD64">
-      <HintPath>..\packages\ESAPIX_15.5.1.5.2.5\lib\net45\VMS.TPS.Common.Model.Types.dll</HintPath>
+      <HintPath>..\packages\ESAPIX_15.5.1.5.2.6\lib\net45\VMS.TPS.Common.Model.Types.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -99,12 +102,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\ESAPIX\ESAPIX\ESAPIX.csproj">
-      <Project>{3c5fdd1e-fc04-4c21-bbff-dfe3c584b729}</Project>
-      <Name>ESAPIX</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="PlotView.xaml">

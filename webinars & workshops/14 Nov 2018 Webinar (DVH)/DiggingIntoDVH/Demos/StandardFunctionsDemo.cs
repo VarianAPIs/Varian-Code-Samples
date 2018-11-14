@@ -27,7 +27,7 @@ namespace DiggingIntoDVH
                 var plan = allPlans.FirstOrDefault(p => p.Id == "ABD ARC2");
                 var ptv = plan.StructureSet.Structures
                     .FirstOrDefault(s => s.Id == "PTV_3000");
-                var (rxs, measures)= plan.GetProtocolPrescriptionsAndMeasures();
+
                 var dvhData = plan.GetDVHCumulativeData(ptv, D.Absolute, V.Relative, 0.1);
                 
 

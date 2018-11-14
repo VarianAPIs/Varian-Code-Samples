@@ -18,6 +18,10 @@ namespace DiggingIntoDVH
             using (var app = VM.Application.CreateApplication())
             {
                 var miner = new ESAPIX.Helpers.DVH.Miner();
+                miner.AddPatientId("DA00001");
+                miner.AddPatientId("DA00002");
+                miner.AddPatientId("DA00003");
+                miner.AddPatientId("DA00004");
                 miner.AddPatientId("DA00005");
                 miner.SetStructureSetFilter("ABDOM", CLOSEST_MATCH);
                 var csv = miner.GetMetrics(app, new SQ("PTV_3000", "D95%[Gy]", "D99%[Gy]"));
