@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Example_DVH.MainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Height="706" Width="875">
+    <Grid>
+  <Canvas>
+    <Border Margin="40" BorderThickness="1" BorderBrush="Black">
+      <Canvas x:Uid="MainCanvas" x:Name="MainCanvas" Width="500" Height="330">
+      </Canvas>
+    </Border>
+    <Label Canvas.Left="181" Canvas.Top="12" Content="Cumulative Dose Volume Histogram" FontWeight="Bold" />
+    <Label Canvas.Left="0" Canvas.Top="28" Content="100%" Height="28" />
+    <Label Canvas.Left="526" Canvas.Top="370" Content="100%" Height="28" Name="DoseMaxLabel" />
+  </Canvas>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="550,30,0,0">Structures</TextBlock>
+        <StackPanel Name="structures_sp" Width="200" Height="300" HorizontalAlignment="Left"
+                    VerticalAlignment="Top" Margin="550,50,0,0"></StackPanel>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,400,0,0">Dose Statistics</TextBlock>
+        <StackPanel Name="stats_sp" Width="530" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    Margin="20,420,0,0"></StackPanel>
+        <ComboBox Name="dqmTemplate_cmb" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"
+                  Margin="650,380,0,0" SelectionChanged="dqmTemplate_cmb_SelectionChanged">
+            <ComboBoxItem>Prostate</ComboBoxItem>
+            <ComboBoxItem>Head and Neck</ComboBoxItem>
+        </ComboBox>
+        <DataGrid Name="dqm_dg" Width="300" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top"
+                  Margin="550,420,0,0"></DataGrid>
+    </Grid>
+</UserControl>
