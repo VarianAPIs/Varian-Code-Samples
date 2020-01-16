@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVHPlot", "DVHPlot.csproj", "{9C5E2BA2-0954-426F-A680-D9C29185DA31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C5E2BA2-0954-426F-A680-D9C29185DA31}.Debug|x64.ActiveCfg = Debug|x64
+		{9C5E2BA2-0954-426F-A680-D9C29185DA31}.Debug|x64.Build.0 = Debug|x64
+		{9C5E2BA2-0954-426F-A680-D9C29185DA31}.Release|x64.ActiveCfg = Release|x64
+		{9C5E2BA2-0954-426F-A680-D9C29185DA31}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23EF923C-7A91-4004-B743-653FCD718492}
+	EndGlobalSection
+EndGlobal

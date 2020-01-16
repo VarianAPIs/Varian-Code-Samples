@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="DoseMetrics.Views.DoseMetricSelectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoseMetrics.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="800">
+    <Grid Background="LightSteelBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <!--0Structure-->
+            <ColumnDefinition Width="*"/>
+            <!--1Metric Type-->
+            <ColumnDefinition Width="*"/>
+            <!--2Input level-->
+            <ColumnDefinition Width="0.5*"/>
+            <!--3Input Unit-->
+            <ColumnDefinition Width="0.5*"/>
+            <!--4Text-->
+            <ColumnDefinition Width="0.5*"/>
+            <!--5Output Unit-->
+            <ColumnDefinition Width="*"/>
+            <!--6Button-->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--#region header-->
+        <TextBlock Text="Structure"/>
+        <TextBlock Text="Metric" Grid.Column="1"/>
+        <TextBlock Text="Input Value" Grid.Column="2"/>
+        <TextBlock Text="In Unit" Grid.Column="3"/>
+        <TextBlock Text="Out Unit" Grid.Column="5"/>
+        <TextBlock Text="Tolerance" Grid.Column="6"/>
+        <!--#endregion header-->
+        <!--region controls-->
+        <ComboBox Grid.Row="1" ItemsSource="{Binding Structures}" DisplayMemberPath="Id" 
+                  SelectedItem="{Binding SelectedStructure}" Margin="2"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding DoseMetrics}"
+                  DisplayMemberPath="Metric" SelectedItem="{Binding SelectedMetric}" Margin="2"/>
+        <TextBox Text="{Binding SelectedMetric.InputValue}" Grid.Column="2" Grid.Row="1" Margin="2"/>
+        <ComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding SelectedMetric.InputUnits}"
+                  SelectedItem="{Binding SelectedMetric.InputUnit, Mode=TwoWay}" Margin="2"/>
+        <TextBlock Text="in" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center"/>
+        <ComboBox Grid.Row="1" Grid.Column="5" ItemsSource="{Binding SelectedMetric.OutputUnits}"
+                  SelectedItem="{Binding SelectedMetric.OutputUnit, Mode=TwoWay}"/>        
+        <TextBox Text="{Binding SelectedMetric.Tolerance}" Grid.Row="1" Grid.Column="6" Margin="2"/>
+        <Button Content="Add Metric" Grid.Row="1" Grid.Column="7" Margin="2" Command="{Binding AddMetricCommand}"/>
+        <!--#endregion controls-->
+    </Grid>
+</UserControl>

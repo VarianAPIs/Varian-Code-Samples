@@ -1,0 +1,38 @@
+﻿<Window x:Class="DoseMetricExample.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoseMetricExample.Views"
+        xmlns:dvh="clr-namespace:DVHPlot.Views"
+        xmlns:dose="clr-namespace:DoseParameters"
+        mc:Ignorable="d"
+        Title="MainView" Height="950" Width="800">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <dose:DoseParametersView DataContext="{Binding DoseParametersViewModel}"/>
+            <local:DoseMetricSelectionView Grid.Row="1" DataContext="{Binding DoseMetricSelectionViewModel}"/>
+            <local:DoseMetricView Grid.Row="2" DataContext="{Binding DoseMetricViewModel}"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <Button Command="{Binding SaveTemplateCommand}" Content="Save Metrics" Margin="10"/>
+
+                <Button Command="{Binding LoadMetricsCommand}" Content="Load Metrics" Margin="10"/>
+            </StackPanel>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <dvh:DVHView DataContext="{Binding DVHViewModel}"/>
+                <dvh:DVHSelectionView Grid.Column="1" DataContext="{Binding DVHSelectionViewModel}"/>
+            </Grid>
+        <Button Content="Print Report" Command="{Binding PrintCommand}" Grid.Row="5"/>
+    </Grid>
+</Window>

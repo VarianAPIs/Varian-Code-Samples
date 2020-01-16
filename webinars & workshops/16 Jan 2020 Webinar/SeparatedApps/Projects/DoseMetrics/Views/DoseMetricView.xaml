@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="DoseMetrics.Views.DoseMetricView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoseMetrics.Views"
+             xmlns:converters="clr-namespace:DoseMetrics.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converters:DoubleConverter x:Key="doubleConverter"/>
+            <converters:PassFailColorConverter x:Key="passFailConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Structure" FontWeight="Bold"/>
+        <TextBlock Text="Dose Metric" FontWeight="Bold" Grid.Column="1"/>
+        <TextBlock Text="Value" FontWeight="Bold" Grid.Column="2"/>
+        <TextBlock Text="Tolerance" FontWeight="Bold" Grid.Column="3"/>
+        <ItemsControl Grid.Row="1" Grid.ColumnSpan="4" ItemsSource="{Binding DoseMetrics}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="{Binding ToleranceMet,Converter={StaticResource passFailConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Structure}"/>
+                        <TextBlock Grid.Column="1">
+                            <Run Text="{Binding Metric}"/>
+                            <Run Text=" ("/>
+                            <Run Text="{Binding InputValue}"/>
+                            <Run Text="{Binding InputUnit}"/>
+                            <Run Text=" )"/>
+                        </TextBlock>
+                        <TextBlock Grid.Column="2">
+                            <Run Text="{Binding OutputValue, Converter={StaticResource doubleConverter}}"/>
+                            <Run Text="{Binding OutputUnit}"/>
+                        </TextBlock>
+                        <TextBlock Text="{Binding Tolerance}" Grid.Column="3"/>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
