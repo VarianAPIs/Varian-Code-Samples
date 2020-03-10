@@ -51,6 +51,12 @@ namespace DoseMetrics.Models
         internal void GetOutputValue()
         {
             //put methods here.
+            if(_plan.StructureSet.Structures.FirstOrDefault(x => x.Id == Structure)==null)
+            {
+                OutputValue = -1.0;
+                ToleranceMet = false;
+                return;
+            }
             if (Metric == "Dose At Volume")
             {
                 OutputValue = _plan.GetDoseAtVolume(_plan.StructureSet.Structures.FirstOrDefault(x=>x.Id == Structure),

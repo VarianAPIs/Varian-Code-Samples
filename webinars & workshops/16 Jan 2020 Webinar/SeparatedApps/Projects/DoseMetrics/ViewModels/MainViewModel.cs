@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VMS.TPS.Common.Model.API;
 
 namespace DoseMetrics.ViewModels
 {
@@ -19,8 +20,10 @@ namespace DoseMetrics.ViewModels
         public DelegateCommand LoadMetricsCommand { get; private set; }
         public MainViewModel(DoseMetricSelectionViewModel doseMetricSelectionViewModel,
             DoseMetricViewModel doseMetricViewModel,
-            IEventAggregator eventAggregator)
+            IEventAggregator eventAggregator,
+            PlanSetup plan)
         {
+            _plan = plan;
             DoseMetricViewModel = doseMetricViewModel;
             DoseMetricSelectionViewModel = doseMetricSelectionViewModel;
             _eventAggregator = eventAggregator;
@@ -53,10 +56,24 @@ namespace DoseMetrics.ViewModels
             {
                 foreach(var dm in JsonConvert.DeserializeObject<List<DoseMetricModel>>(File.ReadAllText(ofd.FileName)))
                 {
-                    _eventAggregator.GetEvent<AddDoseMetricEvent>().Publish(dm);
+                    var dmm = new DoseMetricModel(_plan)
+                    {
+                        InputUnit = dm.InputUnit,
+                        InputUnits = dm.InputUnits,
+                        InputValue = dm.InputValue,
+                        Metric = dm.Metric,
+                        OutputUnit = dm.OutputUnit,
+                        OutputUnits = dm.OutputUnits,
+                        Structure = dm.Structure,
+                        Tolerance = dm.Tolerance
+                    };
+                    dmm.GetOutputValue();
+                    _eventAggregator.GetEvent<AddDoseMetricEvent>().Publish(dmm);
                 }
             }
         }
+
+        private PlanSetup _plan;
 
         public DoseMetricViewModel DoseMetricViewModel { get; }
         public DoseMetricSelectionViewModel DoseMetricSelectionViewModel { get; }

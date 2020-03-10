@@ -70,7 +70,8 @@ namespace VMS.TPS
             var mainView = new MainView();
             mainView.DataContext = new MainViewModel(new DoseMetricSelectionViewModel(context.PlanSetup, eventAggregator),
                 new DoseMetricViewModel(eventAggregator),
-                eventAggregator);
+                eventAggregator,
+                context.PlanSetup);
             window.Content = mainView;           
         }
     }
