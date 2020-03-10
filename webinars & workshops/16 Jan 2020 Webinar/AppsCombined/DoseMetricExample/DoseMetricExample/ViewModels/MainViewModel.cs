@@ -18,6 +18,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
+using VMS.TPS.Common.Model.API;
 
 namespace DoseMetricExample.ViewModels
 {
@@ -31,8 +32,10 @@ namespace DoseMetricExample.ViewModels
             DVHSelectionViewModel dVHSelectionViewModel,
             DVHViewModel dVHViewModel,
             DoseParametersViewModel doseParametersViewModel,
-            IEventAggregator eventAggregator)
+            IEventAggregator eventAggregator,
+            PlanSetup plan)
         {
+            _plan = plan;
             DoseMetricViewModel = doseMetricViewModel;
             DoseMetricSelectionViewModel = doseMetricSelectionViewModel;
             DVHSelectionViewModel = dVHSelectionViewModel;
@@ -79,7 +82,19 @@ namespace DoseMetricExample.ViewModels
             {
                 foreach (var dm in JsonConvert.DeserializeObject<List<DoseMetricModel>>(File.ReadAllText(ofd.FileName)))
                 {
-                    _eventAggregator.GetEvent<AddDoseMetricEvent>().Publish(dm);
+                    var dmm = new DoseMetricModel(_plan)
+                    {
+                        InputUnit = dm.InputUnit,
+                        InputUnits = dm.InputUnits,
+                        InputValue = dm.InputValue,
+                        Metric = dm.Metric,
+                        OutputUnit = dm.OutputUnit,
+                        OutputUnits = dm.OutputUnits,
+                        Structure = dm.Structure,
+                        Tolerance = dm.Tolerance
+                    };
+                    dmm.GetOutputValue();
+                    _eventAggregator.GetEvent<AddDoseMetricEvent>().Publish(dmm);
                 }
             }
         }
@@ -99,6 +114,8 @@ namespace DoseMetricExample.ViewModels
                 }
             }
         }
+
+        private PlanSetup _plan;
 
         public DoseMetricViewModel DoseMetricViewModel { get; }
         public DoseMetricSelectionViewModel DoseMetricSelectionViewModel { get; }
