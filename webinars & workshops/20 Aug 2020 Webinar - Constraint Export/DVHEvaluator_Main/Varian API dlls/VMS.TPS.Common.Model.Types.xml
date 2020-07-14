@@ -1,0 +1,2775 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VMS.TPS.Common.Model.Types</name>
+    </assembly>
+    <members>
+        <member name="T:VMS.TPS.Common.Model.Types.BeamNumber">
+            <summary>
+            Represents a unique identifier for a beam of a plan. The identifier is unique within the scope of the plan.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.BeamNumber.NotABeamNumber">
+            <summary>
+            Represents an undefined BeamNumber that does not have a corresponding beam.
+            The IsValid property of the Invalid BeamNumber always returns false.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.#ctor(System.Int32)">
+            <summary>
+            Constructs a new beam number from a numeric beam number.
+            </summary>
+            <param name="number">Make sure that the beam number corresponds to the real beam number, otherwise use NotABeamNumber.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.#ctor(VMS.TPS.Common.Model.Types.BeamNumber)">
+            <summary>
+            Constructs a new beam number from another BeamNumber.
+            </summary>
+            <param name="other">Another BeamNumber.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.op_Equality(VMS.TPS.Common.Model.Types.BeamNumber,VMS.TPS.Common.Model.Types.BeamNumber)">
+            <summary>
+            Compares two beam numbers for equality.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns>True if a and b represent the same beam number. Otherwise, false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.op_Inequality(VMS.TPS.Common.Model.Types.BeamNumber,VMS.TPS.Common.Model.Types.BeamNumber)">
+            <summary>
+            Compares two BeamNumbers for inequality.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns>True if a and b represent a different beam number. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.op_GreaterThan(VMS.TPS.Common.Model.Types.BeamNumber,VMS.TPS.Common.Model.Types.BeamNumber)">
+            <summary>
+            Compares two BeamNumbers, a and b, to determine if a is greater than b.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns>True if a is greater than b. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.op_LessThan(VMS.TPS.Common.Model.Types.BeamNumber,VMS.TPS.Common.Model.Types.BeamNumber)">
+            <summary>
+            Compares two BeamNumbers, a and b, to determine if a is smaller than b.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns>True if a is smaller than b. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.op_GreaterThanOrEqual(VMS.TPS.Common.Model.Types.BeamNumber,VMS.TPS.Common.Model.Types.BeamNumber)">
+            <summary>
+            Compares two BeamNumbers, a and b, to determine if a is greater than or equal to b.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns>True if a is greater than or equal to b. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.op_LessThanOrEqual(VMS.TPS.Common.Model.Types.BeamNumber,VMS.TPS.Common.Model.Types.BeamNumber)">
+            <summary>
+            Compares two BeamNumbers, a and b, to determine if a is smaller than or equal to b.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns>True if a is smaller than or equal to b. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.op_Implicit(VMS.TPS.Common.Model.Types.BeamNumber)~System.Int32">
+            <summary>
+            Converts a BeamNumber to an int.
+            </summary>
+            <param name="bn">The converted BeamNumber object.</param>
+            <returns>The beam number as an integer.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.GetHashCode">
+            <summary>
+            Provides a hash code for the item, see <see cref="P:System.Object.GetHashCode">Object.GetHashCode()</see>.
+            </summary>
+            <returns>The hash code for this instance.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="other">The other object to compare.</param>
+            <returns>True if this object equals to the other object. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.Equals(VMS.TPS.Common.Model.Types.BeamNumber)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>True if the current object is equal to the other object. Otherwise, false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.GetSchema">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>
+            <returns>XmlSchema.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>   
+            <param name="reader">The XmlReader stream from which the object is deserialized.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.BeamNumber.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Serialization support.
+            </summary>
+            <param name="writer">The System.Xml.XmlWriter stream to which the object is serialized.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.BeamNumber.Number">
+            <summary>
+            The beam number.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.BeamNumber.IsValid">
+            <summary>
+            Returns true if the given BeamNumber is valid. Otherwise false.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.StructureMarginGeometry">
+            <summary>
+            Specifies whether a margin operation expands (outer margin) or shrinks (inner margin) the volume.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureMarginGeometry.Outer">
+            <summary>
+            Specifies that the margin operation expands the volume.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureMarginGeometry.Inner">
+            <summary>
+            Specifies that the margin operation shrinks the volume.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.AxisAlignedMargins">
+            <summary>
+            Represents margins aligned to the axes of the image coordinate system, in mm.
+            Negative margins are not allowed, but it is possible to specify whether the margins represent an inner or outer margin.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.AxisAlignedMargins.Geometry">
+            <summary>
+            Specifies whether the margin operation expands (outer margin) or shrinks (inner margin) the volume.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.AxisAlignedMargins.X1">
+            <summary>
+            A non-negative value defining the margin towards the negative X axis, in mm.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.AxisAlignedMargins.Y1">
+            <summary>
+            A non-negative value defining the margin towards the negative Y axis, in mm.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.AxisAlignedMargins.Z1">
+            <summary>
+            A non-negative value defining the margin towards the negative Z axis, in mm.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.AxisAlignedMargins.X2">
+            <summary>
+            A non-negative value defining the margin towards the positive X axis, in mm.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.AxisAlignedMargins.Y2">
+            <summary>
+            A non-negative value defining the margin towards the positive Y axis, in mm.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.AxisAlignedMargins.Z2">
+            <summary>
+            A non-negative value defining the margin towards the positive Z axis, in mm.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.AxisAlignedMargins.#ctor(VMS.TPS.Common.Model.Types.StructureMarginGeometry,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructs a new AxisAlignedMargins instance. The given margins are aligned to the axes of the image
+            coordinate system, in mm.
+            </summary>
+            <param name="geometry">Specifies whether the margin operation expands (outer margin) or shrinks (inner margin) the volume.</param>
+            <param name="x1">A non-negative value defining the margin towards the negative X axis, in mm.</param>
+            <param name="y1">A non-negative value defining the margin towards the negative Y axis, in mm.</param>
+            <param name="z1">A non-negative value defining the margin towards the negative Z axis, in mm.</param>
+            <param name="x2">A non-negative value defining the margin towards the positive X axis, in mm.</param>
+            <param name="y2">A non-negative value defining the margin towards the positive Y axis, in mm.</param>
+            <param name="z2">A non-negative value defining the margin towards the positive Z axis, in mm.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.AxisAlignedMargins.ToString">
+            <summary>
+            A string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.IDoseValueDisplaySettings">
+            <summary>
+            Application specific dose value display settings.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.IDoseValueDisplaySettings.Decimals(VMS.TPS.Common.Model.Types.DoseValue.DoseUnit)">
+            <summary>
+            Determines how many decimals to use to display a dosevalue with specified unit.
+            </summary>
+            <param name="unit">DoseUnit for which the number of decimals is requested.</param>
+            <returns>Number of decimals to use for the dose unit.</returns>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.DoseValueDisplayConfig">
+            <summary>
+            Configure the settings related to the dose value display for the application.
+            Defaults to the same settings as Eclipse.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValueDisplayConfig.Decimals(VMS.TPS.Common.Model.Types.DoseValue.DoseUnit)">
+            <summary>
+            Get number of decimals to user for dosevalue of the defined dose unit
+            </summary>
+            <param name="unit">DoseUnit for which the number of decimals is requested.</param>
+            <returns>Configured number of decimals to use.</returns>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DoseValueDisplayConfig.DisplaySettings">
+            <summary>
+            Get and set current dosevalue display settings.
+            Set settings controller to null reverts to default display settings.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValueDisplayConfig.DefaultDoseValueSettings.Decimals(VMS.TPS.Common.Model.Types.DoseValue.DoseUnit)">
+            <summary>
+            Determines how many decimals to use to display a dosevalue with specified unit.
+            </summary>
+            <param name="unit">DoseUnit for which the number of decimals is requested.</param>
+            <returns>Number of decimals to use for the dose unit.</returns>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.DoseValue">
+            <summary>
+            Represents a dose value. DoseValue semantics follows the semantics of System.Double, with DoseValue.Undefined corresponding to Double.NaN.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.#ctor(System.Double,System.String)">
+            <summary>
+            Constructs a DoseValue.
+            </summary>
+            <param name="value">Value for this instance.</param>
+            <param name="unitName">String that corresponds to one of the enumeration values of DoseUnit.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.#ctor(System.Double,VMS.TPS.Common.Model.Types.DoseValue.DoseUnit)">
+            <summary>
+            Constructs a DoseValue.
+            </summary>
+            <param name="value">Value for this instance</param>
+            <param name="unit">Unit of this instance.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.Equals(System.Object)">
+            <summary>
+            Equality comparison of DoseValue and Object.
+            This method considers two instances of DoseValue.Undefined to be equal to each other.
+            Otherwise, a dose value is equal to an object only if the object is a DoseValue and the units and the values are equal.
+            For epsilon-equal comparison, use <see cref="M:VMS.TPS.Common.Model.Types.DoseValue.Equals(VMS.TPS.Common.Model.Types.DoseValue,System.Double)"/>.
+            </summary>
+            <param name="obj">Object to compare this to.</param>
+            <returns>True if the Object is also DoseValue and equal to this (value and unit), false otherwise.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.GetHashCode">
+            <summary>
+            A hash code for the current object.
+            </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.Equals(VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Equality comparison of dose values.
+            This method considers two instances of DoseValue.Undefined to be equal to each other.
+            Otherwise, two dose values are equal only if the units and the values are equal.
+            For epsilon-equal comparison, use <see cref="M:VMS.TPS.Common.Model.Types.DoseValue.Equals(VMS.TPS.Common.Model.Types.DoseValue,System.Double)"/>.
+            </summary>
+            <param name="other">Dose value to compare this to.</param>
+            <returns>True if the units and values are equal, false otherwise.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.Equals(VMS.TPS.Common.Model.Types.DoseValue,System.Double)">
+            <summary>
+            Epsilon-equality comparison of dose values.
+            This method considers two instances of DoseValue.Undefined to be equal to each other.
+            Otherwise, two dose values are equal only if the units are equal and the values are within epsilon.
+            </summary>
+            <param name="other">Dose value to compare this to.</param>
+            <param name="epsilon" >Epsilon to use for the dose value comparison.</param>
+            <returns>True if the units are equal and values are within epsilon, false otherwise.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_Equality(VMS.TPS.Common.Model.Types.DoseValue,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Equality operator for dose values. 
+            This operator considers two instances of DoseValue.Undefined to be inequal.
+            For epsilon-equal comparison, use <see cref="M:VMS.TPS.Common.Model.Types.DoseValue.Equals(VMS.TPS.Common.Model.Types.DoseValue,System.Double)"/>.
+            </summary>
+            <param name="dv1">First operand.</param>
+            <param name="dv2">Second operand.</param>
+            <returns>True if the units and values are equal, false otherwise.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_Inequality(VMS.TPS.Common.Model.Types.DoseValue,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Inequality operator for dose values.
+            This operator considers two instances of DoseValue.Undefined to be inequal.
+            For epsilon-equal comparison, use <see cref="M:VMS.TPS.Common.Model.Types.DoseValue.Equals(VMS.TPS.Common.Model.Types.DoseValue,System.Double)"/>.
+            </summary>
+            <param name="dv1">First operand.</param>
+            <param name="dv2">Second operand.</param>
+            <returns>True if the units, values, or both of them are inequal, false otherwise.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.CompareTo(VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Comparison of dose values. DoseValue.Undefined preceeds other values. Otherwise, different units cause an exception to be thrown.
+            The values are compared using Double.CompareTo(Double).
+            </summary>
+            <param name="other">Dose value to compare this to.</param>
+            <returns>Comparison result.</returns>
+            <exception cref="T:System.ArithmeticException">Thrown if units are different.</exception>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_LessThan(VMS.TPS.Common.Model.Types.DoseValue,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Less-than comparison of dose values. Comparison with DoseValue.Undefined is false.
+            </summary>
+            <param name="dv1">First operand.</param>
+            <param name="dv2">Second operand.</param>
+            <returns>Comparison result.</returns>
+            <exception cref="T:System.ArithmeticException">Thrown if units are different.</exception>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_LessThanOrEqual(VMS.TPS.Common.Model.Types.DoseValue,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Less-than-or-equal comparison of dose values. Comparison with DoseValue.Undefined is false.
+            </summary>
+            <param name="dv1">First operand.</param>
+            <param name="dv2">Second operand.</param>
+            <returns>Comparison result.</returns>
+            <exception cref="T:System.ArithmeticException">Thrown if units are different.</exception>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_GreaterThan(VMS.TPS.Common.Model.Types.DoseValue,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Greater-than comparison of dose values. Comparison with DoseValue.Undefined is false.
+            </summary>
+            <param name="dv1">First operand.</param>
+            <param name="dv2">Second operand.</param>
+            <returns>Comparison result.</returns>
+            <exception cref="T:System.ArithmeticException">Thrown if units are different.</exception>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_GreaterThanOrEqual(VMS.TPS.Common.Model.Types.DoseValue,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Greater-than comparison of dose values. Comparison with DoseValue.Undefined is false.
+            </summary>
+            <param name="dv1">First operand.</param>
+            <param name="dv2">Second operand.</param>
+            <returns>Comparison result.</returns>
+            <exception cref="T:System.ArithmeticException">Thrown if units are different.</exception>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_Subtraction(VMS.TPS.Common.Model.Types.DoseValue,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Subtraction of dose values. If either of the operands is DoseValue.Undefined, the result will be DoseValue.Undefined.
+            </summary>
+            <param name="dv1">First operand.</param>
+            <param name="dv2">Second operand.</param>
+            <returns>Subtraction result.</returns>
+            <exception cref="T:System.ArithmeticException">Thrown if units are different.</exception>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_Addition(VMS.TPS.Common.Model.Types.DoseValue,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Addition of dose values. If either of the operands is DoseValue.Undefined, the result will be DoseValue.Undefined.
+            </summary>
+            <param name="dv1">First operand.</param>
+            <param name="dv2">Second operand.</param>
+            <returns>Result of addition.</returns>
+            <exception cref="T:System.ArithmeticException">Thrown if units are different.</exception>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_Multiply(VMS.TPS.Common.Model.Types.DoseValue,System.Double)">
+            <summary>
+            Multiplication of a dose value and a double. If the dose value is DoseValue.Undefined, the result will be DoseValue.Undefined.
+            </summary>
+            <param name="dv">DoseValue to multiply.</param>
+            <param name="dbl">Multiplier.</param>
+            <returns>Result of multiplication.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_Multiply(System.Double,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Multiplication of a dose value and a double. If the dose value is DoseValue.Undefined, the result will be DoseValue.Undefined.
+            </summary>
+            <param name="dbl">Multiplier.</param>
+            <param name="dv">DoseValue to multiply.</param>
+            <returns>Result of multiplication.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_Division(VMS.TPS.Common.Model.Types.DoseValue,System.Double)">
+            <summary>
+            Division of a dose value by a double. If the dose value is DoseValue.Undefined, the result will be DoseValue.Undefined.
+            </summary>
+            <param name="dv">Dividend.</param>
+            <param name="dbl">Divisor.</param>
+            <returns>Result of division.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.op_Division(VMS.TPS.Common.Model.Types.DoseValue,VMS.TPS.Common.Model.Types.DoseValue)">
+            <summary>
+            Division of two dose values. If either of the operands is DoseValue.Undefined, the result will be Double.NaN.
+            </summary>
+            <param name="dv1">Dividend.</param>
+            <param name="dv2">Divisor.</param>
+            <returns>Result of division.</returns>
+            <exception cref="T:System.ArithmeticException">Thrown if units are different.</exception>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.IsAbsoluteDoseUnit(VMS.TPS.Common.Model.Types.DoseValue.DoseUnit)">
+            <summary>
+            Returns true if the dose unit is absolute (Gy or cGy).
+            </summary>
+            <param name="doseUnit">The dose unit that is evaluated.</param>
+            <returns>True if the dose unit is absolute (Gy or cGy). Otherwise returns false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.IsRelativeDoseUnit(VMS.TPS.Common.Model.Types.DoseValue.DoseUnit)">
+            <summary>
+            Returns true if the dose unit is relative (%).
+            </summary>
+            <param name="doseUnit">The dose unit that is evaluated.</param>
+            <returns>True if the dose unit is relative (%). Otherwise returns false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.ToString">
+            <summary>
+            A string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DoseValue.Undefined">
+            <summary>
+            A dose value, for which the value is Double.NaN and  
+            the unit is unknown. 
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.UndefinedDose">
+            <summary>
+            A dose value, for which the value is Double.NaN and  
+            the unit is unknown. 
+            </summary>
+            <returns>Undefined dose value.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.IsUndefined">
+            <summary>
+            Returns true if this dose value is equal to DoseValue.Undefined, false otherwise.
+            </summary>
+            <returns>True if this dose value is not defined, false otherwise.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.GetSchema">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>
+            <returns>XmlSchema.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>
+            <param name="reader">XmlReader.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseValue.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Serialization support.
+            </summary>
+            <param name="writer">The System.Xml.XmlWriter stream to which the object is serialized.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DoseValue.Dose">
+            <summary>
+            The value of this instance.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DoseValue.Unit">
+            <summary>
+            The unit of this instance.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DoseValue.UnitAsString">
+            <summary>
+            The unit of this instance as a string.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DoseValue.ValueAsString">
+            <summary>
+            The value of this instance as a string.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DoseValue.IsAbsoluteDoseValue">
+            <summary>
+            Returns true if the unit of the dose value is absolute (Gy or cGy).
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DoseValue.IsRelativeDoseValue">
+            <summary>
+            Returns true if the unit of the dose value is relative (%).
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DoseValue.Decimals">
+            <summary>
+            The display precision of this value
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.DoseValue.DoseUnit">
+            <summary>
+            The unit of the dose value.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DoseValue.DoseUnit.Unknown">
+            <summary>Unknown unit.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DoseValue.DoseUnit.Gy">
+            <summary>Grays.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DoseValue.DoseUnit.cGy">
+            <summary>Centigrays.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DoseValue.DoseUnit.Percent">
+            <summary>Percent.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.SingleLayerParameters">
+            <summary>
+            One layer or group of DRR calculation parameters.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SingleLayerParameters.LayerOn">
+            <summary>
+            Defines whether the layer of parameters are selected.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SingleLayerParameters.Weight">
+            <summary>
+            Weight factor of the DRR layer. Value must be between -100.0 and 100.0.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SingleLayerParameters.CTFrom">
+            <summary>
+            Lower end of the CT window. Value must be between -1024.0 and 6000.0.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SingleLayerParameters.CTTo">
+            <summary>
+            Upper end of the CT window. Value must be between -1024.0 and 6000.0.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SingleLayerParameters.GeoClipping">
+            <summary>
+            Image volume type on which the DRR calculation is based.
+            If calculation is based on partial image volume as specified by <see cref="P:VMS.TPS.Common.Model.Types.SingleLayerParameters.GeoFrom"/> and <see cref="P:VMS.TPS.Common.Model.Types.SingleLayerParameters.GeoTo"/> distances, the value is true.
+            If calculation is based on full image volume, the value is false.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SingleLayerParameters.GeoFrom">
+            <summary>
+            Starting distance from the isocenter. Value must be between -10000 and 10000 mm.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SingleLayerParameters.GeoTo">
+            <summary>
+            Ending distance from the isocenter. Value must be between -10000 and 10000 mm.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.DRRCalculationParameters">
+            <summary>
+            Parameters for DRR calculation.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DRRCalculationParameters.#ctor">
+            <summary>
+            Creates a new set of DRR calculation parameters with default values.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DRRCalculationParameters.#ctor(System.Double)">
+            <summary>
+            Creates a new set of DRR calculation parameters with a specified DRR size.
+            </summary>
+            <param name="drrSize">DRR size in mm.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DRRCalculationParameters.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a new set of DRR calculation parameters.
+            </summary>
+            <param name="drrSize">DRR size in mm. Value must be between 5 and 5120 mm.</param>
+            <param name="weight">DRR layer weight. Value must be between -100.0 and 100.0.</param>
+            <param name="ctFrom">Lower end of the CT window. Value must be between -1024.0 and 6000.0.</param>
+            <param name="ctTo">Upper end of the CT window. Value must be between -1024.0 and 6000.0.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DRRCalculationParameters.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates a new set of DRR calculation parameters.
+            </summary>
+            <param name="drrSize">DRR size in mm. Value must be between 5 and 5120 mm.</param>
+            <param name="weight">DRR layer weight. Value must be between -100.0 and 100.0.</param>
+            <param name="ctFrom">Lower end of the CT window. Value must be between -1024.0 and 6000.0.</param>
+            <param name="ctTo">Upper end of the CT window. Value must be between -1024.0 and 6000.0.</param>
+            <param name="geoFrom">Starting distance from the isocenter. Value must be between -10000 and 10000 mm.</param>
+            <param name="geoTo">Ending distance from the isocenter. Value must be between -10000 and 10000 mm.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DRRCalculationParameters.GetLayerParameters(System.Int32)">
+            <summary>
+            Gets a single layer of editable DRR calculation parameters.
+            </summary>
+            <param name="index">Layer index. Value must be between 0 and 2.</param>
+            <returns>Layer of parameters.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DRRCalculationParameters.SetLayerParameters(System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+            Sets parameters for <code>SingleLayerParameters</code>.
+            </summary>
+            <param name="index">Layer index.</param>
+            <param name="weight">DRR layer weight. Value must be between -100.0 and 100.0.</param>
+            <param name="ctFrom">Lower end of the CT window. Value must be between -1024.0 and 6000.0.</param>
+            <param name="ctTo">Upper end of the CT window. Value must be between -1024.0 and 6000.0.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DRRCalculationParameters.SetLayerParameters(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Sets parameters for <code>SingleLayerParameters</code>.
+            </summary>
+            <param name="index">Layer index.</param>
+            <param name="weight">DRR layer weight. Value must be between -100.0 and 100.0.</param>
+            <param name="ctFrom">Lower end of the CT window. Value must be between -1024.0 and 6000.0.</param>
+            <param name="ctTo">Upper end of the CT window. Value must be between -1024.0 and 6000.0.</param>
+            <param name="geoFrom">Starting distance from the isocenter. Value must be between -10000 and 10000 mm.</param>
+            <param name="geoTo">Ending distance from the isocenter. Value must be between -10000 and 10000 mm.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DRRCalculationParameters.DRRSize">
+            <summary>
+            DRR size. Decreasing the size of the DRR effectively increases the resolution of the DRR. Value must be between 5 and 5120 mm.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DRRCalculationParameters.StructureOutlines">
+            <summary>
+            Defines if structure outlines are added as layers in the DRR.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DRRCalculationParameters.FieldOutlines">
+            <summary>
+            Defines if field outlines (MLC, CIAO etc.) are added as layers in the DRR.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.DVHPoint">
+            <summary>
+            Represents a value on a Dose Volume Histogram (DVH) curve.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DVHPoint.#ctor(VMS.TPS.Common.Model.Types.DoseValue,System.Double,System.String)">
+            <summary>
+            Constructs a DVHPoint. 
+            </summary>
+            <param name="dose">Dose value of the point.</param>
+            <param name="volume">Volume value of the point.</param>
+            <param name="volumeUnit">Unit of volume.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DVHPoint.GetSchema">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>
+            <returns>XmlSchema.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DVHPoint.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>
+            <param name="reader">XmlReader.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DVHPoint.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Serialization support.
+            </summary>
+            <param name="writer">The System.Xml.XmlWriter stream to which the object is serialized.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DVHPoint.DoseValue">
+            <summary>
+            The dose value of the point.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DVHPoint.Volume">
+            <summary>
+            The volume value of the point.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DVHPoint.VolumeUnit">
+            <summary>
+            The volume unit of the point.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ExternalBeamMachineParameters">
+            <summary>
+            The parameters for the external beam treatment unit.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.ExternalBeamMachineParameters.#ctor(System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Assigns the parameters to the properties.
+            </summary>
+            <param name="doseRate">Dose rate value.</param>
+            <param name="energyModeId">The energy mode identifier. For example, "6X", or "18X".</param>
+            <param name="machineId">The treatment unit identifier.</param>
+            <param name="primaryFluenceModeId">Primary Fluence Mode ID. Acceptable values are: null, empty string, "SRS","FFF".</param>
+            <param name="techniqueId">Technique identifier. Typically "STATIC" or "ARC".</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.ExternalBeamMachineParameters.MachineId">
+            <summary>
+            The treatment unit identifier.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.ExternalBeamMachineParameters.EnergyModeId">
+            <summary>
+            The energy mode identifier.
+            For example, "6X", or "18X".
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.ExternalBeamMachineParameters.DoseRate">
+            <summary>
+            Dose rate value.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.ExternalBeamMachineParameters.PrimaryFluenceModeId">
+            <summary>
+            Primary Fluence Mode identifier.
+            Acceptable values are: null, empty string, "SRS","FFF".
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.ExternalBeamMachineParameters.TechniqueId">
+            <summary>
+            Technique identifier.
+            Typically "STATIC" or "ARC".
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.FitToStructureMarginType">
+            <summary>
+            Margin type
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.FitToStructureMarginType.Circular">
+            <summary>
+            Uniform margin on all directions
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.FitToStructureMarginType.Elliptical">
+            <summary>
+            Variable margin for different directions
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.FitToStructureMargins">
+            <summary>
+            Margins that are used when fitting a field device to a structure from the BEV perspective
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.FitToStructureMargins.Type">
+            <summary>
+            Type of margins
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.FitToStructureMargins.X1">
+            <summary>
+            Non-negative margin value in mm
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.FitToStructureMargins.X2">
+            <summary>
+            Non-negative margin value in mm
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.FitToStructureMargins.Y1">
+            <summary>
+            Non-negative margin value in mm
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.FitToStructureMargins.Y2">
+            <summary>
+            Non-negative margin value in mm
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.FitToStructureMargins.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructs a new FitToStructureMargins instance with elliptical margin type.
+            </summary>
+            <param name="x1">Margin x1 in mm</param>
+            <param name="y1">Margin y1 in mm</param>
+            <param name="x2">Margin x2 in mm</param>
+            <param name="y2">Margin y2 in mm</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.FitToStructureMargins.#ctor(System.Double)">
+            <summary>
+            Constructs a new FitToStructureMargins instance with circular margin type.
+            </summary>
+            <param name="margin">Uniform margin for all directions in mm</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.FitToStructureMargins.ToString">
+            <summary>
+            A string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.Fluence">
+            <summary>
+            Represents the fluence for a beam.
+            The resolution in the fluence matrix is 2.5 mm in x and y directions.
+            In the fluence matrix, x dimension is the number of columns, and y dimension is the number of rows.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.Fluence.#ctor(System.Single[0:,0:],System.Double,System.Double)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="fluenceMatrix">Contains the pixel values for the fluence.
+            x dimension is the number of columns, and y dimension is the number of rows in the matrix.
+            The minimum number of rows and columns is 2, and the maximum is 1024.
+            For the optimal fluence of a beam, the values in the fluence matrix are floats, 4 bytes per pixel.
+            The pixel values are determined as follows: fluence value 1 produces a dose of 1 Gy at the depth of 10 cm in a water phantom with a 10 x 10 cm open field. 
+            Correspondingly, fluence value 2 produces 2 Gy, fluence value 3 produces 3 Gy, etc. at the depth of 10 cm in a water phantom with a 10 x 10 cm open field.
+            Pixel values are positive.</param>
+            <param name="xOrigin">The x coordinate of the first pixel in a fluence map. 
+            The value is measured in millimeters from the field isocenter to the center of the first pixel. 
+            The coordinate axes are the same as in the IEC BEAM LIMITING DEVICE coordinate system.</param>
+            <param name="yOrigin">The y coordinate of the first pixel in a fluence map. 
+            The value is measured in millimeters from the field isocenter to the center of the first pixel.
+            The coordinate axes are the same as in the IEC BEAM LIMITING DEVICE coordinate system.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.Fluence.#ctor(System.Single[0:,0:],System.Double,System.Double,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="fluenceMatrix">Contains the pixel values for the fluence.
+            x dimension is the number of columns, and y dimension is the number of rows in the matrix.
+            The minimum number of rows and columns is 2, and the maximum is 1024.
+            The pixel values are determined as follows: fluence value 1 produces a dose of 1 Gy at the depth of 10 cm in a water phantom with a 10 x 10 cm open field. 
+            Correspondingly, fluence value 2 produces 2 Gy, fluence value 3 produces 3 Gy, etc. at the depth of 10 cm in a water phantom with a 10 x 10 cm open field.
+            Pixel values are positive.</param>
+            <param name="xOrigin">The x coordinate of the first pixel in a fluence map. 
+            The value is measured in millimeters from the field isocenter to the center of the first pixel. 
+            The coordinate axes are the same as in the IEC BEAM LIMITING DEVICE coordinate system.</param>
+            <param name="yOrigin">The y coordinate of the first pixel in a fluence map. 
+            The value is measured in millimeters from the field isocenter to the center of the first pixel. 
+            The coordinate axes are the same as in the IEC BEAM LIMITING DEVICE coordinate system.</param>
+            <param name="mlcId">The identifier of the MLC that is related to the fluence. This parameter is optional. 
+            If the identifier is empty, the system tries to find the MLC from the treatment unit configuration. 
+            This happens when you call one of the <see cref="M:VMS.TPS.Common.Model.API.ExternalPlanSetup.Optimize(System.Int32)">Optimize</see> methods in the
+            <see cref="T:VMS.TPS.Common.Model.API.ExternalPlanSetup">ExternalPlanSetup</see>.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.Fluence.GetPixels">
+            <summary>
+            Returns the fluence matrix.
+            </summary>
+            <returns>The pixel values for the fluence as described in <see cref="M:VMS.TPS.Common.Model.Types.Fluence.#ctor(System.Single[0:,0:],System.Double,System.Double)">constructor</see>&gt;.</returns>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.Fluence.MaxSizePixel">
+            <summary>
+            The maximum size of pixels for x or y dimension in the fluence.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.Fluence.XSizePixel">
+            <summary>
+            The size of x dimension in pixels for the fluence.
+            This corresponds to the number of columns in the pixels matrix.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.Fluence.YSizePixel">
+            <summary>
+            The size of y dimension in pixels for the fluence.
+            This corresponds to the number of rows in the pixels matrix.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.Fluence.XSizeMM">
+            <summary>
+            The size of x dimension in mm for the fluence.
+            The resolution is 2.5 mm in x and y directions.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.Fluence.YSizeMM">
+            <summary>
+            The size of y dimension in mm for the fluence.
+            The resolution is 2.5 mm in x and y directions.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.Fluence.XOrigin">
+            <summary>
+            The x coordinate of the first pixel in a fluence map. 
+            The value is measured in millimeters from the field isocenter to the center of the first pixel. 
+            The coordinate axes are the same as in the IEC BEAM LIMITING DEVICE coordinate system.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.Fluence.YOrigin">
+            <summary>
+            The y coordinate of the first pixel in a fluence map. 
+            The value is measured in millimeters from the field isocenter to the center of the first pixel. 
+            The coordinate axes are the same as in the IEC BEAM LIMITING DEVICE coordinate system.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.Fluence.MLCId">
+            <summary>
+            The identifier of the MLC that is related to the fluence. The value can be empty or null.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ProfilePoint">
+            <summary>
+            Represents a point of a line profile.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.ProfilePoint.#ctor(VMS.TPS.Common.Model.Types.VVector,System.Double)">
+            <summary>
+            Constructs a ProfilePoint. 
+            </summary>
+            <param name="position">Position of the point.</param>
+            <param name="value">Value of the point.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.ProfilePoint.Position">
+            <summary>
+            The position of the point.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.ProfilePoint.Value">
+            <summary>
+            The value of the point.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.LineProfile">
+            <summary>
+            Represents values along a line segment.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.LineProfile.#ctor(VMS.TPS.Common.Model.Types.VVector,VMS.TPS.Common.Model.Types.VVector,System.Double[])">
+            <summary>
+            Constructs a LineProfile.
+            </summary>
+            <param name="origin">Origin, i.e. position of first point of the profile.</param>
+            <param name="step">Step length and direction between points on the profile.</param>
+            <param name="data">Array of values of the profile.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.LineProfile.GetEnumerator">
+            <summary>
+            An enumerator for the points in the profile.
+            </summary>
+            <returns>Enumerator for points in the profile.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.LineProfile.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            A non-generic version of the enumerator for the points in the profile.
+            </summary>
+            <returns>Enumerator for points in the profile.</returns>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.LineProfile.Item(System.Int32)">
+            <summary>
+            Gets the specified point from the profile.
+            </summary>
+            <param name="index">Zero based index of the point to retrieve.</param>
+            <returns>Point at the given index.</returns>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.LineProfile.Count">
+            <summary>
+            The number of points in the profile.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ImageProfile">
+            <summary>
+            Represents an image line profile.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.ImageProfile.#ctor(VMS.TPS.Common.Model.Types.VVector,VMS.TPS.Common.Model.Types.VVector,System.Double[],System.String)">
+            <summary>
+            Constructs an ImageProfile.
+            </summary>
+            <param name="origin">Origin, i.e. position of first point of the profile.</param>
+            <param name="step">Step length and direction between points on the profile.</param>
+            <param name="data">Array of values of the profile.</param>
+            <param name="unit">Unit of values in the profile.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.ImageProfile.Unit">
+            <summary>
+            The unit of the points on the image profile.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.DoseProfile">
+            <summary>
+            Represents a dose profile.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.DoseProfile.#ctor(VMS.TPS.Common.Model.Types.VVector,VMS.TPS.Common.Model.Types.VVector,System.Double[],VMS.TPS.Common.Model.Types.DoseValue.DoseUnit)">
+            <summary>
+            Constructs a DoseProfile.
+            </summary>
+            <param name="origin">Origin, i.e. position of first point of the profile.</param>
+            <param name="step">Step length and direction between points on the profile.</param>
+            <param name="data">Array of values of the profile.</param>
+            <param name="unit">Unit of values in the profile.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.DoseProfile.Unit">
+            <summary>
+            The unit of the points on this dose profile.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.LMCVOptions">
+            <summary>
+            Options for calculating leaf motions using the Varian Leaf Motion Calculator (LMCV) algorithm.
+            </summary>
+            <seealso cref="M:VMS.TPS.Common.Model.API.PlanSetup.SetCalculationModel(VMS.TPS.Common.Model.Types.CalculationType,System.String)">SetCalculationOption</seealso>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.LMCVOptions.#ctor(System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="fixedJaws">Use the Fixed jaws option.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.LMCVOptions.FixedJaws">
+            <summary>
+            Use the Fixed jaws option.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.SmartLMCOptions">
+            <summary>
+            Options for calculating leaf motions using the Varian Smart LMC algorithm.
+            </summary>
+            <seealso cref="M:VMS.TPS.Common.Model.API.PlanSetup.SetCalculationModel(VMS.TPS.Common.Model.Types.CalculationType,System.String)">SetCalculationOption</seealso>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.SmartLMCOptions.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="fixedFieldBorders">Use the Fixed field borders option. See details in Eclipse Photon and Electron Algorithms Reference Guide.</param>
+            <param name="jawTracking">Use the Jaw tracking option. See details in Eclipse Photon and Electron Algorithms Reference Guide.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SmartLMCOptions.FixedFieldBorders">
+            <summary>
+            Use the Fixed field borders option.
+            See details in Eclipse Photon and Electron Algorithms Reference Guide.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SmartLMCOptions.JawTracking">
+            <summary>
+            Use the Jaw tracking option.
+            See details in Eclipse Photon and Electron Algorithms Reference Guide.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.LMCMSSOptions">
+            <summary>
+            Options for calculating leaf motions using the non-Varian MSS Leaf Motion Calculator (LMCMSS) algorithm.
+            </summary>
+            <seealso cref="M:VMS.TPS.Common.Model.API.PlanSetup.SetCalculationModel(VMS.TPS.Common.Model.Types.CalculationType,System.String)">SetCalculationOption</seealso>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.LMCMSSOptions.#ctor(System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="numberOfIterations">The number of calculation iterations.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.LMCMSSOptions.NumberOfIterations">
+            <summary>
+            The number of calculation iterations.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.DosimeterUnit">
+            <summary>
+            The dosimeter unit.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DosimeterUnit.Null">
+            <summary>Null unit, undefined.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DosimeterUnit.MU">
+            <summary>Monitor Units.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DosimeterUnit.Minute">
+            <summary>Minutes.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DosimeterUnit.Second">
+            <summary>Seconds.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.MetersetValue">
+            <summary>
+            Represents a meterset value.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.MetersetValue.#ctor(System.Double,VMS.TPS.Common.Model.Types.DosimeterUnit)">
+            <summary>
+            Constructs a MetersetValue.
+            </summary>
+            <param name="value">Value for this instance.</param>
+            <param name="unit">Unit for this instance.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.MetersetValue.GetSchema">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>
+            <returns>XmlSchema.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.MetersetValue.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>
+            <param name="reader">XmlReader.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.MetersetValue.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Serialization support.
+            </summary>
+            <param name="writer">The System.Xml.XmlWriter stream to which the object is serialized.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.MetersetValue.Value">
+            <summary>
+            The value of this instance.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.MetersetValue.Unit">
+            <summary>
+            The unit of this instance.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.OptimizationOptionsBase">
+            <summary>
+            Abstract base class for IMRT and VMAT optimization options.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationOptionsBase.m_mlcId">
+            <summary>
+            Identifier for the Multileaf Collimator (MLC).
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationOptionsBase.m_startOption">
+            <summary>
+            Initial state for the optimizer.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationOptionsBase.m_intermediateDoseOption">
+            <summary>
+            Use of intermediate dose in optimization.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.OptimizationOptionsBase.MLC">
+            <summary>
+            Identifier for the Multileaf Collimator (MLC). This can be left empty if there is exactly one MLC configured.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.OptimizationOptionsBase.StartOption">
+            <summary>
+            The state at the beginning of the optimization.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.OptimizationOptionsBase.IntermediateDoseOption">
+            <summary>
+            Use of intermediate dose in optimization.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.OptimizationOptionsIMRT">
+            <summary>
+            Options for IMRT optimization.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.OptimizationOptionsIMRT.#ctor(System.Int32,VMS.TPS.Common.Model.Types.OptimizationOption,System.Int32,VMS.TPS.Common.Model.Types.OptimizationConvergenceOption,System.String)">
+            <summary>
+            Specify the initial state at the beginning of optimization and use intermediate dose after a specified number of iterations. The user specifies if 
+            the calculation terminates upon convergence before the maximum number of iterations is reached. If the intermediate dose is selected, the intermediate dose is calculated 
+            at least once. The subsequent cycles may be terminated early if the iteration has been converged.
+            </summary>
+            <param name="maxIterations">Maximum number of iterations for IMRT optimization.</param>
+            <param name="initialState">Initial state at the beginning of optimization.</param>
+            <param name="numberOfStepsBeforeIntermediateDose">Number of steps before the intermediate dose is calculated.</param>
+            <param name="convergenceOption">Option to terminate optimization early if the iteration is converged.</param>
+            <param name="mlcId">Identifier for the Multileaf Collimator (MLC).</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.OptimizationOptionsIMRT.#ctor(System.Int32,VMS.TPS.Common.Model.Types.OptimizationOption,VMS.TPS.Common.Model.Types.OptimizationConvergenceOption,VMS.TPS.Common.Model.Types.OptimizationIntermediateDoseOption,System.String)">
+            <summary>
+            Specify the initial state at the beginning of optimization and use intermediate dose after a specified number of iterations. The user specifies if 
+            the calculation terminates upon convergence before the maximum number of iterations is reached. If the intermediate dose is selected, the intermediate dose is calculated 
+            once after which the optimization is restarted. This option is the same as the "Automatic Intermediate Dose" option in External Beam Planning.
+            </summary>
+            <param name="maxIterations">Maximum number of iterations for IMRT optimization.</param>
+            <param name="initialState">Initial state at the beginning of optimization.</param>
+            <param name="convergenceOption">Option to terminate optimization early if the iteration is converged.</param>
+            <param name="intermediateDoseOption">Specify if intermediate dose is calculated.</param>
+            <param name="mlcId">Identifier for the Multileaf Collimator (MLC).</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.OptimizationOptionsIMRT.#ctor(System.Int32,VMS.TPS.Common.Model.Types.OptimizationOption,VMS.TPS.Common.Model.Types.OptimizationConvergenceOption,System.String)">
+            <summary>
+            Specify the initial state before optimization and whether the algorithm can terminate early if the iteration has already been converged.
+            No intermediate dose is used in the optimization.
+            </summary>
+            <param name="maxIterations">Maximum number of iterations for IMRT optimization.</param>
+            <param name="initialState">Initial state at the beginning of optimization.</param>
+            <param name="convergenceOption">Option to terminate optimization early if the iteration is converged.</param>
+            <param name="mlcId">Identifier for the Multileaf Collimator (MLC).</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.OptimizationOptionsIMRT.ConvergenceOption">
+            <summary>
+            Terminate the optimization early if it is converged.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.OptimizationOptionsIMRT.NumberOfStepsBeforeIntermediateDose">
+            <summary>
+            Number of steps before the intermediate dose is calculated.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.OptimizationOptionsIMRT.MaximumNumberOfIterations">
+            <summary>
+            Maximum number of iterations for the IMRT optimizer.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.OptimizationOptionsVMAT">
+            <summary>
+            Options for VMAT optimization.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.OptimizationOptionsVMAT.#ctor(VMS.TPS.Common.Model.Types.OptimizationOption,System.String)">
+            <summary>
+            Perform VMAT optimization using a specific starting condition.
+            </summary>
+            <param name="startOption">Initial state for the optimizer.</param>
+            <param name="mlcId">Identifier for the Multileaf Collimator (MLC).</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.OptimizationOptionsVMAT.#ctor(VMS.TPS.Common.Model.Types.OptimizationIntermediateDoseOption,System.String)">
+            <summary>
+            Perform a single cycle of VMAT optimization. Intermediate dose is optionally calculated after multi-resolution level 3.
+            </summary>
+            <param name="intermediateDoseOption">Intermediate dose option.</param>
+            <param name="mlcId">Identifier for the Multileaf Collimator (MLC).</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.OptimizationOptionsVMAT.#ctor(System.Int32,System.String)">
+            <summary>
+            Perform a user-specified number of VMAT optimization cycles. During the first round, the intermediate dose is calculated after multi-resolution level 3, and 
+            the optimization re-starts at multi-resolution level 4. The subsequent rounds calculate first the intermediate dose and start the optimization from multi-resolution level 4.
+            </summary>
+            <param name="numberOfCycles">Number of VMAT optimization cycles.</param>
+            <param name="mlcId">Identifier for the Multileaf Collimator (MLC).</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.OptimizationOptionsVMAT.#ctor(VMS.TPS.Common.Model.Types.OptimizationOption,VMS.TPS.Common.Model.Types.OptimizationIntermediateDoseOption,System.Int32,System.String)">
+            <summary>
+            For the internal use of the Eclipse Scripting API.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.OptimizationOptionsVMAT.#ctor(VMS.TPS.Common.Model.Types.OptimizationOptionsVMAT)">
+            <summary>
+            Copy Constructor.
+            </summary>
+            <param name="options">An options object that is copied.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.OptimizationOptionsVMAT.NumberOfOptimizationCycles">
+            <summary>
+            Number of VMAT optimization cycles.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.SegmentProfilePoint">
+            <summary>
+            Represents a point of a segment profile.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.SegmentProfilePoint.#ctor(VMS.TPS.Common.Model.Types.VVector,System.Boolean)">
+            <summary>
+            Constructs a SegmentProfilePoint. 
+            </summary>
+            <param name="position">Position of the point.</param>
+            <param name="value">Value of the point.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SegmentProfilePoint.Position">
+            <summary>
+            The position of the point.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SegmentProfilePoint.Value">
+            <summary>
+            The value of the point: true if the point is inside the segment, false otherwise.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.SegmentProfile">
+            <summary>
+            Represents the segment values along a line segment.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.SegmentProfile.#ctor(VMS.TPS.Common.Model.Types.VVector,VMS.TPS.Common.Model.Types.VVector,System.Collections.BitArray)">
+            <summary>
+            Constructs a SegmentProfile.
+            </summary>
+            <param name="origin">Origin, i.e. position of first point of the profile.</param>
+            <param name="step">Step length and direction between points on the profile.</param>
+            <param name="data">Array of values of the profile.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.SegmentProfile.GetEnumerator">
+            <summary>
+            An enumerator for points in the profile.
+            </summary>
+            <returns>Enumerator for points in the profile.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.SegmentProfile.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            A non-generic version of the enumerator for points in the profile.
+            </summary>
+            <returns>Enumerator for points in the profile.</returns>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SegmentProfile.Item(System.Int32)">
+            <summary>
+            Gets a specified point from the profile.
+            </summary>
+            <param name="index">Zero based index of the point to retrieve.</param>
+            <returns>Point at the given index.</returns>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SegmentProfile.Count">
+            <summary>
+            The number of points in the profile.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.SegmentProfile.EdgeCoordinates">
+            <summary>
+            Returns the coordinates of the edges of the segment along
+            the segment profile. 
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.PlanType">
+            <summary>
+            The enumeration of plan types.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanType.ExternalBeam">
+            <summary>External beam.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanType.ExternalBeam_IRREG">
+            <summary>External beam, Irregular field calculation.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanType.ExternalBeam_Proton">
+            <summary>External beam, Proton.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanType.Brachy">
+            <summary>Brachytherapy.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.MLCPlanType">
+            <summary>
+            The enumeration of Multileaf Collimator (MLC) techniques.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MLCPlanType.Static">
+            <summary>The MLC shape is static during the beam-on.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MLCPlanType.DoseDynamic">
+            <summary>
+            The MLC shape and dose per degree are changed dynamically during the beam-on. The gantry does not rotate.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MLCPlanType.ArcDynamic">
+            <summary>
+            The MLC shape is changed dynamically during the beam-on. The dose per degree is kept constant. The gantry rotates.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MLCPlanType.VMAT">
+            <summary>
+            The MLC shape and dose per degree are changed dynamically during the beam-on.
+            This MLC type is used in RapidArc and other VMAT fields. 
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MLCPlanType.ProtonLayerStacking">
+            <summary>Proton layer stacking.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MLCPlanType.NotDefined">
+            <summary>Undefined MLC Plan type.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus">
+            <summary>
+            The enumeration of plan approval statuses.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.Rejected">
+            <summary>Rejected for actual use in treatment, unlocked in the database.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.UnApproved">
+            <summary>Unapproved, unlocked in the database.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.Reviewed">
+            <summary>
+            Has typically been initially verified, but still requires further approvals,
+            locked in the database.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.PlanningApproved">
+            <summary>
+            Intended to be used for the treatment of a patient, locked in the database.
+            Must be scheduled and given the Treatment Approval status to use it for the actual patient treatment.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.TreatmentApproved">
+            <summary>Intended to be used for the treatment of a patient, limited changes are allowed.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.CompletedEarly">
+            <summary>Completed early status.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.Completed">
+            <summary>Completed status.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.Retired">
+            <summary>
+            The original plan is set to the Retired state when a revision is created. 
+            No changes are possible to Retired plans. 
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.UnPlannedTreatment">
+            <summary>Unplanned treatment status.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.ExternallyApproved">
+             <summary>
+             Refers to an imported plan that has the approval status in its DICOM data.
+             Locked in the database, and managed in the same way as Planning Approved plans.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSetupApprovalStatus.Unknown">
+            <summary>Unknown status.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.StructureApprovalStatus">
+            <summary>
+            The enumeration of structure approval statuses.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureApprovalStatus.UnApproved">
+            <summary>Unapproved.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureApprovalStatus.Approved">
+            <summary>Approved.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureApprovalStatus.Rejected">
+            <summary>Rejected.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureApprovalStatus.Reviewed">
+            <summary>Reviewed.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ImageApprovalStatus">
+            <summary>
+            The enumeration of image approval statuses.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalStatus.New">
+            <summary>New.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalStatus.Reviewed">
+            <summary>Reviewed.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalStatus.Approved">
+            <summary>Approved.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalStatus.ActionRequired">
+            <summary>Action required.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalStatus.Disposed">
+            <summary>Disposed.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.PlanSumOperation">
+            <summary>
+            PlanSum operation for PlanSetups in PlanSum. 
+            Indicates whether the plan is summed with (“+”) or subtracted from (“-”) the other plans in the sum.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSumOperation.Undefined">
+            <summary>
+            Summing type is undefined.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSumOperation.Addition">
+            <summary>
+            Plan is summed with (“+”) the other plans in the sum.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanSumOperation.Subtraction">
+            <summary>
+            Plan is subtracted from (“-”) the other plans in the sum.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.DoseValuePresentation">
+            <summary>
+            Types of presentation for dose values.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DoseValuePresentation.Relative">
+            <summary>The dose as a percentage.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DoseValuePresentation.Absolute">
+            <summary>The dose in Gy or cGy.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.VolumePresentation">
+            <summary>
+            Types of presentation for volume values.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.VolumePresentation.Relative">
+            <summary>The volume as a percentage.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.VolumePresentation.AbsoluteCm3">
+            <summary>The volume as a cm3.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.PatientOrientation">
+            <summary>
+            The enumeration of patient orientations.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.NoOrientation">
+            <summary>No orientation.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.HeadFirstSupine">
+            <summary>Head first - supine.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.HeadFirstProne">
+            <summary>Head first - prone.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.HeadFirstDecubitusRight">
+            <summary>Head first - decubitus right.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.HeadFirstDecubitusLeft">
+            <summary>Head first - decubitus left.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.FeetFirstSupine">
+            <summary>Feet first - supine.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.FeetFirstProne">
+            <summary>Feet first - prone.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.FeetFirstDecubitusRight">
+            <summary>Feet first - decubitus right.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.FeetFirstDecubitusLeft">
+            <summary>Feet first - decubitus left.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientOrientation.Sitting">
+            <summary>Sitting.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.SeriesModality">
+            <summary>
+            The enumeration of series modalities.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SeriesModality.CT">
+            <summary>Computed Tomography (CT).</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SeriesModality.MR">
+            <summary>Magnetic Resonance (MR).</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SeriesModality.PT">
+            <summary>Positron Emission Tomography (PET).</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SeriesModality.RTIMAGE">
+            <summary>Radiotherapy Image.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SeriesModality.RTSTRUCT">
+            <summary>Radiotherapy Structure Set.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SeriesModality.RTPLAN">
+            <summary>Radiotherapy Plan.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SeriesModality.RTDOSE">
+            <summary>Radiotherapy Dose.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SeriesModality.REG">
+            <summary>Registration.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SeriesModality.Other">
+            <summary>Other.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.SetupTechnique">
+            <summary>
+            The enumeration of setup techniques for a beam.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SetupTechnique.Unknown">
+            <summary>Unknown.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SetupTechnique.Isocentric">
+            <summary>Isocentric.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SetupTechnique.FixedSSD">
+            <summary>Fixed SSD.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SetupTechnique.TBI">
+            <summary>TBI.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SetupTechnique.BreastBridge">
+            <summary>Breast Bridge.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.SetupTechnique.SkinApposition">
+            <summary>Skin Apposition.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.GantryDirection">
+            <summary>
+            The enumeration of gantry rotation directions.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.GantryDirection.None">
+            <summary>None.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.GantryDirection.Clockwise">
+            <summary>Clockwise.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.GantryDirection.CounterClockwise">
+            <summary>Counterclockwise.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ImagingSetup">
+            <summary>
+            Set of available imaging setups.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImagingSetup.MVCBCT_High_Quality">
+            <summary>High quality MV CBCT.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImagingSetup.MVCBCT_Low_Dose">
+            <summary>Low dose MV CBCT.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImagingSetup.MV_MV_High_Quality">
+            <summary>High quality MV-MV.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImagingSetup.MV_MV_Low_Dose">
+            <summary>Low dose MV-MV.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImagingSetup.kVCBCT">
+            <summary>kVCBCT.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.BlockType">
+            <summary>
+            A type flag that tells whether a block is an aperture block or a shielding
+            block. An aperture block is used to limit the radiated area while a
+            shielding block is made to protect a sensitive organ.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.BlockType.APERTURE">
+            <summary>An aperture block is used to limit the irradiated area.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.BlockType.SHIELDING">
+            <summary>A shielding block is made to protect a sensitive organ.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.CalculationType">
+            <summary>
+            Calculation type.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.CalculationType.PhotonVolumeDose">
+            <summary>Photon Volume Dose calculation.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.CalculationType.PhotonSRSDose">
+            <summary>Photon SRS Dose calculation.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.CalculationType.PhotonIMRTOptimization">
+            <summary>Photon IMRT optimization.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.CalculationType.PhotonVMATOptimization">
+            <summary>Photon VMAT optimization.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.CalculationType.PhotonLeafMotions">
+            <summary>Photon Leaf motion calculation.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.CalculationType.ProtonVolumeDose">
+            <summary>Proton Volume Dose calculation.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.CalculationType.DVHEstimation">
+            <summary>DVH Estimation.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.OptimizationObjectiveOperator">
+            <summary>
+            Optimization Objective Operator, which is used for setting the upper and lower optimization objectives. 
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationObjectiveOperator.Upper">
+            <summary>Less than.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationObjectiveOperator.Lower">
+            <summary>Greater or equal.</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationObjectiveOperator.Exact">
+            <summary>Exact (target).</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationObjectiveOperator.None">
+            <summary>None.</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.OptimizationOption">
+            <summary>
+            Options for Optimization.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationOption.RestartOptimization">
+            <summary>
+            Remove the existing optimal fluences from beams before optimization.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationOption.ContinueOptimization">
+            <summary>
+            Use existing optimal fluences as a starting point of optimization.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationOption.ContinueOptimizationWithPlanDoseAsIntermediateDose">
+            <summary>
+            If the plan dose is valid, it is used as an intermediate dose for optimization.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.OptimizationIntermediateDoseOption">
+            <summary>
+            Options for using intermediate dose in optimization.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationIntermediateDoseOption.NoIntermediateDose">
+            <summary>
+            No intermediate dose for optimization.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationIntermediateDoseOption.UseIntermediateDose">
+            <summary>
+            Use an intermediate dose in optimization.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.OptimizationConvergenceOption">
+            <summary>
+            Options for terminating optimization upon convergence.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationConvergenceOption.NoEarlyTermination">
+            <summary>
+            Always perform the specified number of iterations.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OptimizationConvergenceOption.TerminateIfConverged">
+            <summary>
+            Terminate optimization before the maximum number of iterations is reached if the optimization is already converged.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.DVHEstimateType">
+            <summary>
+            Represents the type of a DVH estimate curve
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DVHEstimateType.Upper">
+            <summary>
+            Upper bound of the estimated DVH curve area
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DVHEstimateType.Lower">
+            <summary>
+            Upper bound of the estimated DVH curve area
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.DVHEstimateType.Undefined">
+            <summary>
+            Undefined estimate curve
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.PlanUncertaintyType">
+            <summary>
+            Plan uncertainty type indicates the usage of associated uncertainty parameters, see <see cref="T:VMS.TPS.Common.Model.API.PlanUncertainty">PlanUncertainty</see>.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanUncertaintyType.UncertaintyTypeNotDefined">
+            <summary>
+            Indicates an undefined uncertainty type.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanUncertaintyType.RangeUncertainty">
+            <summary>
+            Used for proton uncertainty plans.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanUncertaintyType.IsocenterShiftUncertainty">
+            <summary>
+            Used for patient setup uncertainty. It is assumed that all organs have shifted.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanUncertaintyType.BaselineShiftUncertainty">
+            <summary>
+            Used for target shift. The target is positioned correctly, but other organs have been moved in relation to the target.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PlanUncertaintyType.RobustOptimizationUncertainty">
+            <summary>
+            Uncertainty parameters used in robust optimization.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.IonBeamScanMode">
+            <summary>
+            The method of beam scanning to be used during treatment. Used with IonBeams.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.IonBeamScanMode.None">
+            <summary>
+            No beam scanning is performed.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.IonBeamScanMode.Uniform">
+            <summary>
+            The beam is scanned between control points to create a uniform lateral fluence distribution across the field.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.IonBeamScanMode.Modulated">
+            <summary>
+            The beam is scanned between control points to create a modulated lateral fluence distribution across the field.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.IonBeamScanMode.Wobbling">
+            <summary>
+            Non-standard
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.IonBeamScanMode.Line">
+            <summary>
+            Non-standard
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.IonBeamScanMode.Unknown">
+            <summary>
+            Scanning mode is not known
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.RangeShifterType">
+            <summary>
+            Type of the range shifter.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RangeShifterType.Analog">
+            <summary>
+            The thickness of the device varies. The device is composed of opposing sliding wedges, a water column, or a similar mechanism.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RangeShifterType.Binary">
+            <summary>
+            The device is composed of materials with different thickness that can be moved in or out of the beam in various stepped combinations.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.LateralSpreadingDeviceType">
+            <summary>
+            Type of the lateral spreading device.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.LateralSpreadingDeviceType.Scatterer">
+            <summary>
+            Metal placed into the beam path to scatter charged particles laterally.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.LateralSpreadingDeviceType.Magnet">
+            <summary>
+            Nozzle configuration of magnet devices to expand the beam laterally.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.RangeModulatorType">
+            <summary>
+            Type of the range modulator.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RangeModulatorType.Fixed">
+            <summary>
+            Fixed modulation width and weights which are achieved by using a ridge filter or a constant speed wheel with constant beam current.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RangeModulatorType.Whl_FixedWeights">
+            <summary>
+            Selected wheel/track (Range Modulator ID) is spinning at constant speed. Modulation width
+            is adjusted by switching constant beam current on and off at wheel steps indicated by Range Modulator Gating Values.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RangeModulatorType.Whl_ModWeights">
+            <summary>
+            Selected wheel/track (Range Modulator ID) is spinning at constant speed. Weight per wheel
+            step is adjusted by modulating beam current according to selected Beam Current Modulation.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.PatientSupportType">
+            <summary>
+            Patient support type.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientSupportType.Table">
+            <summary>
+            Treatment delivery system table.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PatientSupportType.Chair">
+            <summary>
+            Treatment delivery system chair.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ApplicationScriptType">
+            <summary>
+            The type of the application script.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptType.Unknown">
+            <summary>
+            This script type is not defined, or the application was not able to resolve the type.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptType.ESAPI">
+            <summary>
+            Eclipse Scripting API script.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptType.ESAPIActionPack">
+            <summary>
+            Eclipse Scripting API action pack.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptType.MIRS">
+            <summary>
+            MIRS Scripting API script.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptType.ESAPICustomExecutable">
+            <summary>
+            Eclipse Scripting API script that is executed by an application that is not a script by itself.
+            For example, an interpreter of a high-level programming language, or a native C++ application that integrates into .NET and uses ESAPI.
+            Scripts of this type cannot be approved as they are unknown to the system.    
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ApplicationScriptApprovalStatus">
+            <summary>
+            The approval statuses of the application script.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptApprovalStatus.Undefined">
+            <summary>
+            Approval status is undefined or the application could not resolve the approval status.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptApprovalStatus.Unapproved">
+            <summary>
+            The script cannot be executed in the application.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptApprovalStatus.ApprovedForEvaluation">
+            <summary>
+            The script can be executed by users who have rights to execute scripts under evaluation.
+            User needs to have user rights for all operations that the script does.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptApprovalStatus.Approved">
+            <summary>
+            The script can be executed by any user. User needs to have user rights for all operations that the script does.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApplicationScriptApprovalStatus.Retired">
+            <summary>
+            The script is retired and cannot be executed. The approval status cannot be changed anymore.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.RTPrescriptionTargetType">
+            <summary>
+            The type of the prescription target definition
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionTargetType.Volume">
+            <summary>
+            Prescribe to a volume.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionTargetType.Depth">
+            <summary>
+            Prescribe to a certain depth.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionTargetType.Isocenter">
+            <summary>
+            Prescribe to the isocenter.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionTargetType.IsodoseLine">
+            <summary>
+            Prescribe to an isodose line.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionTargetType.Undefined">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.RTPrescriptionConstraintType">
+            <summary>
+            Type of the RT prescription constraint.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionConstraintType.MinimumDose">
+            <summary>
+            Minimum dose for the target.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionConstraintType.MaximumDose">
+            <summary>
+            Maximum dose for the target or for the organ risk.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionConstraintType.MinimumDvhDose">
+            <summary>
+            Minimum DVH dose for the target.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionConstraintType.MaximumDvhDose">
+            <summary>
+            Maximum DVH dose for the target.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionConstraintType.MaximumMeanDose">
+            <summary>
+            Maximum mean dose for the organ at risk.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RTPrescriptionConstraintType.FreeText">
+            <summary>
+            Free-text constraint for the organ at risk.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.PrescriptionType">
+            <summary>
+            Enumeration of prescription types.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionType.PrescriptionTypeVolume">
+            <summary>
+            Volume.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionType.PrescriptionTypeDepth">
+            <summary>
+            Depth.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionType.PrescriptionTypeIsodose">
+            <summary>
+            Isodose.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionType.PrescriptionTypeNone">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.PrescriptionModifier">
+            <summary>
+            Prescription modifier.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierAtLeast">
+            <summary>
+            At least.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierAtMost">
+            <summary>
+            At most.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierMeanDose">
+            <summary>
+            Mean dose.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierMaxDose">
+            <summary>
+            Maximum dose.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierMinDose">
+            <summary>
+            Minimum dose.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierRefPoint">
+            <summary>
+            Reference point.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierEUD">
+            <summary>
+            EUD.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierMeanDoseAtLeast">
+            <summary>
+            Mean dose at least.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierMeanDoseAtMost">
+            <summary>
+            Mean dose at most.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierMinDoseAtLeast">
+            <summary>
+            Minimum dose at least.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierMaxDoseAtMost">
+            <summary>
+            Maximum dose at most.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierDMax">
+            <summary>
+            Dose received at the DMax depth.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierMidPoint">
+            <summary>
+            Dose received at the midpoint depth.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierUser">
+            <summary>
+            Dose received at a user-defined depth.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierIsodose">
+            <summary>
+            Dose received by an isodose line.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.PrescriptionModifier.PrescriptionModifierNone">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.MeasureType">
+            <summary>
+            Enumeration of plan measure types.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureType.MeasureTypeDoseConformity">
+            <summary>
+            Dose conformity index.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureType.MeasureTypeGradient">
+            <summary>
+            Gradient measure.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureType.MeasureTypeDQP_VXXX">
+            <summary>
+            Dosimetric Quality Parameter: Volume receiving XXX% dose.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureType.MeasureTypeDQP_VXXXGy">
+            <summary>
+            Dosimetric Quality Parameter: Volume receiving XXX Gy dose.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureType.MeasureTypeDQP_DXXX">
+            <summary>
+            Dosimetric Quality Parameter: Dose received by XXX% volume.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureType.MeasureTypeDQP_DXXXcc">
+            <summary>
+            Dosimetric Quality Parameter: Dose received by XXX cc volume.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureType.MeasureTypeNone">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.MeasureModifier">
+            <summary>
+            Measure modifier
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureModifier.MeasureModifierAtLeast">
+            <summary>
+            At least.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureModifier.MeasureModifierAtMost">
+            <summary>
+            At most.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureModifier.MeasureModifierTarget">
+            <summary>
+            Is.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.MeasureModifier.MeasureModifierNone">
+            <summary>
+            Undefined.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.RegistrationApprovalStatus">
+            <summary>
+            The enumeration of registration approval statuses.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RegistrationApprovalStatus.Unapproved">
+            <summary>
+            Unapproved registration.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RegistrationApprovalStatus.Approved">
+            <summary>
+            Approved registration.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RegistrationApprovalStatus.Retired">
+            <summary>
+            Retired registration.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RegistrationApprovalStatus.Reviewed">
+            <summary>
+            Reviewed registration.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ApprovalHistoryEntry">
+            <summary>
+            An entry in the plan approval history.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApprovalHistoryEntry.ApprovalStatus">
+            <summary>
+            The status of the approval.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApprovalHistoryEntry.StatusComment">
+            <summary>
+            User comment on the approval status change.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApprovalHistoryEntry.UserId">
+            <summary>
+            User identifier of the user who changed the approval status.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApprovalHistoryEntry.UserDisplayName">
+            <summary>
+            Full user name of the user who changed the approval status.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ApprovalHistoryEntry.ApprovalDateTime">
+            <summary>
+            The date and time of the approval status change.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.StructureApprovalHistoryEntry">
+            <summary>
+            An entry in the structure approval history.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureApprovalHistoryEntry.ApprovalStatus">
+            <summary>
+            The status of the approval.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureApprovalHistoryEntry.StatusComment">
+            <summary>
+            User comment on the approval status change.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureApprovalHistoryEntry.UserId">
+            <summary>
+            User identifier of the user who changed the approval status.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureApprovalHistoryEntry.UserDisplayName">
+            <summary>
+            Full user name of the user who changed the approval status.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.StructureApprovalHistoryEntry.ApprovalDateTime">
+            <summary>
+            The date and time of the approval status change.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ImageApprovalHistoryEntry">
+            <summary>
+            An entry in the image approval history.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalHistoryEntry.ApprovalStatus">
+            <summary>
+            The status of the approval.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalHistoryEntry.StatusComment">
+            <summary>
+            User comment on the approval status change.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalHistoryEntry.UserId">
+            <summary>
+            User ID of the user who changed the approval status.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalHistoryEntry.UserDisplayName">
+            <summary>
+            Full user name of user who changed the approval status.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ImageApprovalHistoryEntry.ApprovalDateTime">
+            <summary>
+            The date and time of the approval status change.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.OpenLeavesMeetingPoint">
+            <summary>
+            Specifies where the open MLC leaves meet the structure outline in an MLC leaf fit operation.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OpenLeavesMeetingPoint.OpenLeavesMeetingPoint_Inside">
+            <summary>
+            The leaf tips are inside the structure outline.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OpenLeavesMeetingPoint.OpenLeavesMeetingPoint_Outside">
+            <summary>
+            The leaf tips are outside the structure outline.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.OpenLeavesMeetingPoint.OpenLeavesMeetingPoint_Middle">
+            <summary>
+            The midpoint of the leaf tips intersect with the structure outline.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ClosedLeavesMeetingPoint">
+            <summary>
+            Specifies where the closed MLC leaf pairs are parked in an MLC leaf fit operation.
+            Bank_One: Varian = B, IEC MLCX = X1, IEC MLCY = Y1; Bank_Two: Varian = A, IEC MLCX = X2, IEC MLCY = Y2
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ClosedLeavesMeetingPoint.ClosedLeavesMeetingPoint_BankOne">
+            <summary>
+            Park closed MLC leaves to Bank One.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ClosedLeavesMeetingPoint.ClosedLeavesMeetingPoint_BankTwo">
+            <summary>
+            Park closed MLC leaves to Bank Two.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.ClosedLeavesMeetingPoint.ClosedLeavesMeetingPoint_Center">
+            <summary>
+            Park closed MLC leaves to the field center line.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.JawFitting">
+            <summary>
+            Specifies where collimator jaws are positioned in an MLC leaf fit operation.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.JawFitting.None">
+            <summary>
+            Collimator jaws are not moved.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.JawFitting.FitToRecommended">
+            <summary>
+            Collimator jaws are positioned to the recommended setback away from the MLC leaves.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.JawFitting.FitToStructure">
+            <summary>
+            Collimator jaws are positioned to MLC outline.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.RendererStrings">
+            <exclude/>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.OrientationLabelLeft">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.OrientationLabelRight">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.OrientationLabelAnterior">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.OrientationLabelPosterior">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.OrientationLabelHead">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.OrientationLabelFeet">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.LengthUnit">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.Isodoses">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.WarningAddOns">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.WarningArc">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.FinalSpotList">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.BrachyFractions">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.NormalizationInvalid">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.CumulativeDVH">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.WarningCAXOnly">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.PlanInTreatment">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.WarningConcurrency">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.WarningPlanWeights">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.Catheters">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.Seeds">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.Applicators">
+            <summary>Internal</summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.RendererStrings.DoseZRes">
+            <summary>Internal</summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.TreatmentSessionStatus">
+            <summary>
+            Status of the treatment session.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.TreatmentSessionStatus.Null">
+            <summary>
+            If the value is null, the status of the treatment session is unknown.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.TreatmentSessionStatus.Treat">
+            <summary>
+            The plan in this session is to be treated as a complete fraction.
+            When treating a plan based on this status, the fraction number shall be incremented by 1.
+            In case of a previous partial treatment, the next session shall
+            treat the plan completely. Typically, further treatments have to be treated completely as well. 
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.TreatmentSessionStatus.Resume">
+            <summary>
+            The plan in this session shall complete a partial treatment of the last incomplete fraction.
+            When treating a plan based on this status, the fraction number remains the one of the last treatment.
+            Any previously applied dose for the current fraction is taken into account and the user can complete the treatment. 
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.TreatmentSessionStatus.Completed">
+            <summary>
+            The plan in this session has been completely treated.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.TreatmentSessionStatus.CompletedPartially">
+            <summary>
+            The plan in this session has been partially treated.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.TreatmentSessionStatus.InActiveTreat">
+            <summary>
+            There is no clinical decision yet on whether the plan should be treated or not.
+            The <see cref="F:VMS.TPS.Common.Model.Types.TreatmentSessionStatus.Treat"/> status was active before the status was set to InActiveTreat.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.TreatmentSessionStatus.InActiveResume">
+            <summary>
+            There is no clinical decision yet on whether the plan should be treated or not.
+            The <see cref="F:VMS.TPS.Common.Model.Types.TreatmentSessionStatus.Resume"/> status was active before the status was set to InActiveResume.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Version.VersionInfo">
+            <summary>
+            This class is a set of constants that specify build version information.
+            Generated automatically from TpsNetVersion.in - do not edit by hand.
+            The logic is copied from the VFC equivalents in TpsVersion.in.
+            Names and identifiers are kept exactly the same as in the original VFC version
+            to help in maintenance.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.StructureCodeInfo">
+            <summary>
+            Represents structure code information.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.#ctor(System.String,System.String)">
+            <summary>
+            Constructs a StructureCodeInfo.
+            </summary>
+            <param name="codingScheme">The coding scheme of the structure code.</param>
+            <param name="code">The structure code as defined in the associated coding scheme.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.ToString">
+            <summary>
+            A string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.Equals(System.Object)">
+            <summary>
+            Checks if this object is equal to another object.
+            </summary>
+            <param name="obj">The other object to compare.</param>
+            <returns>True if this object equals to the other object. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.GetHashCode">
+            <summary>
+            Returns the hash code for this instance. Overrides Object.GetHashCode.
+            </summary>
+            <returns>The hash code for this instance.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.op_Equality(VMS.TPS.Common.Model.Types.StructureCodeInfo,VMS.TPS.Common.Model.Types.StructureCodeInfo)">
+            <summary>
+            Equality operator for StructureCodeInfo.
+            </summary>
+            <param name="left">The first object to compare.</param>
+            <param name="right">The second object to compare.</param>
+            <returns>True if left is equal to right. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.op_Inequality(VMS.TPS.Common.Model.Types.StructureCodeInfo,VMS.TPS.Common.Model.Types.StructureCodeInfo)">
+            <summary>
+            Inequality operator for StructureCodeInfo.
+            </summary>
+            <param name="left">The first object to compare.</param>
+            <param name="right">The second object to compare.</param>
+            <returns>True if left is not equal to right. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.Equals(VMS.TPS.Common.Model.Types.StructureCodeInfo)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>True if the current object is equal to the other object. Otherwise, false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.GetSchema">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>
+            <returns>XmlSchema.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            This member is internal to the Eclipse Scripting API.
+            </summary>   
+            <param name="reader">The XmlReader stream from which the object is deserialized.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.StructureCodeInfo.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Serialization support.
+            </summary>
+            <param name="writer">The System.Xml.XmlWriter stream to which the object is serialized.</param>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.StructureCodeInfo.CodingScheme">
+            <summary>
+            The coding scheme of the structure code.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.StructureCodeInfo.Code">
+            <summary>
+            The structure code as defined in the associated coding scheme.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.UserIdentity">
+            <summary>
+            Represents the identity of an user, including the identifier (username) and the display name.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.UserIdentity.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new UserIdentity value.
+            </summary>
+            <param name="id">The user identifier including the domain name, such as 'domain\user'.</param>
+            <param name="displayName">The display name of the user.</param>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.UserIdentity.Id">
+            <summary>
+            The user identifier including the domain name, such as 'domain\user'.
+            </summary>
+        </member>
+        <member name="F:VMS.TPS.Common.Model.Types.UserIdentity.DisplayName">
+            <summary>
+            The display name of the user.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.ValidationException">
+            <summary>
+            ValidationException.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.ValidationException.#ctor(System.String)">
+            <summary>
+            Exception thrown when data validation fails.
+            </summary>
+            <param name="reason">A message that describes the failure.</param>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.VRect`1">
+            <summary>
+            Represents a rectangle.
+            </summary>
+            <typeparam name="T">Type of the values in the rectangle.</typeparam>
+            <remarks>
+            Currently limited to value types.
+            </remarks>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VRect`1.#ctor(`0,`0,`0,`0)">
+            <summary>
+            Constructs a VRect.
+            </summary>
+            <param name="x1">X1 coordinate of the rectangle.</param>
+            <param name="y1">Y1 coordinate of the rectangle.</param>
+            <param name="x2">X2 coordinate of the rectangle.</param>
+            <param name="y2">Y2 coordinate of the rectangle.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VRect`1.ToString">
+            <summary>
+            A string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VRect`1.Equals(System.Object)">
+            <summary>
+            Checks if this object is equal to another object.
+            </summary>
+            <param name="obj">The other object to compare.</param>
+            <returns>True if this object equals to the other object. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VRect`1.Equals(VMS.TPS.Common.Model.Types.VRect{`0})">
+            <summary>
+            Checks if this object is equal to another VRect object.
+            </summary>
+            <param name="other">The other object to compare.</param>
+            <returns>True if this object equals to the other object. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VRect`1.op_Equality(VMS.TPS.Common.Model.Types.VRect{`0},VMS.TPS.Common.Model.Types.VRect{`0})">
+            <summary>
+            Equality operator for VRect.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns>True if left is equal to right. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VRect`1.op_Inequality(VMS.TPS.Common.Model.Types.VRect{`0},VMS.TPS.Common.Model.Types.VRect{`0})">
+            <summary>
+            Inequality operator for VRect.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns>True if left is not equal to right. Otherwise false.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VRect`1.GetHashCode">
+            <summary>
+            Returns the hash code for this instance. Overrides Object.GetHashCode.
+            </summary>
+            <returns>The hash code for this instance.</returns>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VRect`1.X1">
+            <summary>
+            The X1-coordinate of the rectangle.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VRect`1.Y1">
+            <summary>
+            The Y1-coordinate of the rectangle.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VRect`1.X2">
+            <summary>
+            The X2-coordinate of the rectangle.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VRect`1.Y2">
+            <summary>
+            The Y2-coordinate of the rectangle.
+            </summary>
+        </member>
+        <member name="T:VMS.TPS.Common.Model.Types.VVector">
+            <summary>
+            Represents a displacement in 3D space.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VVector.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Constructs a VVector.
+            </summary>
+            <param name="xi">X component.</param>
+            <param name="yi">Y component.</param>
+            <param name="zi">Z component.</param>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VVector.Distance(VMS.TPS.Common.Model.Types.VVector,VMS.TPS.Common.Model.Types.VVector)">
+            <summary>
+            The distance between the locations represented by the given VVectors.
+            </summary>
+            <param name="left">First operand.</param>
+            <param name="right">Second operand</param>
+            <returns>Returns the distance between the locations represented by the given VVectors.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VVector.ScaleToUnitLength">
+            <summary>
+            Scales this VVector so that its length becomes equal to unity.
+            </summary>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VVector.ScalarProduct(VMS.TPS.Common.Model.Types.VVector)">
+            <summary>
+            The scalar product of this VVector and the given VVector.
+            </summary>
+            <param name="left">VVector that is second operand of the scalar product.</param>
+            <returns>Returns the scalar product of this VVector with the given VVector.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VVector.op_Subtraction(VMS.TPS.Common.Model.Types.VVector,VMS.TPS.Common.Model.Types.VVector)">
+            <summary>
+            The subtraction of VVectors.
+            </summary>
+            <param name="left">First operand.</param>
+            <param name="right">Second operand.</param>
+            <returns>Result of subtraction.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VVector.op_Addition(VMS.TPS.Common.Model.Types.VVector,VMS.TPS.Common.Model.Types.VVector)">
+            <summary>
+            The addition of VVectors.
+            </summary>
+            <param name="left">First operand.</param>
+            <param name="right">Second operand.</param>
+            <returns>Result of addition.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VVector.op_Multiply(VMS.TPS.Common.Model.Types.VVector,System.Double)">
+            <summary>
+            The multiplication of a VVector and a double.
+            </summary>
+            <param name="val">VVector to multiply.</param>
+            <param name="mul">Multiplier.</param>
+            <returns>Result of multiplication.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VVector.op_Multiply(System.Double,VMS.TPS.Common.Model.Types.VVector)">
+            <summary>
+            The multiplication of a VVector and a double.
+            </summary>
+            <param name="val">VVector to multiply.</param>
+            <param name="mul">Multiplier.</param>
+            <returns>Result of multiplication.</returns>
+        </member>
+        <member name="M:VMS.TPS.Common.Model.Types.VVector.op_Division(VMS.TPS.Common.Model.Types.VVector,System.Double)">
+            <summary>
+            The division of a VVector by a double.
+            </summary>
+            <param name="val">VVector to divide.</param>
+            <param name="div">Divisor.</param>
+            <returns>Result of division.</returns>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VVector.Item(System.Int32)">
+            <summary>
+            Indexing for the x, y and z components.
+            </summary>
+            <param name="i">Value of 0,1 or 2 that correspond to x,y and z components.</param>
+            <returns>Returns the given component of this VVector.</returns>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VVector.LengthSquared">
+            <summary>
+            The square of the length of the VVector.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VVector.Length">
+            <summary>
+            The length of the VVector.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VVector.x">
+            <summary>
+            The X component of the VVector.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VVector.y">
+            <summary>
+            The Y component of the VVector.
+            </summary>
+        </member>
+        <member name="P:VMS.TPS.Common.Model.Types.VVector.z">
+            <summary>
+            The Z component of the VVector.
+            </summary>
+        </member>
+    </members>
+</doc>

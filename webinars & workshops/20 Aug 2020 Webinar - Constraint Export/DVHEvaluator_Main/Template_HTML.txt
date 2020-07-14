@@ -1,0 +1,93 @@
+﻿<html>
+	<head/>
+	<style>
+	body { font-family: Arial; font-size: 15px;	}
+	table.patientInfo {
+	  border: none;
+	  color: #262626;
+	  white-space: nowrap;
+	  font-size: 13px;
+	  text-align: left;
+	  padding-bottom: 12px;
+	  line-height: 13px;
+	}
+	table.warnings {
+	  border: 3px solid #ff9900;
+	  white-space: nowrap;
+	  font-size: 15px;
+	  text-align: left;
+	  border-radius: 5px;
+	  padding: none;
+	  line-height: 19px;
+	}
+	table.dvh {
+	  font-size: 14px;
+	  border: 2.5px solid Black;
+	  background-color: GhostWhite;
+	  text-align: left;
+	  border-collapse: collapse;
+	  white-space: nowrap;
+	  table-layout: fixed;
+	}
+	table.dvh thead {
+	  border: 2.5px solid Black
+	}
+	table.dvh th {
+	  font-weight: bold;
+	  color: GhostWhite;
+	  text-align: center;
+	  background: SteelBlue;
+	  padding: 3px 6px 3px 6px;
+	  border: 1.5px solid Black
+	}
+	table.dvh tr:nth-child(even) { background: Azure; }
+	table.dvh tr:hover { background: #6699ff; }
+	table.dvh td{ padding: 2px 3px 2px 3px; }
+	table.dvh td:nth-child(-n+5){ border: 1px solid Silver; }
+	table.dvh td:nth-child(n+6) { border-bottom: 1px solid Silver; }
+
+	/* ---Thick borders around plans--- */
+	table.dvh td:nth-child(3n+6) {
+	  border-left: 2.5px solid Black;
+	  width: 10px;
+	}
+	table.dvh td:nth-child(3n+8) {
+	  border-right: 2px solid Black;
+	  width: 10px;
+	  text-align: right;
+	}
+	table.dvh th:nth-child(n+6) {
+	  border: 2.5px solid Black;
+	  border-top-right-radius: 5px;	
+	  border-top-left-radius: 5px;	
+	}
+	table.dvh tr:last-child td:nth-child(n+6) { border-bottom: 2.5px solid Black; }
+	table.dvh tr:last-child td:nth-child(3n+6) { border-bottom-left-radius: 5px; }
+	table.dvh tr:last-child td:nth-child(3n+8) { border-bottom-right-radius: 5px; }
+
+	/* ---Rounded corners--- */
+	table.dvh tr:last-child td:first-child { border-bottom-left-radius: 5px; }
+	table.dvh tr:last-child td:last-child {	border-bottom-right-radius: 5px; }
+	table.dvh tr:last-child td:nth-child(5) { border-bottom-right-radius: 5px; }
+	table.dvh th:nth-child(5) { border-top-right-radius: 5px; }
+	table.dvh th:last-child { border-top-right-radius: 5px;	}
+	table.dvh th:first-child{ border-top-left-radius: 5px;}
+
+	/* ---Colors for Pass/Variation/Fail/Warning--- */
+	.pass      { background: linear-gradient(to bottom right, #bdf5bd 0%, #21de21 100%); }
+	.variation { background: linear-gradient(to bottom right, #ffffb3 0%, #e6e600 100%); }
+	.fail      { background: linear-gradient(to bottom right, #ffb3b3 0%, #ff0000 100%); }
+	.notEval   {  }
+	.warning   { background: linear-gradient(to bottom right, #ffe0b3 0%, #ff9900 100%); }
+	</style>
+	<body>
+		<table class="patientInfo">
+###PatientInfoTable
+		</table>
+		<table class="dvh">
+###ResultsTable
+		</table>
+		<br>
+###WarningsTable
+	</body>
+</html>
