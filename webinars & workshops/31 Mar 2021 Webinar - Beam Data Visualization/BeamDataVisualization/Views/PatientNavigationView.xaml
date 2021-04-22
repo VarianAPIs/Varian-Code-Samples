@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="BeamDataVisualization.Views.PatientNavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BeamDataVisualization.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Text="Patient Id" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBox Width="120" Text="{Binding PatientId, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+            <Button Content="Open Patient" Command="{Binding OpenPatientCommand}" Width="120" Margin="5"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBlock FontWeight="Bold" Text="Course" HorizontalAlignment="Center"/>
+            <ComboBox Width="120" ItemsSource="{Binding Courses}" SelectedItem="{Binding SelectedCourse}" Margin="5" DisplayMemberPath="Id"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2">
+            <TextBlock FontWeight="Bold" Text="Plan" HorizontalAlignment="Center"/>
+            <ComboBox Width="120" ItemsSource="{Binding Plans}" SelectedValue="{Binding SelectedPlan}" Margin="5" DisplayMemberPath="Id"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
