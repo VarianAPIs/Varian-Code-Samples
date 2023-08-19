@@ -12,14 +12,18 @@ using VMS.TPS.Common.Model.API;
 
 namespace BeamDataVisualization.ViewModels
 {
-    public class PatientNavigationViewModel:BindableBase
+    public class PatientNavigationViewModel : BindableBase
     {
         private string _patientId;
 
         public string PatientId
         {
             get { return _patientId; }
-            set { SetProperty(ref _patientId, value);OpenPatientCommand.RaiseCanExecuteChanged(); }
+            set
+            {
+                SetProperty(ref _patientId, value);
+                OpenPatientCommand.RaiseCanExecuteChanged();
+            }
         }
 
 
@@ -59,12 +63,13 @@ namespace BeamDataVisualization.ViewModels
             }
         }
 
-  
+
         public DelegateCommand OpenPatientCommand { get; private set; }
-        public PatientNavigationViewModel(Application app, string patientId, string courseId, string planId,IEventAggregator eventAggregator)
+        public PatientNavigationViewModel(Application app, string patientId, string courseId, string planId, IEventAggregator eventAggregator)
         {
             _app = app;
             _eventAggregator = eventAggregator;
+            OpenPatientCommand = new DelegateCommand(OnOpenPatient, CanOpenPatient);
             Courses = new ObservableCollection<Course>();
             Plans = new ObservableCollection<PlanSetup>();
             if (!String.IsNullOrEmpty(patientId))
@@ -80,7 +85,6 @@ namespace BeamDataVisualization.ViewModels
             {
                 SelectedPlan = SelectedCourse.PlanSetups.FirstOrDefault(x => x.Id == planId);
             }
-            OpenPatientCommand = new DelegateCommand(OnOpenPatient, CanOpenPatient);
         }
 
         private void OnOpenPatient()

@@ -23,11 +23,11 @@ namespace BeamDataVisualization
             var _patientId = String.Empty;
             var _courseId = string.Empty;
             var _planId = String.Empty;
-            if (e.Args.Count() > 0)
+            if (e.Args.Any())
             {
                 _patientId = e.Args.ElementAt(0).Split(';').First();
-                if (e.Args.Count() > 1) { _courseId = e.Args.ElementAt(0).Split(';').ElementAt(1); }
-                if (e.Args.Count() > 2) { _planId = e.Args.ElementAt(0).Split(';').ElementAt(2); }
+                _courseId = e.Args.ElementAt(0).Split(';').ElementAt(1);
+                _planId = e.Args.ElementAt(0).Split(';').ElementAt(2);
             }
             try
             {
@@ -36,8 +36,9 @@ namespace BeamDataVisualization
                 var mv = new MainView
                 {
                     DataContext = new MainViewModel(
-                        new PatientNavigationViewModel(app, _patientId, _courseId, _planId, eventAggregator),
-                        new ScanPlotViewModel(eventAggregator))
+                         new ScanPlotViewModel(eventAggregator), 
+                         new PatientNavigationViewModel(app, _patientId, _courseId, _planId, eventAggregator)
+                       )
                 };
                 mv.ShowDialog();
                 app.Dispose();

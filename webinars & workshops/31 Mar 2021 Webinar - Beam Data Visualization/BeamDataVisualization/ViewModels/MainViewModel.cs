@@ -8,8 +8,8 @@ namespace BeamDataVisualization.ViewModels
 {
     public class MainViewModel
     {
-        public MainViewModel(PatientNavigationViewModel patientNavigationViewModel,
-            ScanPlotViewModel scanPlotViewModel)
+        public MainViewModel(ScanPlotViewModel scanPlotViewModel,
+            PatientNavigationViewModel patientNavigationViewModel)
         {
             PatientNavigationViewModel = patientNavigationViewModel;
             ScanPlotViewModel = scanPlotViewModel;
