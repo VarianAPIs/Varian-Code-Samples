@@ -19,9 +19,6 @@ Please check out [our Wiki](../../wiki), use [the issues section](../../issues) 
   * Structure Id Frequency Calculator
   * UAB Console Plugin App
 
- ## VarianThink EC301
-* Test
-
 ## Webinars
 * [2018 April 6th Webinar: Clinical Treatment Plan Automation](webinars%20%26%20workshops/06%20Apr%202018%20Webinar/Eclipse%20Scripting%20API/Projects)
   * Create Beams
