@@ -59,7 +59,7 @@ namespace PluginTester
 
             try
             {
-                using (VMS.TPS.Common.Model.API.Application app = VMS.TPS.Common.Model.API.Application.CreateApplication(null, null)) 
+                using (VMS.TPS.Common.Model.API.Application app = VMS.TPS.Common.Model.API.Application.CreateApplication()) 
                 {
                     Execute(app);
                 }
